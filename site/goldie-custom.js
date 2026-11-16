@@ -42,7 +42,8 @@ function replaceVisibleText() {
 }
 
 function normalizeGoldieImagePaths() {
-  const prefix = location.pathname.includes("/subpages/") ? "../products/" : "products/";
+  const projectRoot = location.hostname.endsWith("github.io") && /^\/goldie-annie(?:\/|$)/.test(location.pathname) ? "/goldie-annie/" : "";
+  const prefix = projectRoot ? `${projectRoot}products/` : location.pathname.includes("/subpages/") ? "../products/" : "products/";
   document.querySelectorAll("img").forEach((image) => {
     const raw = image.getAttribute("src") || "";
     const match = raw.match(/(?:^|\/)products\/([^/?#]+)/);
@@ -55,10 +56,11 @@ function normalizeGoldieImagePaths() {
 
 function rewireNav() {
   const onShopPage = document.body.classList.contains("goldie-shop-page");
+  const projectRoot = location.hostname.endsWith("github.io") && /^\/goldie-annie(?:\/|$)/.test(location.pathname) ? "/goldie-annie/" : "";
   document.querySelectorAll('a[data-framer-name="Logo"]').forEach((logo) => {
     logo.href = onShopPage ? "index.html#goldie-home" : "#goldie-home";
     logo.setAttribute("aria-label", "Goldie Ann’s Sweets & More home");
-    if (!logo.querySelector(".goldie-logo-image")) logo.innerHTML = '<img class="goldie-logo-image" src="goldie-ann-logo.svg" alt="Goldie Ann’s Sweets & More">';
+    if (!logo.querySelector(".goldie-logo-image")) logo.innerHTML = `<img class="goldie-logo-image" src="${projectRoot}goldie-ann-logo.svg" alt="Goldie Ann’s Sweets & More">`;
   });
   document.querySelectorAll("nav a, footer a").forEach((link) => {
     const label = link.textContent.trim().toLowerCase().replace(/[\s,]+$/, "");

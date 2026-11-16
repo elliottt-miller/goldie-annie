@@ -71,6 +71,12 @@ await rm(path.join(output, "assets", "images"), { recursive: true, force: true }
 
 const indexPath = path.join(output, "index.html");
 let html = await readFile(indexPath, "utf8");
+const exportAssetMapper = "var target=new URL(assets[url.href],document.baseURI).href;";
+if (!html.includes(exportAssetMapper)) throw new Error("Could not locate the Framer image mapping hook for GitHub Pages path support.");
+html = html.replace(
+  exportAssetMapper,
+  'var assetBase=location.hostname.endsWith("github.io")&&location.pathname.indexOf("/goldie-annie")===0?location.origin+"/goldie-annie/":document.baseURI;var target=new URL(assets[url.href],assetBase).href;'
+);
 html = html
   .replace(/<html lang="en"[^>]*>/, '<html lang="en">')
   .replace(/<title>[^<]*<\/title>/, "<title>Goldie Ann’s Sweets &amp; More | Custom Decorated Treats</title>")
