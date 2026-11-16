@@ -11,7 +11,6 @@ const offerings = [
   { name: "Homemade Caramel Pretzel Rods", format: "Caramel wrapped, dipped & decorated", price: "$38.00", group: "Treats", image: "products/homemade-caramel-pretzel-rods-transparent.png", detail: "Pretzel rods wrapped with homemade caramel, dipped in chocolate, drizzled and topped with sprinkles and/or pecans." },
   { name: "Chocolate Dipped Pretzel Rods", format: "Dipped, drizzled & decorated", price: "$32.00", group: "Treats", image: "products/chocolate-dipped-pretzel-rods-transparent.png", detail: "Pretzel rods dipped in chocolate, drizzled and decorated, with or without homemade caramel." },
 ];
-const cakeFlavors = ["Lemon Blueberry Pops", "Butterfinger Bliss", "Apple Pie on a Stick", "Red Velvet Delight", "Espresso Caramel Pops", "Funfetti Pops"];
 
 function replaceVisibleText() {
   const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -155,8 +154,7 @@ function createMenu() {
   menu.className = "goldie-section goldie-menu";
   menu.id = "goldie-offerings";
   menu.innerHTML = `
-    <div class="goldie-menu-head"><span class="goldie-eyebrow">The Goldie Ann’s menu</span><h2>Little treats.<br><em>Big celebrations.</em></h2><p>Real offerings and prices from the Goldie Ann’s shop. Choose a category or open a sweet for its details.</p></div>
-    <div class="goldie-flavors"><div><span class="goldie-eyebrow">Cake pop flavors</span><h3>Six flavors to love.</h3></div><div class="goldie-flavor-chips">${cakeFlavors.map((flavor) => `<span>${flavor}</span>`).join("")}</div><p class="goldie-proof-note">These are the named cake pop flavors shown on the original shop. Separate package pricing is visible for Apple Pie on a Stick and Lemon Blueberry only.</p></div>
+    <div class="goldie-menu-head"><span class="goldie-eyebrow">A little joy for your sweetest moments</span><h2>Treats to share.<br><em>Moments to savor.</em></h2><p>Bring a little extra joy to the table. Browse Goldie Ann’s decorated favorites, then ask about a package made for your celebration.</p></div>
     <div class="goldie-menu-controls"><div class="goldie-filters" role="group" aria-label="Filter menu offerings">${["All offerings", "Cake pops", "Treats", "Presale"].map((label, i) => `<button type="button" data-filter="${label}" aria-pressed="${i === 0}">${label}</button>`).join("")}</div><span class="goldie-menu-count" aria-live="polite"></span></div>
     <div class="goldie-product-grid" aria-live="polite"></div>
     <div class="goldie-presale-note"><span>Holiday presale · as shown in the shop reference</span><p>Each box is $45.00 and contains four cake pops, four Oreos, and four chocolate dipped, drizzled & decorated pretzels. The announcement names three themes; only two names are visible here. Check Bakesy for current availability.</p></div>

@@ -94,14 +94,13 @@ await rm(path.join(output, "assets", "images"), { recursive: true, force: true }
 const indexPath = path.join(output, "index.html");
 let html = await readFile(indexPath, "utf8");
 const exportAssetMapper = "var target=new URL(assets[url.href],document.baseURI).href;";
-if (!html.includes(exportAssetMapper)) throw new Error("Could not locate the Framer image mapping hook for GitHub Pages path support.");
-html = html.replace(
+const isFramerHomepage = html.includes(exportAssetMapper);
+if (isFramerHomepage) html = html.replace(
   exportAssetMapper,
   'var assetBase=location.hostname.endsWith("github.io")&&location.pathname.indexOf("/goldie-annie")===0?location.origin+"/goldie-annie/":document.baseURI;var target=new URL(assets[url.href],assetBase).href;'
 );
 const exportImageMapper = "return Object.prototype.hasOwnProperty.call(assets,url.href)?assets[url.href]+hash:value;";
-if (!html.includes(exportImageMapper)) throw new Error("Could not locate the Framer image URL mapper for early GitHub Pages path support.");
-html = html.replace(
+if (isFramerHomepage) html = html.replace(
   exportImageMapper,
   'var project=location.hostname.endsWith("github.io")&&location.pathname.indexOf("/goldie-annie")===0;var localPath=String(value).replace(/^(?:\\.\\.\\/|\\.\\/|\\/)+/,"");if(project&&/^(?:products\\/|goldie-ann-logo\\.svg)/.test(localPath))return location.origin+"/goldie-annie/"+localPath;if(!Object.prototype.hasOwnProperty.call(assets,url.href))return value;var mapped=assets[url.href]+hash;if(project&&/^(?:\\.\\/)?(?:products\\/|goldie-ann-logo\\.svg)/.test(mapped))mapped=location.origin+"/goldie-annie/"+mapped.replace(/^\\.\\//,"");return mapped;'
 );
@@ -116,9 +115,10 @@ html = html
   .replace(/<link rel="canonical" href="[^"]*">/, '<link rel="canonical" href="https://elliottt-miller.github.io/goldie-annie/">')
   .replace(/<link href="[^"]+" rel="icon" media="\(prefers-color-scheme: light\)">/, '<link href="goldie-ann-logo.svg" rel="icon">')
   .replace(/<link href="[^"]+" rel="icon" media="\(prefers-color-scheme: dark\)">/, "")
-  .replaceAll("../../assets/", "assets/")
+  .replaceAll("../../assets/", "assets/");
+if (isFramerHomepage) html = html
   .replace("</head>", '  <link rel="stylesheet" href="goldie-custom.css">\n  </head>')
   .replace("</body>", '  <script type="module" src="goldie-custom.js"></script>\n</body>');
 await writeFile(indexPath, html);
 await writeFile(path.join(output, "404.html"), html);
-console.log("Built the original Framer storefront structure with Goldie Ann’s assets and branding.");
+console.log(isFramerHomepage ? "Built the Framer storefront with Goldie Ann’s branding and assets." : "Built the Goldie Ann’s storefront homepage and menu assets.");
