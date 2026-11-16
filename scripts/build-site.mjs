@@ -77,6 +77,12 @@ html = html.replace(
   exportAssetMapper,
   'var assetBase=location.hostname.endsWith("github.io")&&location.pathname.indexOf("/goldie-annie")===0?location.origin+"/goldie-annie/":document.baseURI;var target=new URL(assets[url.href],assetBase).href;'
 );
+const exportImageMapper = "return Object.prototype.hasOwnProperty.call(assets,url.href)?assets[url.href]+hash:value;";
+if (!html.includes(exportImageMapper)) throw new Error("Could not locate the Framer image URL mapper for early GitHub Pages path support.");
+html = html.replace(
+  exportImageMapper,
+  'if(!Object.prototype.hasOwnProperty.call(assets,url.href))return value;var mapped=assets[url.href]+hash;if(location.hostname.endsWith("github.io")&&location.pathname.indexOf("/goldie-annie")===0&&mapped.indexOf("./")===0)mapped=location.origin+"/goldie-annie/"+mapped.slice(2);return mapped;'
+);
 html = html
   .replace(/<html lang="en"[^>]*>/, '<html lang="en">')
   .replace(/<title>[^<]*<\/title>/, "<title>Goldie Ann’s Sweets &amp; More | Custom Decorated Treats</title>")
