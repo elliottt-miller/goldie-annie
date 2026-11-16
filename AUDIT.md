@@ -47,11 +47,11 @@ These terms are presented as transcribed from the supplied screenshots. They sho
 
 The original shop gives useful menu and policy information, but shoppers must scroll through a long, narrow page with several accordion-like sections. Product cards are two columns on the provided phone screenshots, leaving substantial unused space when a category has only one item. Product titles and flavor labels are sometimes embedded in the source photos, which makes images inconsistent and can make the actual treat harder to see. The small circular logo is a strong and recognizable brand cue; the navy and gold contrast, serif section headings, and handmade brush accents are also worth retaining.
 
-The replacement carries that identity into a wider, editorial bakery storefront: an image-led hero, clear discovery paths for cake pops/treats/presale, a filterable catalog, a dedicated holiday feature, visible order policies, and a direct Bakesy handoff. It retains the source brand’s navy, gold and ivory instead of the unrelated cocoa/berry palette from the mistaken first draft. The interface is mobile-first and retains responsive navigation, image cards, reduced-motion support, focus styling, and accessible product-detail dialogs. It is presentation-only: no cart, checkout, live catalog API, or payment/order workflow is implemented.
+The new front end uses the Sweet Morels export as its source: the original Framer markup, responsive variants, animation runtime, animated text and scroll sections, and moving ticker are retained locally. Goldie Ann’s branding and seller copy replace the template identity, and its donut catalog is hidden. The Goldie menu presents the eight screenshot-visible, priced listings, keeps all six cake-pop flavors as flavors, describes holiday presale contents, shows the documented pretzel options/add-ons, and brings deposit and pickup terms into view. The menu has category filters and item-detail dialogs. Bakesy remains the ordering handoff; there is no live catalog API, cart, checkout, payment, or order workflow.
 
-## Product photo treatment
+## Product image treatment
 
-Professional studio-style product images were generated from the supplied product photos for cake-pop flavors, Oreos, pretzels, Rice Krispy treats, and the two named holiday boxes. They retain the broad visible treat/product cues while improving lighting, framing, and visual consistency; they are AI-restyled marketing imagery and should not be treated as proof of the exact decoration on a future order. No cakesicle reference photo was supplied, so the cakesicle image is an illustrative generated rendering. All final images are locally hosted WebP files. The supplied original photos and generated source masters remain outside the production bundle.
+The storefront no longer ships the Sweet Morels food-image directory. Its former image references are mapped during build to generated, studio-style Goldie Ann’s product cutouts in `public/products/`; the homepage assortment has a true transparent background and is composed to fit the hero layout. A distinct dipped-pretzel image is used for the $32 pretzel listing instead of reusing the caramel-wrapped product art. These generated assets are visual representations, not photographs of the seller’s actual batches. The supplied Goldie Ann’s logo is used for brand identity.
 
 ## What the current storefront represents
 
@@ -63,10 +63,10 @@ Professional studio-style product images were generated from the supplied produc
 ## Remaining owner checks
 
 1. Confirm all listed items are still offered, the third holiday theme, seasonal dates, prices, pack quantities, and whether the two $32 pretzel options and $0.25 add-ons are transcribed correctly.
-2. Confirm the exact brand logo file and any preferred typeface; this front end approximates the round badge from the screenshot.
-3. Review generated photos against actual prepared items. Replace AI imagery with owner-approved photographs when available, particularly for cakesicles and limited-edition holiday designs.
+2. Confirm any preferred typeface; the user-supplied `public/goldie-ann-logo.svg` is used in the header and browser icon.
+3. Replace generated presentation cutouts with approved photographs of Goldie Ann’s actual treats when those are ready.
 4. Confirm final wording/validity of the deposit and pickup policies before treating this site as a live source of operational terms.
 
 ## Technical review boundaries
 
-The Bakesy app itself could not be tested for checkout, accessibility, page performance, or rendering behavior in this environment. Those are not presented as findings about the source store. The rebuilt site is a standalone React/Vite front end intended for GitHub Pages; the final review checks its responsive layouts, static assets, in-page interactions and outbound Bakesy links.
+The Bakesy app itself could not be tested for checkout, accessibility, page performance, or rendering behavior in this environment. Those are not presented as findings about the source store. The site is a static adaptation of the local Framer export, built for GitHub Pages. Local review checks the responsive page, copied export assets, in-page interactions, and outbound Bakesy links.
