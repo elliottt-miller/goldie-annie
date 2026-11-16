@@ -81,7 +81,7 @@ const exportImageMapper = "return Object.prototype.hasOwnProperty.call(assets,ur
 if (!html.includes(exportImageMapper)) throw new Error("Could not locate the Framer image URL mapper for early GitHub Pages path support.");
 html = html.replace(
   exportImageMapper,
-  'if(!Object.prototype.hasOwnProperty.call(assets,url.href))return value;var mapped=assets[url.href]+hash;if(location.hostname.endsWith("github.io")&&location.pathname.indexOf("/goldie-annie")===0&&mapped.indexOf("./")===0)mapped=location.origin+"/goldie-annie/"+mapped.slice(2);return mapped;'
+  'var project=location.hostname.endsWith("github.io")&&location.pathname.indexOf("/goldie-annie")===0;var localPath=String(value).replace(/^(?:\\.\\.\\/|\\.\\/|\\/)+/,"");if(project&&/^(?:products\\/|goldie-ann-logo\\.svg)/.test(localPath))return location.origin+"/goldie-annie/"+localPath;if(!Object.prototype.hasOwnProperty.call(assets,url.href))return value;var mapped=assets[url.href]+hash;if(project&&/^(?:\\.\\/)?(?:products\\/|goldie-ann-logo\\.svg)/.test(mapped))mapped=location.origin+"/goldie-annie/"+mapped.replace(/^\\.\\//,"");return mapped;'
 );
 html = html
   .replace(/<html lang="en"[^>]*>/, '<html lang="en">')
