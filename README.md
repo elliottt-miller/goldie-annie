@@ -1,24 +1,24 @@
 # Goldie Ann’s Sweets & More
 
-A standalone Vite + React storefront front end, built in `D:\AMD\projects\goldie-annie`. The responsive bakery landing page adapts the Sweet Morels template’s full-bleed wordmark hero, oversized editorial layout, image-led collection cards, moving sweets ticker, subtle reveal/hover motion, and large footer signature to Goldie Ann’s proposed brand direction. Collection cards and category filters browse a static sample menu; product detail dialogs hand visitors off to the existing Bakesy store. The project does not read or write live catalog, cart, checkout, payment, or order data.
+A responsive, mobile-first React/Vite storefront in `D:\AMD\projects\goldie-annie`. It adapts the local Sweet Morels template’s image-led editorial layout, collection browsing, moving sweets ticker, and restrained motion to Goldie Ann’s navy-and-gold brand cues. The site is a static front end: product links hand off to the existing Bakesy shop. There is no live product API, cart, checkout, payment, or order workflow.
 
-Current rendered previews: [desktop](./preview-desktop.png) · [mobile](./preview-mobile.png).
-
-## Run locally
+## Local development
 
 ```sh
 npm install
 npm run dev
 ```
 
-Build a deployable static bundle with `npm run build`.
+Create a deployable bundle with `npm run build`.
+
+## Catalog and image evidence
+
+The visible item names, prices, quantities, holiday box details, add-on options, and ordering policies were transcribed from the owner-supplied Bakesy screenshots. Details absent from those screenshots are left for Bakesy confirmation; see [AUDIT.md](./AUDIT.md) for the evidence record and limits. The initial unrelated bakery catalog was removed.
+
+Product photos in `public/products/` are AI-restyled studio images based on the supplied product references, with an illustrative generated image for cakesicles because no cakesicle reference photo was supplied. They improve the draft storefront presentation but cannot guarantee the exact decoration or future product appearance. Replace them with owner-approved photos when available.
 
 ## GitHub Pages
 
-The repository is configured for a project site at `https://<owner>.github.io/goldie-annie/`. The GitHub Actions workflow builds and deploys `main` on each push. It sets Vite’s `/goldie-annie/` base path in Actions; local development and builds keep `/`.
+The Pages build uses the `/goldie-annie/` Vite base path in GitHub Actions and deploys the `main` branch via `.github/workflows/deploy-pages.yml`. Live catalog and ordering remain at [Goldie Ann’s Bakesy shop](https://shop.bakesy.app/b/goldie-anns-sweets-more).
 
-After creating the repository, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions** if GitHub has not selected it automatically. The workflow deployment will publish the site.
-
-## Content status
-
-Product names and example prices were transcribed from publicly indexed Bakesy listings and need seller confirmation before launch. Food photographs are design placeholders and should be replaced with the bakery’s approved images. Brand visuals are a proposed direction because the live rendered logo/theme could not be retrieved during the audit. Motion respects reduced-motion preferences. See [AUDIT.md](./AUDIT.md) for the evidence, evaluation, priorities, and launch checklist, and [DESIGN_REFERENCES.md](./DESIGN_REFERENCES.md) for the local Framer reference review.
+See [DESIGN_REFERENCES.md](./DESIGN_REFERENCES.md) for the local Framer/template review.

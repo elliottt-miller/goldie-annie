@@ -16,97 +16,107 @@ const SHOP = "https://shop.bakesy.app/b/goldie-anns-sweets-more";
 const asset = (filename) => `${import.meta.env.BASE_URL}${filename}`;
 const products = [
   {
-    name: "6 Inch Celebration Cake",
-    category: "Cakes",
-    price: "$25",
-    detail: "One cake flavor, one icing flavor.",
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85",
+    name: "Apple Pie on a Stick · 1 Dozen",
+    category: "Cake Pops",
+    price: "$32 / dozen",
+    detail: "Apple pie cake pops, listed as a one-dozen package.",
+    image: asset("products/apple-pie-cake-pop.webp"),
   },
   {
-    name: "Cupcakes",
-    category: "Cupcakes",
-    price: "$22",
-    detail: "A dozen, with your choice of cake and icing flavor.",
-    image:
-      "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=900&q=85",
+    name: "Lemon Blueberry Pops · 1 Dozen",
+    category: "Cake Pops",
+    price: "$32 / dozen",
+    detail: "Lemon blueberry cake pops, listed as a one-dozen package.",
+    image: asset("products/lemon-blueberry-cake-pop.webp"),
   },
   {
-    name: "Giant Chocolate Chip Cookies",
-    category: "Cookies",
-    price: "$12",
-    detail: "A dozen giant chocolate chip cookies.",
-    image:
-      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=900&q=85",
+    name: "Butterfinger Bliss",
+    category: "Cake Pops",
+    price: "See Bakesy",
+    detail: "A named cake-pop flavor. Package and price are not shown in the supplied screenshots.",
+    image: asset("products/butterfinger-bliss.webp"),
   },
   {
-    name: "Pumpkin Spice Roll",
-    category: "Seasonal",
-    price: "$20",
-    detail: "A cozy spiced roll for the season.",
-    image: asset("pumpkin-roll.png"),
+    name: "Red Velvet Delight",
+    category: "Cake Pops",
+    price: "See Bakesy",
+    detail: "A named cake-pop flavor. Package and price are not shown in the supplied screenshots.",
+    image: asset("products/red-velvet-cake-pop.webp"),
   },
   {
-    name: "Mini Upside Down Peach Cakes",
-    category: "Seasonal",
-    price: "$23",
-    detail: "One dozen little peach-topped cakes.",
-    image: asset("peach-cakes.png"),
+    name: "Espresso Caramel Pops",
+    category: "Cake Pops",
+    price: "See Bakesy",
+    detail: "A named cake-pop flavor. Package and price are not shown in the supplied screenshots.",
+    image: asset("products/espresso-caramel-cake-pop.webp"),
   },
   {
-    name: "Sweet Potato Biscuits",
-    category: "Comfort Sweets",
-    price: "$8",
-    detail: "Six tender, homestyle biscuits.",
-    image: asset("sweet-potato-biscuits.png"),
+    name: "Funfetti Pops",
+    category: "Cake Pops",
+    price: "See Bakesy",
+    detail: "A named cake-pop flavor. Package and price are not shown in the supplied screenshots.",
+    image: asset("products/funfetti-cake-pop.webp"),
   },
   {
-    name: "S’mores Cake · 6 Inch",
-    category: "Cakes",
-    price: "$35",
-    detail: "A campfire-inspired cake made for sharing.",
-    image:
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=85",
+    name: "Custom Cakesicles",
+    category: "Treats",
+    price: "See Bakesy",
+    detail: "Custom decorated cakesicles. Packages and customizations are available on request.",
+    image: asset("products/cakesicles.webp"),
   },
   {
-    name: "Cookie Party Pack",
-    category: "Cookies",
-    price: "$30",
-    detail: "See Bakesy for current pack details and flavor options.",
-    image:
-      "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=900&q=85",
+    name: "Rice Krispy Treats",
+    category: "Treats",
+    price: "$56",
+    detail: "Dipped in chocolate, drizzled, and topped with sprinkles. Price is shown; package quantity is not visible in the supplied screenshots.",
+    image: asset("products/rice-krispy-treats.webp"),
+  },
+  {
+    name: "Chocolate Dipped & Drizzled Oreos",
+    category: "Treats",
+    price: "$32",
+    detail: "Chocolate dipped, drizzled, and decorated Oreos. Price is shown; package quantity is not visible in the supplied screenshots.",
+    image: asset("products/decorated-oreos.webp"),
+  },
+  {
+    name: "Pretzel Rods · Homemade Caramel Wrap",
+    category: "Treats",
+    price: "$38",
+    detail: "Pretzel rods wrapped in homemade caramel, dipped in chocolate, drizzled, and decorated. Homemade caramel and pecans are shown as $0.25 extra per rod.",
+    image: asset("products/caramel-pretzel-rods.webp"),
+  },
+  {
+    name: "Pretzel Rods · Chocolate Dipped & Drizzled",
+    category: "Treats",
+    price: "$32",
+    detail: "Chocolate dipped, drizzled, and decorated. Options shown include pecans, no sprinkles, blueberry, mint, and caramel; pecans and caramel are $0.25 extra per rod.",
+    image: asset("products/chocolate-pretzel-rods.webp"),
+  },
+  {
+    name: "The Mean Ones Sweet Box",
+    category: "Presale",
+    price: "$45 / box",
+    detail: "The supplied Bakesy screenshot describes a holiday box with four cake pops, four Oreos, and four chocolate dipped, drizzled, decorated pretzels. Check Bakesy for current availability.",
+    image: asset("products/mean-ones-sweet-box.webp"),
+  },
+  {
+    name: "Blue Christmas Confection Box",
+    category: "Presale",
+    price: "$45 / box",
+    detail: "The supplied Bakesy screenshot describes a holiday box with four cake pops, four Oreos, and four chocolate dipped, drizzled, decorated pretzels. Check Bakesy for current availability.",
+    image: asset("products/blue-christmas-box.webp"),
   },
 ];
-const categories = [
-  "All sweets",
-  "Cakes",
-  "Cupcakes",
-  "Cookies",
-  "Seasonal",
-  "Comfort Sweets",
-];
+const categories = ["All offerings", "Cake Pops", "Treats", "Presale"];
 
-function FlowerMark({ className = "" }) {
+function GoldieLogo() {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 74 74"
-      aria-hidden="true"
-      fill="none"
-    >
-      <path
-        d="M11 61C24 52 28 39 34 19M17 53l-9-2m16-8-10-5m17-5-9-7m14-1-3-11m-2 37 10 1m-6-11 10-5m-17 6 1 12"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M34 19c-7-4-7-11-1-15 6 4 7 10 1 15Zm-7 10c-7 1-12-3-11-9 7-2 12 2 11 9Zm-8 13c-6 4-12 2-14-4 5-5 11-4 14 4Zm26-14c1-7 7-10 13-7-1 7-6 10-13 7Zm-2 12c4-6 11-6 15-1-4 6-10 7-15 1Z"
-        fill="#d9b768"
-        stroke="currentColor"
-        strokeWidth="1.15"
-        strokeLinejoin="round"
-      />
+    <svg className="goldie-logo" viewBox="0 0 74 74" aria-hidden="true">
+      <circle cx="37" cy="37" r="35" fill="#c9a321" stroke="#f3dc83" />
+      <circle cx="37" cy="37" r="31.5" fill="none" stroke="#332850" strokeWidth="1" />
+      <text x="37" y="34" textAnchor="middle" className="logo-script">Goldie Ann</text>
+      <text x="37" y="45" textAnchor="middle" className="logo-small">SWEETS &amp; MORE</text>
+      <path d="M37 55c-4-3-6-7-3-8 2-1 3 1 3 2 1-2 3-3 5-1 2 2-1 5-5 7Z" fill="#17102f" />
     </svg>
   );
 }
@@ -120,7 +130,7 @@ function Header() {
         href="#home"
         aria-label="Goldie Ann’s Sweets & More home"
       >
-        <FlowerMark />
+        <GoldieLogo />
         <span>
           Goldie Ann’s
           <br />
@@ -138,10 +148,10 @@ function Header() {
       </button>
       <nav id="site-navigation" className={open ? "nav nav-open" : "nav"}>
         <a onClick={() => setOpen(false)} href="#sweets">
-          The sweets
+          Offerings
         </a>
         <a onClick={() => setOpen(false)} href="#seasonal">
-          Seasonal
+          Holiday presale
         </a>
         <a onClick={() => setOpen(false)} href="#story">
           About the sweets
@@ -159,18 +169,18 @@ function Header() {
 
 function SweetTicker() {
   const treats = [
-    "Cakes",
-    "Cupcakes",
-    "Cookies",
-    "Seasonal sweets",
-    "Comfort bakes",
-    "Sweets & more",
+    "Cake Pops",
+    "Cakesicles",
+    "Dipped Oreos",
+    "Pretzel Rods",
+    "Rice Krispy Treats",
+    "Custom Packages",
   ];
   return (
     <div
       className="sweet-ticker"
       role="img"
-      aria-label="Explore cakes, cupcakes, cookies, seasonal sweets, and comfort bakes"
+      aria-label="Cake pops, cakesicles, dipped Oreos, pretzels, Rice Krispy treats, and custom packages"
     >
       <div className="sweet-ticker-track" aria-hidden="true">
         {[...treats, ...treats].map((t, i) => (
@@ -189,24 +199,24 @@ function FeaturedCollections({ onBrowse }) {
   const collections = [
     {
       number: "01",
-      title: "Cakes for gathering",
-      category: "Cakes",
+      title: "Cake Pops",
+      category: "Cake Pops",
       image: products[0].image,
-      alt: "Chocolate cake ready to serve",
+      alt: "Studio photo of Goldie Ann's apple pie cake pop",
     },
     {
       number: "02",
-      title: "Cookies to share",
-      category: "Cookies",
-      image: products[2].image,
-      alt: "Chocolate chip cookies",
+      title: "Dipped Treats",
+      category: "Treats",
+      image: products[8].image,
+      alt: "Studio photo of decorated chocolate dipped Oreos",
     },
     {
       number: "03",
-      title: "Seasonal favorites",
-      category: "Seasonal",
-      image: products[3].image,
-      alt: "Pumpkin spice roll",
+      title: "Holiday Boxes",
+      category: "Presale",
+      image: products[11].image,
+      alt: "Studio photo of a holiday confection assortment",
     },
   ];
   return (
@@ -217,7 +227,7 @@ function FeaturedCollections({ onBrowse }) {
     >
       <div className="collections-inner">
         <div className="collections-heading">
-          <span className="overline">A little something for everyone</span>
+          <span className="overline">Cake pops, dipped treats & more</span>
           <h2 id="collections-title">
             Find your kind
             <br />
@@ -282,7 +292,11 @@ function ProductCard({ item, index, onSelect }) {
       aria-label={`View details for ${item.name}`}
     >
       <div className="product-image">
-        <img src={item.image} alt={item.name} loading="lazy" />
+        <img
+          src={item.image}
+          alt={`${item.name}, professionally styled product photograph`}
+          loading="lazy"
+        />
         <span className="product-arrow">
           <ArrowDownRight size={19} />
         </span>
@@ -365,7 +379,8 @@ function ProductDetail({ item, onClose, openerRef }) {
           <p id="product-dialog-description">{item.detail}</p>
           <div className="dialog-price">{item.price}</div>
           <p className="dialog-note">
-            See the Bakesy shop for current details, options, and availability.
+            Photos are professionally restyled from the supplied product
+            references. Check Bakesy for current availability and order details.
           </p>
           <a
             className="button button-red"
@@ -382,7 +397,7 @@ function ProductDetail({ item, onClose, openerRef }) {
 }
 
 function App() {
-  const [filter, setFilter] = useState("All sweets");
+  const [filter, setFilter] = useState("All offerings");
   const [showAll, setShowAll] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const dialogOpener = useRef(null);
@@ -403,7 +418,7 @@ function App() {
   };
   const filtered = useMemo(
     () =>
-      products.filter((p) => filter === "All sweets" || p.category === filter),
+      products.filter((p) => filter === "All offerings" || p.category === filter),
     [filter],
   );
   return (
@@ -413,8 +428,8 @@ function App() {
         <section className="hero">
           <div className="hero-image">
             <img
-              src={asset("chocolate-cake-hero.png")}
-              alt="Chocolate layer cake with a slice ready to serve"
+              src={products[5].image}
+              alt="Funfetti cake pop dipped in green confectionery coating, shown cut open"
             />
             <div className="image-caption">
               <CakeSlice size={17} />
@@ -423,16 +438,17 @@ function App() {
           </div>
           <div className="hero-copy">
             <div className="hero-flower">
-              <FlowerMark />
+        <GoldieLogo />
             </div>
             <span className="hero-eyebrow">Sweets & More</span>
             <h1>Goldie Ann’s</h1>
             <p>
-              Cakes, cupcakes, cookies, seasonal bakes, and comfort sweets. Find
-              a little something for your next celebration or everyday craving.
+              Custom decorated cake pops, cakesicles, dipped Oreos, pretzels,
+              and Rice Krispy treats. Packages and customizations are available
+              by request.
             </p>
             <a className="button button-red" href="#sweets">
-              Explore the menu <ArrowRight size={17} />
+              Explore the offerings <ArrowRight size={17} />
             </a>
             <div className="hero-note">
               <span className="note-line" />A little something for every kind of
@@ -450,12 +466,12 @@ function App() {
         >
           <div className="section-heading">
             <div>
-              <span className="overline">A little something for everyone</span>
-              <h2>The sweets</h2>
+              <span className="overline">Custom decorated sweets</span>
+              <h2>The offerings</h2>
             </div>
             <p>
-              Made to celebrate the big days, brighten the ordinary ones, and
-              bring everybody back for seconds.
+              Choose from the named cake-pop flavors and dipped treats shown
+              here. Packages and custom details are arranged through Bakesy.
             </p>
           </div>
           <div className="filter-row" role="group" aria-label="Filter sweets">
@@ -488,12 +504,12 @@ function App() {
               className="text-link show-more"
               onClick={() => setShowAll(!showAll)}
             >
-              {showAll ? "Show a little less" : "See all sweets"}{" "}
+              {showAll ? "Show fewer offerings" : "See all offerings"}{" "}
               <ChevronDown className={showAll ? "flip" : ""} size={16} />
             </button>
           )}
           <p className="menu-footnote">
-            Menu details and order options are kept up to date in our{" "}
+            Product photography is AI-restyled from the supplied examples; the cakesicle image is illustrative. Check current menu details and options in the{" "}
             <a href={SHOP} target="_blank" rel="noreferrer">
               Bakesy shop
             </a>
@@ -508,15 +524,16 @@ function App() {
         >
           <div className="seasonal-inner">
             <div className="seasonal-copy">
-              <span className="overline">A seasonal favorite</span>
+              <span className="overline">Holiday presale</span>
               <h2>
-                A little taste
+                A little box
                 <br />
-                <em>of the season.</em>
+                <em>of holiday joy.</em>
               </h2>
               <p>
-                Peachy and pumpkin-spiced treats from the menu. Check the Bakesy
-                shop for current availability.
+                Three holiday themes were offered in the supplied menu. Each
+                box includes four cake pops, four Oreos and four decorated
+                pretzels. Check Bakesy for current availability.
               </p>
               <a
                 className="button button-outline"
@@ -524,28 +541,28 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Explore seasonal sweets <ArrowRight size={17} />
+                Check current availability <ArrowRight size={17} />
               </a>
             </div>
             <div className="seasonal-collage">
               <figure className="seasonal-large">
-                <img src={products[4].image} alt="Peach dessert" />
+                <img src={products[11].image} alt="The Mean Ones holiday sweet box assortment" />
                 <figcaption>
-                  Peach cakes <span>{products[4].price}</span>
+                  The Mean Ones Sweet Box <span>{products[11].price}</span>
                 </figcaption>
               </figure>
               <figure className="seasonal-small">
-                <img src={products[3].image} alt="Pumpkin spice roll" />
+                <img src={products[12].image} alt="Blue Christmas confection box assortment" />
                 <figcaption>
-                  Pumpkin spice roll <span>{products[3].price}</span>
+                  Blue Christmas Box <span>{products[12].price}</span>
                 </figcaption>
               </figure>
               <div className="seasonal-stamp">
-                <FlowerMark />
+                <GoldieLogo />
                 <span>
-                  Seasonal
+                  Holiday
                   <br />
-                  menu
+                  presale
                 </span>
               </div>
             </div>
@@ -559,8 +576,8 @@ function App() {
         >
           <div className="story-image">
             <img
-              src={asset("baker-hands.png")}
-              alt="Hands piping frosting onto a cupcake"
+              src={products[9].image}
+              alt="Homemade caramel wrapped, chocolate dipped and decorated pretzel rods"
               loading="lazy"
             />
             <div className="story-seal">
@@ -580,9 +597,10 @@ function App() {
               to <em>share.</em>
             </h2>
             <p>
-              Cakes for celebrations, cookies for just because, and comfort
-              sweets in between. Find a familiar favorite or something new for
-              your table.
+              Goldie Ann’s specializes in delicious, high quality custom
+              decorated cake pops, cakesicles, dipped Oreos, pretzels and Rice
+              Krispy treats. Packages are available and can be customized upon
+              request.
             </p>
             <p>Browse the current menu to see what’s available.</p>
             <a
@@ -602,11 +620,11 @@ function App() {
           id="ordering"
         >
           <div className="order-title">
-            <span className="overline">A few easy steps</span>
+            <span className="overline">Order and pickup details</span>
             <h2>
               Let’s make it <em>sweet.</em>
             </h2>
-            <p>Your next favorite treat is only a few clicks away.</p>
+            <p>Details shown in the supplied Bakesy shop screenshots.</p>
           </div>
           <div className="order-steps">
             <article>
@@ -615,25 +633,25 @@ function App() {
                 <CakeSlice />
               </div>
               <h3>Browse the menu</h3>
-              <p>Find the cake, cookie, or comfort sweet you’re craving.</p>
+              <p>Browse cake pops, cakesicles, Oreos, pretzels, Rice Krispy treats and holiday boxes.</p>
             </article>
             <article>
               <span className="step-num">02</span>
               <div className="step-icon">
                 <CalendarDays />
               </div>
-              <h3>Share the details</h3>
-              <p>Choose your treats and send your request through Bakesy.</p>
+              <h3>Place your order</h3>
+              <p>A 50% non-refundable deposit is required when an order is placed.</p>
             </article>
             <article>
               <span className="step-num">03</span>
               <div className="step-icon">
                 <Heart />
               </div>
-              <h3>Confirm with the baker</h3>
+              <h3>Plan your pickup</h3>
               <p>
-                Review availability, options, and order details in the Bakesy
-                shop.
+                Pickup is during the selected slot between 6 PM and 9 PM. If
+                running late, message through the app.
               </p>
             </article>
           </div>
@@ -653,7 +671,7 @@ function App() {
         </div>
         <div className="footer-top">
           <a className="brand brand-footer" href="#home">
-            <FlowerMark />
+            <GoldieLogo />
             <span>
               Goldie Ann’s
               <br />
