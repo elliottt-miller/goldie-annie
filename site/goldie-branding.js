@@ -7,6 +7,7 @@ export const textReplacements = [
   ["Soft bites and comforting sweetness made for slow mornings and sweeter moments.", "Custom decorated cake pops, cakesicles, dipped Oreos, pretzels and Rice Krispy treats. Packages and customizations are available upon request."],
   ["Explore Sweetness", "Explore the offerings"],
   ["We have extensive experience across a range of commercial sectors. We offer a complete end-to-end service from brand strategy to interior design and production.", "Goldie Ann’s specializes in creating delicious, high quality custom decorated sweets. Choose a favorite or ask about a package customized for your celebration."],
+  ["We have extensive experience across a range of commercial sectors.&nbsp;We offer a complete end-to-end service from brand strategy to interior design and production.", "Goldie Ann’s creates custom decorated cake pops, cakesicles, dipped Oreos, pretzels and Rice Krispy treats. Packages and customizations are available upon request."],
   ["FRESHLY GLAZED DONUTS MADE DAILY FOR EVERY SWEET CRAVING, SOFT BITES TO BRIGHTEN DAYS", "HAND-DECORATED TREATS FOR YOUR SWEETEST MOMENTS"],
   ["Follow the Sweet Perks", "A little more sweetness"],
   ["Follow us for sweet updates, exclusive treats, cozy surprises, seasonal flavors, and special little rewards made for you.", "Explore the menu and message through Bakesy for current availability and order details."],

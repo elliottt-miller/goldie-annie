@@ -26,6 +26,8 @@ body::after { content: ""; position: fixed; z-index: 9999; inset: 0; pointer-eve
  [data-framer-name="Section: Hero"] [data-framer-name="Background"] img { position:relative!important; top:30%!important; width:84%!important; height:70%!important; object-position:right bottom!important; }
 }
 @media(max-width:809px) {
+ /* Framer's mobile hide-on-scroll starts in its hidden state at page load. */
+ nav { opacity:1!important; transform:translateY(0)!important; }
  [data-framer-name="Section: Hero"] [data-framer-name="Background"] img { position:relative!important; top:8%!important; }
  [data-framer-name="Section: Introduction"] [data-framer-name="Top"] img {
    width:70%!important;
@@ -49,11 +51,10 @@ body::after { content: ""; position: fixed; z-index: 9999; inset: 0; pointer-eve
   overflow:visible!important;
   background:transparent!important;
 }
-/* The source template's three moving photos collide over its oversized heading.
-   Keep its original animated Top slot, using one coordinated Goldie assortment. */
+/* Keep the template's three moving image slots and their original choreography. */
+[data-framer-name="Section: Introduction"] [data-framer-name="Top"],
 [data-framer-name="Section: Introduction"] [data-framer-name="Right"],
-[data-framer-name="Section: Introduction"] [data-framer-name="Left"] { display:none!important; }
-[data-framer-name="Section: Introduction"] [data-framer-name="Top"] { z-index:1!important; }
+[data-framer-name="Section: Introduction"] [data-framer-name="Left"] { z-index:1!important; }
 @media(min-width:810px) {
   [data-framer-name="Section: Introduction"] h2 {
     font-size:clamp(42px,4.5vw,82px)!important;
