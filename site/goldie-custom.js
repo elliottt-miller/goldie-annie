@@ -1,3 +1,5 @@
+import { pageTitle, textReplacements } from "./goldie-branding.js";
+
 const SHOP = "https://shop.bakesy.app/b/goldie-anns-sweets-more";
 const offerings = [
   { name: "Apple Pie on a Stick", format: "Cake pops · 1 dozen", price: "$32.00", group: "Cake pops", image: "products/apple-pie-on-a-stick-transparent.png", detail: "Apple Pie on a Stick cake pops, listed as one dozen." },
@@ -11,24 +13,6 @@ const offerings = [
 ];
 const cakeFlavors = ["Lemon Blueberry Pops", "Butterfinger Bliss", "Apple Pie on a Stick", "Red Velvet Delight", "Espresso Caramel Pops", "Funfetti Pops"];
 
-const textReplacements = [
-  ["Sweet Morels", "Goldie Ann’s"],
-  ["SWEET MORELS", "GOLDIE ANN’S SWEETS & MORE"],
-  ["Soft bites and comforting sweetness made for slow mornings and sweeter moments.", "Custom decorated cake pops, cakesicles, dipped Oreos, pretzels and Rice Krispy treats. Packages and customizations are available upon request."],
-  ["Explore Sweetness", "Explore the offerings"],
-  ["We have extensive experience across a range of commercial sectors. We offer a complete end-to-end service from brand strategy to interior design and production.", "Goldie Ann’s specializes in creating delicious, high quality custom decorated sweets. Choose a favorite or ask about a package customized for your celebration."],
-  ["FRESHLY GLAZED DONUTS MADE DAILY FOR EVERY SWEET CRAVING, SOFT BITES TO BRIGHTEN DAYS", "CUSTOM DECORATED CAKE POPS, CAKESICLES, DIPPED OREOS, PRETZELS & RICE KRISPY TREATS · PACKAGES CUSTOMIZED UPON REQUEST"],
-  ["Follow the Sweet Perks", "A little more sweetness"],
-  ["Follow us for sweet updates, exclusive treats, cozy surprises, seasonal flavors, and special little rewards made for you.", "Explore the menu and message through Bakesy for current availability and order details."],
-  ["Hello@sweetmorels.com", "Visit the Bakesy shop"],
-  ["© Sweet Morels™ All rights reserved 2026", `© ${new Date().getFullYear()} Goldie Ann’s Sweets & More`],
-  ["DESIGN & CREATED BY MINO", "GOLDIE ANN’S SWEETS & MORE"],
-  ["GET TEMPLATE", "ORDER ON BAKESY"],
-  ["TERM OF SERVICES", "ORDERING DETAILS"],
-  ["Ocala, FL 34471, USA", "Custom decorated treats & more"],
-  ["+1 234 567 890", "Order through Bakesy"],
-];
-
 function replaceVisibleText() {
   const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   let node;
@@ -38,7 +22,7 @@ function replaceVisibleText() {
     for (const [from, to] of textReplacements) value = value.replaceAll(from, to);
     if (value !== node.nodeValue) node.nodeValue = value;
   }
-  document.title = document.body.classList.contains("goldie-shop-page") ? "Shop the Menu | Goldie Ann’s Sweets & More" : "Goldie Ann’s Sweets & More | Custom Decorated Treats";
+  document.title = document.body.classList.contains("goldie-shop-page") ? "Shop the Menu | Goldie Ann’s Sweets & More" : pageTitle;
 }
 
 function normalizeGoldieImagePaths() {
@@ -136,42 +120,15 @@ function interceptTemplateNavigation() {
 }
 
 function enhanceTemplateCopy() {
-  const intro = document.querySelector('[data-framer-name="Section: Introduction"]');
-  const introHeading = intro?.querySelector("h1,h2");
-  if (introHeading) introHeading.innerHTML = "Made for<br class=\"framer-text\">sweet moments.";
-
   const about = document.querySelector('[data-framer-name="Section: About"]');
   if (about) {
     about.id = "goldie-story";
-    const p = [...about.querySelectorAll("p")].find((el) => el.textContent.includes("commercial sectors"));
-    if (p) p.textContent = "Goldie Ann’s specializes in delicious, high quality custom decorated cake pops, cakesicles, dipped Oreos, pretzels and Rice Krispy treats. Packages are available and can be customized upon request.";
-    about.querySelectorAll("a").forEach((a) => { a.href = "shop.html"; a.textContent = "EXPLORE THE OFFERINGS"; });
+    about.querySelectorAll("a").forEach((a) => { a.href = "shop.html"; });
   }
 
   const hero = document.querySelector('[data-framer-name="Section: Hero"]');
   if (hero) hero.id = "goldie-home";
   hero?.querySelectorAll("a").forEach((a) => { a.href = "shop.html"; a.removeAttribute("target"); });
-  const heroCopy = hero?.querySelectorAll("p");
-  heroCopy?.forEach((p) => {
-    if (p.textContent.toLowerCase().includes("soft bites")) p.textContent = "Custom decorated sweets for the moments worth sharing.";
-  });
-
-  const featured = document.querySelector('[data-framer-name="Section: Key Featured"]');
-  if (featured) {
-    const heading = featured.querySelector("h2");
-    if (heading) heading.textContent = "Handcrafted for sweet moments";
-    const phrases = ["Custom packages", "Cake pops & cakesicles", "Dipped treats", "Made personal"];
-    const descriptions = [
-      "Packages are available and can be customized upon request.",
-      "Custom decorated cake pops and cakesicles are among Goldie Ann’s offerings.",
-      "Choose dipped Oreos, chocolate-dipped pretzels or Rice Krispy treats.",
-      "Ask through Bakesy about current offerings, options and pickup details.",
-    ];
-    const headings = [...featured.querySelectorAll("h3")];
-    const paragraphs = [...featured.querySelectorAll("p")].filter((p) => p.textContent.trim().length > 65);
-    headings.forEach((h, i) => { h.textContent = phrases[i % phrases.length]; });
-    paragraphs.forEach((p, i) => { p.textContent = descriptions[i % descriptions.length]; });
-  }
 
   const quote = document.querySelector('[data-framer-name="Section: Quote"]');
   if (quote) quote.setAttribute("aria-label", "Goldie Ann’s menu: custom cake pops, cakesicles, dipped Oreos, pretzels and Rice Krispy treats.");
@@ -185,8 +142,6 @@ function enhanceTemplateCopy() {
   }
   const cta = document.querySelector('[data-framer-name="Section: CTA"]');
   if (cta) {
-    const title = cta.querySelector("h2");
-    if (title) title.textContent = "Let’s make it sweet";
     cta.querySelectorAll("a").forEach((a) => { a.href = SHOP; a.target = "_blank"; a.rel = "noreferrer"; });
   }
 }

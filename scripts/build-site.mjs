@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { pageTitle, textReplacements } from "../site/goldie-branding.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const output = path.join(root, "dist");
@@ -31,13 +32,17 @@ const menuPhotoNames = [
 ];
 const imageOverrides = [
   [/^gH5CZbZhiVGatm6vJCxELymTWGE/, "homepage-assortment.png"],
-  [/^kBgzKXXLCzLWCvNo0DDMhegR28/, "funfetti-pops-transparent.png"],
+  [/^kBgzKXXLCzLWCvNo0DDMhegR28/, "homepage-scroll-assortment.png"],
   [/^pCEAxRztqSKweYEETxL5slXCXBQ/, "dipped-oreos-transparent.png"],
   [/^XJB63p2zrUpN7SbHUhBplRhW4e0/, "homemade-caramel-pretzel-rods-transparent.png"],
   [/^DySn2XY19oe1P4RYCdcRagOVnZo/, "apple-pie-on-a-stick-transparent.png"],
   [/^v3bBwzVA2zxWGukOt1H0JxWqpQ/, "rice-krispy-treats-transparent.png"],
   [/^G7MiGH7ZAgtPTdmV8SLLAiA2mw/, "butterfinger-bliss-transparent.png"],
   [/^b0D8D6SaIuBtdyquqcs0T7D3Dfs/, "lemon-blueberry-pops-transparent.png"],
+  [/^j4WCQsqUzsHlSY9ZfderUjCqfag/, "espresso-caramel-pops-transparent.png"],
+  [/^Y63R7EDfgP9pI41ETo1wdj0vI/, "butterfinger-bliss-transparent.png"],
+  [/^3YHsQp4EM4pLJZBtXotfJreN618/, "lemon-blueberry-pops-transparent.png"],
+  [/^28reBCva0Aw2VfkFrqzIBBrns/, "red-velvet-delight-transparent.png"],
   [/^Q4j0oVi5w412uOFkld8IVKgxR8/, "homepage-assortment.png"],
 ];
 function pickGoldieImage(filename) {
@@ -67,6 +72,23 @@ async function rewriteTemplateImages(directory) {
   }
 }
 await rewriteTemplateImages(output);
+async function rewriteTemplateBranding(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const target = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      await rewriteTemplateBranding(target);
+      continue;
+    }
+    if (!/\.(?:html|js|mjs)$/i.test(entry.name) || ["goldie-custom.js", "goldie-branding.js"].includes(entry.name)) continue;
+    let source = await readFile(target, "utf8");
+    for (const [from, to] of textReplacements) source = source.replaceAll(from, to);
+    if (/^shared-lib\..+\.mjs$/i.test(entry.name)) {
+      source = source.replace("title: `Goldie Ann’s`,", `title: \`${pageTitle}\`,`);
+    }
+    await writeFile(target, source);
+  }
+}
+await rewriteTemplateBranding(output);
 await rm(path.join(output, "assets", "images"), { recursive: true, force: true });
 
 const indexPath = path.join(output, "index.html");

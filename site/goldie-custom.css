@@ -27,6 +27,43 @@ body::after { content: ""; position: fixed; z-index: 9999; inset: 0; pointer-eve
 }
 @media(max-width:809px) {
  [data-framer-name="Section: Hero"] [data-framer-name="Background"] img { position:relative!important; top:8%!important; }
+ [data-framer-name="Section: Introduction"] [data-framer-name="Top"] img {
+   width:70%!important;
+   height:70%!important;
+   margin:70% 0 0 30%!important;
+ }
+}
+/* Keep each moving product cutout whole inside the template's square animation frames. */
+[data-framer-name="Section: Introduction"] [data-framer-name="Top"] img,
+[data-framer-name="Section: Introduction"] [data-framer-name="Right"] img,
+[data-framer-name="Section: Introduction"] [data-framer-name="Left"] img,
+[data-framer-name="Section: About"] [data-framer-name="Container"] img,
+[data-framer-name="Section: Quote"] [data-framer-name="Image Frame"] img,
+[data-framer-name="Section: CTA"] img {
+  object-fit:contain!important;
+  background:transparent!important;
+}
+[data-framer-name="Section: Introduction"] [data-framer-name="Top"],
+[data-framer-name="Section: Introduction"] [data-framer-name="Right"],
+[data-framer-name="Section: Introduction"] [data-framer-name="Left"] {
+  overflow:visible!important;
+  background:transparent!important;
+}
+/* The source template's three moving photos collide over its oversized heading.
+   Keep its original animated Top slot, using one coordinated Goldie assortment. */
+[data-framer-name="Section: Introduction"] [data-framer-name="Right"],
+[data-framer-name="Section: Introduction"] [data-framer-name="Left"] { display:none!important; }
+[data-framer-name="Section: Introduction"] [data-framer-name="Top"] { z-index:1!important; }
+@media(min-width:810px) {
+  [data-framer-name="Section: Introduction"] h2 {
+    font-size:clamp(42px,4.5vw,82px)!important;
+    line-height:1.08!important;
+  }
+  [data-framer-name="Section: Introduction"] [data-framer-name="Top"] img {
+    width:52%!important;
+    height:52%!important;
+    margin:25% 0 0 48%!important;
+  }
 }
 nav a[data-framer-name="Logo"] { display:flex!important; align-items:center!important; width:clamp(122px,12vw,166px)!important; height:48px!important; text-decoration:none!important; }
 .goldie-logo-image { display:block; width:100%; height:100%; object-fit:contain; object-position:left center; }
