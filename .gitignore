@@ -1,5 +1,7 @@
 node_modules/
 dist/
 output/
+frontend-v2/out/
+frontend-v2/node_modules/
 .DS_Store
 .playwright-cli/

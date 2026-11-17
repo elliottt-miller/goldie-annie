@@ -1,9 +1,0 @@
-{
-  "name": "goldie-anns-sweets-more",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": { "dev": "node scripts/serve.mjs", "build": "node scripts/build-site.mjs", "preview": "node scripts/serve.mjs" },
-  "dependencies": {},
-  "devDependencies": {}
-}

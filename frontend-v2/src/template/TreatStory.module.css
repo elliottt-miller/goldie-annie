@@ -1,0 +1,167 @@
+.viewer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  min-width: 0;
+  isolation: isolate;
+  border-radius: 25px;
+  overflow: hidden;
+  background: var(--brand-cream-deep);
+  color: var(--brand-plum);
+  touch-action: pan-y;
+}
+
+.viewer:focus-visible {
+  outline: 2px solid var(--brand-gold-ink);
+  outline-offset: 4px;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  padding: 42px 12px 54px;
+  object-fit: contain;
+  background: radial-gradient(ellipse at 50% 42%, var(--brand-surface), var(--brand-gold-pale));
+  animation: story-image-in 420ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes story-image-in {
+  from { opacity: .55; transform: scale(1.035); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--brand-plum) 24%, transparent) 0%, transparent 24%, transparent 55%, color-mix(in srgb, var(--brand-plum) 78%, transparent) 100%);
+}
+
+.progress {
+  display: flex;
+  gap: 4px;
+  padding: 12px 12px 0;
+}
+
+.progressTrack {
+  display: block;
+  flex: 1 1 0;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--brand-plum-muted);
+}
+
+.progressFill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--brand-gold);
+  transform: scaleX(0);
+}
+
+.progressFillCurrent {
+  animation: story-progress var(--story-duration) linear both;
+  animation-play-state: var(--story-play-state);
+  transform-origin: left;
+}
+
+.progressFillComplete { transform: scaleX(1); }
+
+.topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  color: var(--brand-surface);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-shadow: 0 1px 8px color-mix(in srgb, var(--brand-plum) 55%, transparent);
+  text-transform: uppercase;
+}
+
+.count { font-variant-numeric: tabular-nums; opacity: .82; }
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 14px 14px;
+  color: var(--brand-surface);
+}
+
+.caption > span {
+  max-width: 100%;
+  overflow: hidden;
+  font: 500 clamp(17px, 1.4vw, 22px)/1.15 Fraunces, Georgia, serif;
+  text-overflow: ellipsis;
+}
+
+.caption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand-surface);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.caption a:hover { color: var(--brand-gold-pale); }
+.caption a:focus-visible, .controls button:focus-visible { outline: 2px solid var(--brand-gold-pale); outline-offset: 3px; }
+
+.controls {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.viewer:hover .controls, .viewer:focus-within .controls { opacity: 1; }
+
+.controls button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgb(255 253 246 / 48%);
+  border-radius: 50%;
+  color: var(--brand-surface);
+  background: color-mix(in srgb, var(--brand-plum) 62%, transparent);
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.controls button:hover { transform: scale(1.06); background: var(--brand-plum); }
+
+@media (max-width: 809px) {
+  /* Let the parent story rail own horizontal touch gestures at phone widths. */
+  .viewer { touch-action: auto; }
+  .controls { opacity: 1; }
+  .controls button { width: 36px; height: 36px; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .controls { opacity: 1; }
+  .controls button { width: 36px; height: 36px; }
+}
+
+@keyframes story-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .image { animation: none; }
+  .progressFillCurrent { animation: none; transform: scaleX(0); }
+  .controls, .controls button { transition: none; }
+}

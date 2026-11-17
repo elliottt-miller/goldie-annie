@@ -1,0 +1,216 @@
+.showcase {
+  width: min(100%, 900px);
+  outline: none;
+}
+
+.showcase:focus-visible .card {
+  outline: 2px solid var(--brand-gold-ink);
+  outline-offset: 6px;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-inline: 0;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 430px;
+  flex-direction: column;
+  align-items: center;
+  padding: 88px 48px 34px;
+  border: 1px solid var(--brand-plum-muted);
+  border-radius: 32px;
+  background:
+    radial-gradient(ellipse at 50% 18%, var(--brand-gold-glow), transparent 43%),
+    var(--brand-cream-light);
+  box-shadow: 0 16px 40px rgb(65 20 18 / 8%);
+  text-align: center;
+  touch-action: pan-y;
+  animation-duration: .42s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+.card[data-direction="1"] { animation-name: slide-from-right; }
+.card[data-direction="-1"] { animation-name: slide-from-left; }
+
+@media (hover: hover) and (pointer: fine) {
+  .card { transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s ease; }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 46px rgb(65 20 18 / 13%);
+  }
+}
+
+/* Small gold accents keep the source card's decorative framing without
+   styling product descriptions as customer quotations. */
+.card::before,
+.card::after {
+  position: absolute;
+  z-index: 0;
+  color: color-mix(in srgb, var(--brand-gold) 52%, transparent);
+  font: 400 26px/1 Fraunces, Georgia, serif;
+  pointer-events: none;
+}
+
+.card::before {
+  top: 24px;
+  left: 26px;
+  content: "✦";
+}
+
+.card::after {
+  right: 26px;
+  bottom: 24px;
+  content: "✦";
+  transform: rotate(18deg) scale(.82);
+}
+
+.portrait {
+  position: absolute;
+  top: -78px;
+  left: 50%;
+  display: grid;
+  width: 156px;
+  height: 156px;
+  padding: 5px;
+  place-items: center;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border: 1px solid var(--brand-gold);
+  border-radius: 50%;
+  background: var(--brand-cream-light);
+  box-shadow: 0 10px 22px var(--brand-plum-muted);
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: contain;
+  background: radial-gradient(ellipse at 50% 45%, var(--brand-gold-pale), var(--brand-cream));
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100%, 690px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  max-width: 600px;
+  color: var(--brand-muted);
+  font: 400 clamp(16px, 1.5vw, 18px)/1.55 "DM Sans", sans-serif;
+  text-wrap: balance;
+}
+
+.divider {
+  display: flex;
+  width: min(100%, 260px);
+  align-items: center;
+  gap: 6px;
+  margin: 20px 0 4px;
+  color: var(--brand-gold);
+}
+
+.divider span {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, var(--brand-gold));
+}
+
+.divider span:last-child { transform: rotate(180deg); }
+
+.name {
+  color: var(--brand-plum);
+  font: 500 clamp(30px, 3vw, 40px)/1.1 Fraunces, Georgia, serif;
+  text-wrap: balance;
+}
+
+.category {
+  margin-top: 2px;
+  color: var(--brand-gold-ink);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid var(--brand-gold);
+  border-radius: 50%;
+  color: var(--brand-cream-light);
+  background: var(--brand-plum);
+  box-shadow: 0 6px 16px var(--brand-plum-muted);
+  cursor: pointer;
+  transition: transform .2s ease, color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+  color: var(--brand-plum);
+  background: var(--brand-gold-pale);
+  box-shadow: 0 9px 22px var(--brand-plum-muted);
+}
+
+.arrow:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 4px; }
+.previous { left: -24px; }
+.next { right: -24px; }
+
+@keyframes slide-from-right {
+  from { transform: translateX(32px); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slide-from-left {
+  from { transform: translateX(-32px); }
+  to { transform: translateX(0); }
+}
+
+@media (max-width: 809px) {
+  .stage { padding-inline: 0; }
+  .card { min-height: 390px; padding: 78px 26px 30px; border-radius: 26px; }
+  .portrait { top: -66px; width: 132px; height: 132px; }
+  .name { font-size: clamp(28px, 7vw, 34px); }
+  .description { font-size: 16px; }
+  .arrow { width: 40px; height: 40px; }
+  .previous { left: -10px; }
+  .next { right: -10px; }
+}
+
+@media (max-width: 420px) {
+  .card { min-height: 370px; padding-inline: 20px; }
+  .portrait { width: 122px; height: 122px; top: -61px; }
+  .description { font-size: 15px; }
+  .category { font-size: 14px; }
+  .arrow { width: 36px; height: 36px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .portrait img, .arrow { animation: none; transition: none; }
+  .card:hover { transform: none; }
+  .arrow:hover { transform: translateY(-50%); }
+}

@@ -1,0 +1,94 @@
+.statusPage {
+  display: grid;
+  min-height: 100svh;
+  padding: 120px 24px 48px;
+  place-items: center;
+  color: var(--brand-ink);
+  background:
+    radial-gradient(ellipse at 50% 100%, var(--brand-gold-glow), transparent 48%),
+    linear-gradient(180deg, var(--brand-cream-light), var(--brand-cream));
+  text-align: center;
+}
+
+.statusCard {
+  display: flex;
+  width: min(100%, 440px);
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: clamp(28px, 6vw, 48px);
+  border: 1px solid var(--brand-gold-muted);
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--brand-cream-light) 90%, transparent);
+  box-shadow: 0 18px 48px var(--brand-plum-muted);
+}
+
+.brandMark {
+  display: block;
+  width: clamp(100px, 24vw, 140px);
+  height: 88px;
+  object-fit: contain;
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--brand-gold-muted);
+  border-top-color: var(--brand-plum);
+  border-radius: 50%;
+  animation: turn .85s linear infinite;
+}
+
+.message,
+.errorTitle {
+  color: var(--brand-plum);
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  text-wrap: balance;
+}
+
+.message { font-size: clamp(21px, 4vw, 26px); }
+.errorTitle { font-size: clamp(28px, 5vw, 38px); }
+
+.errorCopy {
+  max-width: 32ch;
+  color: var(--brand-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.retryButton {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 12px 24px;
+  border: 1px solid var(--brand-gold);
+  border-radius: 999px;
+  color: var(--brand-cream-light);
+  background: var(--brand-plum);
+  font: 600 15px/1.3 "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.retryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--brand-plum-muted);
+}
+
+.retryButton:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 4px; }
+
+@keyframes turn { to { transform: rotate(1turn); } }
+
+@media (max-width: 480px) {
+  .statusPage { padding-inline: 16px; }
+  .statusCard { border-radius: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; }
+  .retryButton { transition: none; }
+  .retryButton:hover { transform: none; }
+}

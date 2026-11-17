@@ -1,0 +1,179 @@
+/* Goldie Ann typography, adapted to the supplied reference scale. */
+.text-n-16-r {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.4em;
+  letter-spacing: 0px;
+  color: var(--brand-surface);
+}
+.text-n-16-sb {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4em;
+  letter-spacing: 0px;
+  color: var(--brand-surface);
+}
+.text-n-18-r {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4em;
+  letter-spacing: 0px;
+  color: var(--brand-ink);
+}
+@media (max-width: 1199px) {
+  .text-n-18-r {
+    font-size: 15px;
+    line-height: 1.4em;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 809px) {
+  .text-n-18-r {
+    font-size: 16px;
+    line-height: 1.4em;
+    letter-spacing: 0px;
+  }
+}
+.text-n-20-r {
+  font-family: "Fraunces", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.4em;
+  letter-spacing: 0px;
+  color: var(--brand-cream);
+}
+@media (max-width: 1199px) {
+  .text-n-20-r {
+    font-size: 19px;
+    line-height: 1.4em;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 809px) {
+  .text-n-20-r {
+    font-size: 18px;
+    line-height: 1.4em;
+    letter-spacing: 0px;
+  }
+}
+.text-n-24-r {
+  font-family: "Fraunces", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2em;
+  letter-spacing: 0px;
+  color: var(--brand-plum);
+}
+.text-n-32-r {
+  font-family: "Fraunces", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.1em;
+  letter-spacing: 0px;
+  color: var(--brand-surface);
+}
+@media (max-width: 1199px) {
+  .text-n-32-r {
+    font-size: 30px;
+    line-height: 1.1em;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 809px) {
+  .text-n-32-r {
+    font-size: 28px;
+    line-height: 1.1em;
+    letter-spacing: 0px;
+  }
+}
+.text-n-36-r {
+  font-family: "Fraunces", sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.2em;
+  letter-spacing: 0px;
+  color: var(--brand-surface);
+}
+@media (max-width: 1199px) {
+  .text-n-36-r {
+    font-size: 34px;
+    line-height: 1.2em;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 809px) {
+  .text-n-36-r {
+    font-size: 32px;
+    line-height: 1.2em;
+    letter-spacing: 0px;
+  }
+}
+.text-n-44-r {
+  font-family: "Dancing Script", sans-serif;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1em;
+  letter-spacing: 0px;
+  color: var(--brand-gold-ink);
+}
+@media (max-width: 1199px) {
+  .text-n-44-r {
+    font-size: 40px;
+    line-height: 1em;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 809px) {
+  .text-n-44-r {
+    font-size: 36px;
+    line-height: 1em;
+    letter-spacing: 0px;
+  }
+}
+.text-n-48-r {
+  font-family: "Fraunces", sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.1em;
+  letter-spacing: 0px;
+  color: var(--brand-surface);
+}
+@media (max-width: 1199px) {
+  .text-n-48-r {
+    font-size: 40px;
+    line-height: 1.1em;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 809px) {
+  .text-n-48-r {
+    font-size: 36px;
+    line-height: 1.1em;
+    letter-spacing: 0px;
+  }
+}
+.text-n-72-r {
+  font-family: "Fraunces", sans-serif;
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 1em;
+  letter-spacing: 0px;
+  color: var(--brand-surface);
+}
+@media (max-width: 1199px) {
+  .text-n-72-r {
+    font-size: 64px;
+    line-height: 1em;
+    letter-spacing: 0px;
+  }
+}
+@media (max-width: 809px) {
+  .text-n-72-r {
+    font-size: 40px;
+    line-height: 1em;
+    letter-spacing: 0px;
+  }
+}

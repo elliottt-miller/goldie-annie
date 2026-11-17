@@ -1,0 +1,88 @@
+.desktop {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  background-color: var(--brand-cream);
+}
+
+.n-404-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px 80px 40px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+  height: fit-content;
+  max-width: 1200px;
+  position: absolute;
+  top: 237px;
+  left: 314px;
+}
+
+.n-404 {
+  width: 100%;
+  height: 1306px;
+  aspect-ratio: 1.882;
+  background: none;
+}
+
+.text {
+  text-align: center;
+  width: 350px;
+  height: fit-content;
+  max-width: 350px;
+  z-index: 1;
+}
+
+/* Responsive content reset for the standalone 404 page. */
+.n-404-container { min-height: calc(100svh - 120px); height:auto; padding: 180px 24px 100px; }
+.content { position:relative; inset:auto; gap:24px; width:100%; }
+.n-404 { display:block; width:auto; height:auto; background:none; color:var(--brand-gold); font:700 clamp(112px, 24vw, 260px)/.8 "Fraunces", Georgia, serif; letter-spacing:-.08em; }
+.text { width:min(100%, 420px); max-width:420px; color:var(--brand-plum); }
+@media(max-width:809px) { .n-404-container { padding:140px 20px 70px; min-height:80svh; } }
+
+/* breakpoint: Tablet */
+
+@media (max-width: 1199px) {
+  .n-404-container {
+    height: fit-content;
+    position: initial;
+  }
+
+  .content {
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+}
+
+/* breakpoint: Phone */
+
+@media (max-width: 809px) {
+  .n-404-container {
+    padding: 80px 20px 60px 20px;
+  }
+
+  .content {
+    gap: 24px;
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+}

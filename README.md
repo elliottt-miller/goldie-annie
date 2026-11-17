@@ -1,31 +1,18 @@
 # Goldie Ann’s Sweets & More
 
-A mobile-first static storefront built from the Sweet Morels Framer export and rebranded for Goldie Ann’s. The Framer homepage structure, responsive variants, and motion remain the foundation. Goldie Ann’s logo, copy, evidence-based product catalog, product imagery, custom interactions, and standalone shop are part of the same deployed site.
+The active production site is the TypeScript, React and Vite application in [`frontend-v2/`](./frontend-v2/). Its page structure and interaction design follow the supplied Cakelab React export, rebranded for Goldie Ann with the public logo badge, Goldie Ann product photography, and the gold, cream and plum brand palette.
 
-## Project layout
+## Develop and build
 
-- `site/` — single source tree for the homepage, shop, styles, scripts, fonts, and Framer runtime.
-- `public/products/` — product image library and generated transparent cutouts used by the storefront.
-- `public/goldie-ann-logo.svg` — supplied brand logo.
-- `scripts/` — static build and local preview server.
-- `.github/workflows/deploy-pages.yml` — GitHub Pages deployment workflow.
-
-There are no separate `frontend/` or `template/` source trees. The build assembles the active storefront from `site/` into `dist/`, copies the product library and logo, rewrites former template food-image references to Goldie Ann’s imagery, and excludes legacy unbranded subpages and the old template food-image directory from the published bundle.
-
-## Run locally
-
-```sh
+```powershell
+cd frontend-v2
 npm ci
-npm run build
 npm run dev
+npm run lint
+npm run typecheck
+npm run build
 ```
 
-Open `http://127.0.0.1:4173/`. The Shop navigation opens the local `shop.html` catalog. The explicit “Order on Bakesy” actions link to Goldie Ann’s existing Bakesy storefront.
+Vite writes the GitHub Pages artifact to `frontend-v2/out/`. The Pages workflow builds this directory with the `/goldie-annie/` base path. Orders and current availability link to Goldie Ann’s online shop; the Contact page does not claim to submit a server-side form.
 
-## Catalog and imagery
-
-Names, visible prices, listed quantities, options, presale details, and order policies are transcribed from the owner-provided screenshots of Goldie Ann’s shop. Details not visible in that evidence are not guessed; current availability is not claimed. Bakesy remains the handoff for current options and orders. No live inventory API, cart, checkout, payment, or order workflow is implemented.
-
-Product imagery in `public/products/` includes generated studio-style transparent cutouts customized for the documented Goldie Ann’s treats. Generated imagery is presentation art, not a claim that the images are photographs of the seller’s actual batches. The original supplied logo is used for brand identity.
-
-See [`AUDIT.md`](./AUDIT.md) for the source evidence and audit limits, and [`DESIGN_REFERENCES.md`](./DESIGN_REFERENCES.md) for how the template is adapted.
+See [`frontend-v2/README.md`](./frontend-v2/README.md) for the application structure and preview commands.
