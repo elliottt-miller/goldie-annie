@@ -192,12 +192,13 @@
 @media (max-width: 809px) {
   .desktop { padding: 12px 16px 0; width: 100%; }
   .container { max-width: none; }
-  .links-logo { gap: 0; padding: 8px 12px; min-height: 64px; }
+  .links-logo { justify-content: space-between; gap: 0; padding: 8px 12px; min-height: 64px; }
   .link-groups { display: none; }
   .link-set-1, .link-set-2 { display: none; }
-  .menu { display: flex; width: 44px; height: 44px; min-width: 44px; align-items: center; justify-content: center; z-index: 2; }
+  .menu { display: flex; width: 44px; height: 44px; min-width: 44px; margin-left: auto; align-items: center; justify-content: center; z-index: 2; }
   .logo-s-frame { width: 108px; height: 64px; }
-  .desktop[data-open="true"] .links-logo { flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 12px 16px 20px; }
+  .desktop[data-open="true"] .container { border-radius: 28px; }
+  .desktop[data-open="true"] .links-logo { flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 12px 16px 20px; border-radius: 28px; }
   .desktop[data-open="true"] .link-groups { display: flex; flex: initial; flex-direction: column; width: 100%; gap: 8px; animation: navigation-links-enter .3s both cubic-bezier(.22, 1, .36, 1); }
   .desktop[data-open="true"] .link-set-1, .desktop[data-open="true"] .link-set-2 { display: flex; flex: initial; flex-direction: column; width: 100%; gap: 8px; padding: 0; }
   .desktop[data-open="true"] .logo-s-frame { position: relative; left: auto; top: auto; transform: none; order: -1; flex: 0 0 64px; margin-bottom: 4px; }
