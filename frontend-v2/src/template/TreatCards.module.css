@@ -54,33 +54,6 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.product-label {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px 6px 12px;
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  bottom: 8px;
-  left: 8px;
-  border-radius: 999px;
-  overflow: hidden;
-  background-color: var(--brand-cream);
-  border-style: solid;
-  border-color: var(--brand-plum-muted);
-  border-width: 1px;
-}
-
-.title {
-  text-align: center;
-  width: fit-content;
-  height: fit-content;
-  color: var(--brand-plum, #111);
-}
-
 .content {
   align-self: stretch;
   display: flex;
@@ -96,15 +69,6 @@
   background-color: var(--brand-cream);
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: fit-content;
-  overflow: hidden;
-}
-
 .title-description {
   display: flex;
   flex-direction: column;
@@ -117,12 +81,19 @@
   text-align: center;
 }
 
-.subtext {
-  width: 100%;
-  height: fit-content;
-  color: var(--brand-plum, #111);
-  font: 500 clamp(25px, 2.4vw, 32px)/1.15 Fraunces, Georgia, serif;
+.collectionTitle {
+  margin: 0;
+  color: var(--brand-plum);
+  font: 500 clamp(26px, 2.25vw, 32px)/1.16 Fraunces, Georgia, serif;
   text-wrap: balance;
+}
+
+.collectionDescription {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--brand-muted);
+  font: 400 clamp(15px, 1.2vw, 17px)/1.55 "DM Sans", Arial, sans-serif;
+  text-wrap: pretty;
 }
 
 .pattern {
@@ -150,62 +121,6 @@
   background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
 }
 
-.buttontext {
-  width: 100%;
-  height: fit-content;
-  max-width: 300px;
-}
-
-.productimage1 {
-  display: none;
-  gap: 10px;
-  width: 80px;
-  height: 52px;
-  aspect-ratio: 1;
-  overflow: hidden;
-  object-fit: contain;
-  object-position: center;
-}
-
-.others {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  padding: 12px 12px 12px 12px;
-  width: auto;
-  z-index: 1;
-}
-
-.product-thumb {
-  display: grid;
-  place-items: center;
-  flex: 0 0 96px;
-  width: 96px;
-  height: 96px;
-  padding: 0;
-  border: 1px solid var(--brand-plum-muted);
-  border-radius: 18px;
-  overflow: hidden;
-  background-color: var(--brand-cream-light);
-  background: var(--brand-cream-light);
-  color: var(--brand-plum);
-  cursor: pointer;
-  transition: opacity .2s ease, transform .2s ease, border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
-}
-
-.product-thumb img { display: block; width: 100%; height: 100%; padding: 8px; object-fit: contain; }
-
-.product-thumb[aria-pressed="true"] {
-  opacity: 1;
-  border-color: var(--brand-gold);
-  box-shadow: 0 0 0 2px var(--brand-gold-pale);
-}
-
-.product-thumb:hover { transform: translateY(-2px); }
-.product-thumb:active { transform: translateY(0) scale(.97); }
-
 @media (max-width: 1199px) {
   .desktop-1 { width: 100%; }
 }
@@ -227,32 +142,11 @@
     gap: 24px;
     padding: 28px 16px 24px;
   }
-  .desktop-1 .wrapper { align-items: center; }
   .desktop-1 .title-description { align-items: center; text-align: center; }
-  .desktop-1 .subtext {
-    max-width: 22ch;
-    font-size: clamp(30px, 6vw, 36px);
-    line-height: 1.12;
-    text-wrap: balance;
-  }
-  .desktop-1 .buttontext { font-size: clamp(15px, 4vw, 18px); line-height: 1.45; }
-  .desktop-1 .productimage1 { display: none; }
-  .desktop-1 .others {
-    flex-direction: row;
-    width: auto;
-    gap: 12px;
-    padding: 0;
-  }
-  .desktop-1 .product-thumb {
-    flex-basis: clamp(64px, 18vw, 88px);
-    width: clamp(64px, 18vw, 88px);
-    height: clamp(64px, 18vw, 88px);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .desktop-1, .featured-product, .product-thumb { animation: none; transition: none; }
+  .desktop-1, .featured-product { animation: none; transition: none; }
   .desktop-1:hover { transform: none; }
-  .product-thumb:hover { transform: none; }
   .desktop-1:hover .featured-product { transform: none; }
 }

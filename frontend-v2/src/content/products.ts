@@ -43,19 +43,19 @@ export const productCollections: readonly ProductCollection[] = [
   {
     id: 'cake-pops',
     title: 'Cake pops',
-    description: 'Hand-decorated favorites for birthdays, gifts and celebrations.',
+    description: 'Colorful, hand-decorated cake pops made for birthday tables, baby showers and thoughtful little gifts.',
     productIds: ['funfetti-cake-pops', 'lemon-blueberry', 'apple-pie-on-a-stick', 'butterfinger-bliss'],
   },
   {
     id: 'dipped-treats',
     title: 'Dipped treats',
-    description: 'Chocolate-dipped Oreos, pretzels and cakesicles, made for sharing.',
+    description: 'Chocolate-dipped Oreos, pretzel rods and cakesicles, finished with your choice of up to two colors, drizzle and sprinkles.',
     productIds: ['chocolate-dipped-oreos', 'chocolate-dipped-pretzel-rods', 'cakesicles'],
   },
   {
     id: 'sweet-boxes',
     title: 'Sweet boxes',
-    description: 'Festive mixes and gift-ready treats for sharing.',
+    description: 'A shareable assortment of decorated sweets, thoughtfully arranged for celebrations, gifting and everyday joy.',
     productIds: ['mean-ones-sweet-box', 'blue-christmas-confection-box', 'rice-krispy-treats'],
   },
 ];
