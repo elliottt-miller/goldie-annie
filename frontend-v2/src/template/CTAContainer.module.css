@@ -206,10 +206,10 @@
   .pattern2 span { width: 64px; }
   .mainImage { grid-column: auto; grid-row: auto; width: min(100%, 320px); height: clamp(220px, 75vw, 300px); margin-inline: auto; }
   .subtitleCta { grid-column: auto; padding: 0; }
+  /* The fabric is positioned against the full desktop card and can drift
+     over the product and CTA as mobile content height changes. */
   .cloth,
-  .cloth2 { width: clamp(112px, 32vw, 155px); height: clamp(58px, 18vw, 92px); }
-  .cloth { right: auto; left: 2%; bottom: 26%; }
-  .cloth2 { right: 2%; bottom: 24%; }
+  .cloth2 { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -218,8 +218,6 @@
   .heading { font-size: 32px; }
   .accentHeading { font-size: clamp(38px, 11vw, 46px); }
   .mainImage { height: clamp(200px, 65vw, 260px); }
-  .cloth { left: -2%; bottom: 31%; }
-  .cloth2 { right: -2%; bottom: 28%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -351,13 +351,46 @@
 
 @media (max-width: 809px) {
   .desktop {
-    padding: 102px 20px 60px 20px;
+    padding: 48px 20px 60px 20px;
     width: 100%;
   }
 
-  .logo {
-    width: min(100%, 360px);
-    height: auto;
+  /* The sticky header already carries the badge on phones. Keep the footer
+     focused on its links and copy, without another oversized logo or product
+     cutouts colliding with the footer content. */
+  .logo,
+  .footer-cake-pops {
+    display: none;
+  }
+
+  .nav-links,
+  .legal-links,
+  .social-links,
+  .contact-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .quicks,
+  .others,
+  .socials,
+  .contact {
+    text-align: center;
+  }
+
+  .links-wrapper,
+  .links-wrapper2,
+  .links-wrapper3,
+  .wrapper {
+    align-items: center;
+    text-align: center;
+  }
+
+  .links-wrapper p,
+  .links-wrapper2 p,
+  .links-wrapper3 p,
+  .wrapper p {
+    text-align: center;
   }
 
   .line {
@@ -397,9 +430,6 @@
     flex-direction: column;
     padding: 0px 0px 0px 0px;
   }
-
-  .footer-cake-pops { right: 16px; width: 168px; height: 86px; }
-  .footer-cake-pops img { height: 82px; }
 
   .top-gradient {
     height: 124px;
