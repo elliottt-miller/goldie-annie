@@ -35,7 +35,7 @@ export const productCollections: readonly ProductCollection[] = [
     id: 'dipped-treats',
     title: 'Dipped treats',
     description: 'Chocolate-dipped Oreos, cakesicles and pretzels, finished with a little extra sweetness.',
-    productIds: ['chocolate-dipped-oreos', 'chocolate-dipped-pretzel-rods', 'cakesicles'],
+    productIds: ['chocolate-dipped-oreos', 'chocolate-dipped-pretzel-rods', 'homemade-caramel-pretzel-rods'],
   },
   {
     id: 'sweet-boxes',

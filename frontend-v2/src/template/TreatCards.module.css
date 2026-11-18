@@ -222,10 +222,10 @@
   .desktop-1 .product-image {
     flex: none;
     width: 100%;
-    min-height: 300px;
+    min-height: clamp(220px, 58vw, 300px);
     border-radius: 24px;
   }
-  .desktop-1 .featured-product { min-height: 300px; padding: 32px; }
+  .desktop-1 .featured-product { min-height: inherit; padding: clamp(20px, 6vw, 36px); }
   .desktop-1 .content {
     flex: none;
     width: 100%;
@@ -235,6 +235,14 @@
   }
   .desktop-1 .wrapper { align-items: center; }
   .desktop-1 .title-description { align-items: center; text-align: center; }
+  .desktop-1 .subtext {
+    max-width: 22ch;
+    font-size: clamp(30px, 6vw, 36px);
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+  .desktop-1 .buttontext { font-size: clamp(15px, 4vw, 18px); line-height: 1.45; }
+  .desktop-1 .productimage1 { display: none; }
   .desktop-1 .others {
     flex-direction: row;
     width: auto;
