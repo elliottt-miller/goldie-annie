@@ -2,6 +2,7 @@ import styles from "../Page.module.css";
 import SectionTags from "../SectionTags";
 import { orderDepositPercent, orderLeadTimeDays, orderMinimumCents, sweetPackages, typicalPreparationDays } from "../../content/products";
 import { useCart } from "../../commerce/useCart";
+import Button from "../Button";
 
 const formatPrice = (cents: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 
@@ -17,13 +18,13 @@ export default function HomeOffers() {
         </div>
       </div>
       <div className={styles["package-grid-home"]}>
-        {sweetPackages.map((offer) => <article className={styles["package-card"]} key={offer.name}>
+        {sweetPackages.map((offer) => <article className={styles["package-card"]} data-reveal key={offer.name}>
           <div className={styles["package-card-heading"]}>
             <div><h3>{offer.name}</h3><span>{offer.pieces} pieces</span></div>
             <strong>{formatPrice(offer.priceCents)}</strong>
           </div>
           <ul>{offer.items.map((item) => <li key={item}>{item}</li>)}</ul>
-          <button type="button" onClick={() => addPackage(offer.name)}>Add package to bag</button>
+          <Button buttonText="Add package to bag" onClick={() => addPackage(offer.name)} fullWidth />
         </article>)}
       </div>
       <div className={styles["order-facts"]}>

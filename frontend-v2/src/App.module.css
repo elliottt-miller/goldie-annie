@@ -5,7 +5,7 @@
   place-items: center;
   color: var(--brand-ink);
   background:
-    radial-gradient(ellipse at 50% 100%, var(--brand-gold-glow), transparent 48%),
+    radial-gradient(ellipse at 50% 100%, var(--brand-accent-glow), transparent 48%),
     linear-gradient(180deg, var(--brand-cream-light), var(--brand-cream));
   text-align: center;
 }
@@ -17,7 +17,7 @@
   align-items: center;
   gap: 18px;
   padding: clamp(28px, 6vw, 48px);
-  border: 1px solid var(--brand-gold-muted);
+  border: 1px solid var(--brand-accent-muted);
   border-radius: 28px;
   background: color-mix(in srgb, var(--brand-cream-light) 90%, transparent);
   box-shadow: 0 18px 48px var(--brand-plum-muted);
@@ -33,7 +33,7 @@
 .spinner {
   width: 34px;
   height: 34px;
-  border: 2px solid var(--brand-gold-muted);
+  border: 2px solid var(--brand-accent-muted);
   border-top-color: var(--brand-plum);
   border-radius: 50%;
   animation: turn .85s linear infinite;
@@ -64,7 +64,7 @@
   justify-content: center;
   margin-top: 4px;
   padding: 12px 24px;
-  border: 1px solid var(--brand-gold);
+  border: 1px solid var(--brand-accent);
   border-radius: 999px;
   color: var(--brand-cream-light);
   background: var(--brand-plum);
@@ -78,7 +78,7 @@
   box-shadow: 0 8px 20px var(--brand-plum-muted);
 }
 
-.retryButton:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 4px; }
+.retryButton:focus-visible { outline: 2px solid var(--brand-accent-ink); outline-offset: 4px; }
 
 @keyframes turn { to { transform: rotate(1turn); } }
 

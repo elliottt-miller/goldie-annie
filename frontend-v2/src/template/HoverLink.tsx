@@ -15,7 +15,7 @@ interface Props {
 export default function HoverLink({
   variant: variantProp,
   primaryColour = "var(--brand-plum)",
-  hoverColour = "var(--brand-gold-ink)",
+  hoverColour = "var(--brand-accent-ink)",
   label = "About",
   link = "/about",
 }: Props) {

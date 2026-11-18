@@ -15,7 +15,7 @@ interface Props {
 export default function FeaturedTreatCard({ product, categoryTitle, categoryDescription }: Props) {
   const title = categoryTitle ?? product.name
   return (
-    <article className={styles.card}>
+    <article className={styles.card} data-reveal>
       <Link className={styles.imageLink} to={categoryTitle ? "/treats" : `/treats/${encodeURIComponent(product.id)}`} aria-label={categoryTitle ? `Explore ${title}` : `View ${product.name}`}>
         <ResponsiveProductImage
           className={styles.image}

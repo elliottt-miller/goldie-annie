@@ -5,7 +5,7 @@ import Button from "./Button"
 
 export default function Page() {
   return (
-    <div className={styles["desktop"]}>
+    <div className={styles["desktop"]} data-reveal>
       <div className={styles["n-404-container"]}>
         <div className={styles["content"]}>
           <h1 className={styles["n-404"]} aria-label="404: page not found">404</h1>

@@ -11,7 +11,7 @@ const menuItems = [
 ] as const;
 
 export default function MenuPricing() {
-  return <section className={styles.section} aria-labelledby="menu-pricing-title">
+  return <section className={styles.section} data-reveal aria-labelledby="menu-pricing-title">
     <div className={styles.inner}>
       <header className={styles.heading}>
         <p className={styles.eyebrow}>Made for your occasion</p>
@@ -22,7 +22,7 @@ export default function MenuPricing() {
       <div className={styles.menuGrid}>
         {menuItems.map(({ label, productId }) => {
           const product = getProduct(productId);
-          return <article className={styles.menuItem} key={productId}>
+          return <article className={styles.menuItem} data-reveal key={productId}>
             <h3>{label}</h3>
             <span>{product.kind.split(' · ').at(-1)}</span>
             <strong>{product.priceCents ? formatPrice(product.priceCents) : 'Ask for pricing'}</strong>
@@ -38,7 +38,7 @@ export default function MenuPricing() {
           <h2>Packages</h2>
         </div>
         <div className={styles.packageGrid}>
-          {sweetPackages.map((offer) => <article className={styles.package} key={offer.name}>
+          {sweetPackages.map((offer) => <article className={styles.package} data-reveal key={offer.name}>
             <div className={styles.packageHead}>
               <div><h3>{offer.name}</h3><span>{offer.pieces} pieces</span></div>
               <strong>{formatPrice(offer.priceCents)}</strong>

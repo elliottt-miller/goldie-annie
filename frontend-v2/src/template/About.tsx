@@ -41,7 +41,7 @@ export default function Page() {
               { number: "03", title: "Secure your date", detail: "Order at least one week ahead. A 50% non-refundable deposit is due within 24 hours." },
               { number: "04", title: "Celebrate together", detail: "Enjoy hand-decorated treats made for your special moment." },
             ].map(({ number, title, detail }) => (
-              <article className={styles.workflowCard} key={number}>
+              <article className={styles.workflowCard} data-reveal key={number}>
                 <div className={styles.workflowMeta}>
                   <span className={styles.workflowNumber}>{number}</span>
                 </div>

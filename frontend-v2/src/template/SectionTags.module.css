@@ -24,7 +24,7 @@
   width: 32px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .tag {
@@ -48,7 +48,7 @@
   width: 32px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 /* variant: Left */

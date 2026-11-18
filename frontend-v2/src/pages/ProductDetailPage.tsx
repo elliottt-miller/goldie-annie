@@ -6,6 +6,7 @@ import { useCart } from "../commerce/useCart";
 import styles from "./ProductDetailPage.module.css";
 import { NotFoundPage } from "./NotFoundPage";
 import ResponsiveProductImage from "../template/ResponsiveProductImage";
+import Button from "../template/Button";
 
 export function ProductDetailPage() {
   const { productId } = useParams();
@@ -70,15 +71,15 @@ export function ProductDetailPage() {
               </dl>
             </section>
             {product.priceCents != null
-              ? <button className={styles.order} type="button" onClick={() => { addProduct(product.id as ProductId); setAdded(true); }}>{added ? 'Added to bag' : `Add ${packSizeLabel?.toLowerCase() ?? 'item'} to bag`}</button>
-              : <Link className={styles.order} to={`/contact?product=${encodeURIComponent(product.id)}`}>Ask about availability</Link>}
+              ? <Button className={styles.order} buttonText={added ? 'Added to bag' : `Add ${packSizeLabel?.toLowerCase() ?? 'item'} to bag`} onClick={() => { addProduct(product.id as ProductId); setAdded(true); }} />
+              : <Button className={styles.order} buttonText="Ask about availability" link={`/contact?product=${encodeURIComponent(product.id)}`} />}
             <p className={styles.orderNote}>Adding to your bag does not reserve a date. Goldie Ann confirms availability before accepting an order. A 50% non-refundable deposit is due within 24 hours of order placement.</p>
             <Link className={styles.back} to="/treats"><ArrowLeft size={15} aria-hidden="true" /> Back to all treats</Link>
           </div>
         </div>
       </div>
     </section>
-    {related.length > 0 && <section className={styles.related} aria-labelledby="related-treats-title">
+    {related.length > 0 && <section className={styles.related} data-reveal aria-labelledby="related-treats-title">
       <div className={styles.relatedInner}>
         <p className={styles.relatedEyebrow}>Keep exploring</p>
         <h2 id="related-treats-title">More from {collection?.title.toLowerCase() ?? category.toLowerCase()}</h2>

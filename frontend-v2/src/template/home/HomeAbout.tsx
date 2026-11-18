@@ -24,7 +24,7 @@ export default function HomeAbout() {
         </div>
         <div className={styles["n-2"]}>
           <div className={styles["image-frame"]}>
-            <ResponsiveProductImage className={styles["cake-image"]} src={`${import.meta.env.BASE_URL}products/homepage-assortment.webp`} sizes="(max-width: 809px) 350px, (max-width: 1199px) 353px, 438px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={1670} height={942} />
+            <ResponsiveProductImage className={styles["cake-image"]} src={`${import.meta.env.BASE_URL}products/Assorted Cake Pops on Marble Pedestal.webp`} sizes="(max-width: 809px) 350px, (max-width: 1199px) 353px, 438px" alt="An assortment of hand-decorated cake pops arranged on a marble pedestal" loading="lazy" decoding="async" width={1447} height={1087} />
           </div>
         </div>
       </div>

@@ -53,7 +53,7 @@
 /* Responsive content reset for the standalone 404 page. */
 .n-404-container { min-height: calc(100svh - 120px); height:auto; padding: 180px 24px 100px; }
 .content { position:relative; inset:auto; gap:24px; width:100%; }
-.n-404 { display:block; width:auto; height:auto; background:none; color:var(--brand-gold); font:700 clamp(112px, 24vw, 260px)/.8 "Fraunces", Georgia, serif; letter-spacing:-.08em; }
+.n-404 { display:block; width:auto; height:auto; background:none; color:var(--brand-accent); font:700 clamp(112px, 24vw, 260px)/.8 "Fraunces", Georgia, serif; letter-spacing:-.08em; }
 .text { width:min(100%, 420px); max-width:420px; color:var(--brand-plum); }
 @media(max-width:809px) { .n-404-container { padding:140px 20px 70px; min-height:80svh; } }
 

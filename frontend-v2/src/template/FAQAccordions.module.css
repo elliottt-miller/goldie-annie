@@ -19,8 +19,8 @@
   text-align: left;
   transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
 }
-.open:hover { transform: translateY(-1px); border-color: var(--brand-gold); }
-.open:focus-within { border-color: var(--brand-gold); }
+.open:hover { transform: translateY(-1px); border-color: var(--brand-accent); }
+.open:focus-within { border-color: var(--brand-accent); }
 
 .question-answer {
   display: flex;
@@ -54,7 +54,7 @@
 
 .question-trigger:focus-visible {
   border-radius: 4px;
-  outline: 2px solid var(--brand-gold-ink);
+  outline: 2px solid var(--brand-accent-ink);
   outline-offset: 4px;
 }
 
@@ -128,7 +128,7 @@
 }
 
 .open[data-variant="Close"] .button2 {
-  background-color: var(--brand-gold);
+  background-color: var(--brand-accent);
 }
 
 .toggle-icon {

@@ -46,12 +46,12 @@
 }
 
 .desktop:hover,
-.desktop:focus-visible { color: var(--hover-colour, var(--brand-gold-ink)); }
+.desktop:focus-visible { color: var(--hover-colour, var(--brand-accent-ink)); }
 .desktop:hover .label,
 .desktop:focus-visible .label { transform: translateY(-115%); }
 .desktop:hover .text-2,
 .desktop:focus-visible .text-2 { transform: translateY(0); }
-.desktop:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 4px; }
+.desktop:focus-visible { outline: 2px solid var(--brand-accent-ink); outline-offset: 4px; }
 
 @media (prefers-reduced-motion: reduce) {
   .label, .text-2 { transition: none; }

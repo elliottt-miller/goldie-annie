@@ -6,6 +6,7 @@ import ResponsiveProductImage from "./ResponsiveProductImage"
 import { useCart } from "../commerce/useCart"
 import { useState } from "react"
 import type { ProductId } from "../content/products"
+import Button from "./Button"
 
 interface Props {
   id: string
@@ -27,7 +28,7 @@ export default function ProductCard({
   const { addProduct } = useCart();
   const [added, setAdded] = useState(false);
   return (
-    <article className={styles["desktop-open"]}>
+    <article className={styles["desktop-open"]} data-reveal>
       <Link className={styles["card-link"]} to={`/treats/${encodeURIComponent(id)}`} aria-label={`View ${text} details`}>
         <div className={styles["product-image"]}>
           {image && <ResponsiveProductImage className={styles["product-photo"]} src={image} sizes="(max-width: 809px) 90vw, (max-width: 1199px) 44vw, 30vw" alt="" loading="lazy" decoding="async" width={480} height={480} />}
@@ -40,8 +41,8 @@ export default function ProductCard({
         </div>
       </Link>
       {priceCents != null
-        ? <button className={styles.addButton} type="button" onClick={() => { addProduct(id as ProductId); setAdded(true); window.setTimeout(() => setAdded(false), 1800); }}>{added ? 'Added to your bag' : 'Add to bag'}</button>
-        : <Link className={styles.addButton} to={`/contact?product=${encodeURIComponent(id)}`}>Ask about this treat</Link>}
+        ? <Button buttonText={added ? 'Added to your bag' : 'Add to bag'} onClick={() => { addProduct(id as ProductId); setAdded(true); window.setTimeout(() => setAdded(false), 1800); }} fullWidth />
+        : <Button buttonText="Ask about this treat" link={`/contact?product=${encodeURIComponent(id)}`} fullWidth />}
     </article>
   )
 }

@@ -1,4 +1,4 @@
-/* Match the reference export's 700ms opacity and upward-shift reveal. */
+/* Source-faithful CakeLab section reveal: opacity plus a gentle 28px rise. */
 .has-scroll-reveal [data-reveal] {
   opacity: 1;
   transform: none;
@@ -8,6 +8,7 @@
 .has-scroll-reveal [data-reveal][data-reveal-pending] {
   opacity: 0;
   transform: translateY(28px);
+  will-change: opacity, transform;
 }
 
 .has-scroll-reveal [data-reveal][data-revealed] {
@@ -20,5 +21,6 @@
     opacity: 1;
     transform: none;
     transition: none;
+    will-change: auto;
   }
 }

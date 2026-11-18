@@ -46,7 +46,7 @@ function formatRequest(request: OrderRequest) {
 export function OrderRequestPage() {
   const request = loadRequest();
   const [copied, setCopied] = useState(false);
-  if (!request) return <div className={styles.page}><section className={styles.empty}><h1>No order request to review</h1><p>Add treats to your bag and enter your occasion details to prepare a request.</p><Link to="/treats">Browse the shop</Link></section></div>;
+  if (!request) return <div className={styles.page}><section className={styles.empty} data-reveal><h1>No order request to review</h1><p>Add treats to your bag and enter your occasion details to prepare a request.</p><Link to="/treats">Browse the shop</Link></section></div>;
   const requestText = formatRequest(request);
 
   const copyRequest = async () => {
@@ -64,12 +64,12 @@ export function OrderRequestPage() {
   };
 
   return <div className={styles.page}>
-    <section className={styles.card}>
+    <section className={styles.card} data-reveal>
       <p className={styles.eyebrow}>Order request</p>
       <h1>Review your sweet plans</h1>
       <p className={styles.notice} role="status">This request is saved in this browser only. It has <strong>not been sent</strong> to Goldie Ann, and your date, availability and deposit are not confirmed.</p>
-      <div className={styles.customer}><div><span>Customer</span><strong>{request.customer.name}</strong></div><div><span>Email</span><strong>{request.customer.email}</strong></div><div><span>Event date</span><strong>{request.eventDate}</strong></div><div><span>Area</span><strong>{request.city || 'Not provided'}</strong></div></div>
-      <div className={styles.itemList}><h2>Your selection</h2>{request.items.map((item, index) => <div className={styles.item} key={`${item.name}-${index}`}><span>{item.quantity} × {item.name}</span><strong>{currency(item.totalCents)}</strong></div>)}</div>
+      <div className={styles.customer} data-reveal><div><span>Customer</span><strong>{request.customer.name}</strong></div><div><span>Email</span><strong>{request.customer.email}</strong></div><div><span>Event date</span><strong>{request.eventDate}</strong></div><div><span>Area</span><strong>{request.city || 'Not provided'}</strong></div></div>
+      <div className={styles.itemList} data-reveal><h2>Your selection</h2>{request.items.map((item, index) => <div className={styles.item} data-reveal key={`${item.name}-${index}`}><span>{item.quantity} × {item.name}</span><strong>{currency(item.totalCents)}</strong></div>)}</div>
       {request.colors.length > 0 && <p className={styles.note}><strong>Requested colors:</strong> {request.colors.join(', ')}</p>}
       {request.notes && <p className={styles.note}><strong>Custom details:</strong> {request.notes}</p>}
       <div className={styles.total}><span>Estimated subtotal</span><strong>{currency(request.subtotalCents)}</strong></div>

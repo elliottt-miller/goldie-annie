@@ -20,7 +20,7 @@
   align-self: stretch;
   isolation: isolate;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 86%, var(--brand-gold-glow), transparent 56%), linear-gradient(180deg, var(--brand-cream-light) 0%, var(--brand-cream) 72%, var(--brand-cream-deep) 100%);
+  background: radial-gradient(ellipse at 50% 86%, var(--brand-accent-glow), transparent 56%), linear-gradient(180deg, var(--brand-cream-light) 0%, var(--brand-cream) 72%, var(--brand-cream-deep) 100%);
 }
 
 .hero-container::before {
@@ -31,8 +31,8 @@
   pointer-events: none;
   background:
     radial-gradient(ellipse at 16% 78%, color-mix(in srgb, var(--brand-plum) 6%, transparent), transparent 34%),
-    radial-gradient(ellipse at 82% 70%, var(--brand-gold-glow), transparent 42%),
-    linear-gradient(180deg, transparent, color-mix(in srgb, var(--brand-gold) 4%, transparent));
+    radial-gradient(ellipse at 82% 70%, var(--brand-accent-glow), transparent 42%),
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--brand-accent) 4%, transparent));
   -webkit-mask-image: linear-gradient(180deg, transparent 2%, #000 24%, #000 82%, transparent 100%);
   mask-image: linear-gradient(180deg, transparent 2%, #000 24%, #000 82%, transparent 100%);
 }
@@ -150,7 +150,7 @@
   text-align: center;
   align-self: stretch;
   height: fit-content;
-  color: var(--brand-gold-ink);
+  color: var(--brand-accent-ink);
   font-family: "Dancing Script", cursive;
   font-style: italic;
   font-weight: 500;
@@ -173,14 +173,14 @@
   width: 120px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .line2 {
   width: 120px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .text {
@@ -318,7 +318,7 @@
   position: relative;
   flex: 0 1 480px;
   width: min(100%, 480px);
-  aspect-ratio: 1670 / 942;
+  aspect-ratio: 1447 / 1087;
   overflow: visible;
   background-color: transparent;
 }
@@ -624,14 +624,14 @@
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .line4 {
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .text3 {
@@ -701,14 +701,14 @@
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .line5 {
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .text4 {
@@ -778,14 +778,14 @@
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .line7 {
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .text5 {
@@ -852,14 +852,14 @@
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .line9 {
   width: 80px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .text6 {
@@ -1256,7 +1256,7 @@
   height: 100%;
   border-radius: 25px;
   object-fit: contain;
-  background: linear-gradient(145deg, var(--brand-surface), var(--brand-gold-pale));
+  background: linear-gradient(145deg, var(--brand-surface), var(--brand-accent-pale));
   transition: transform .5s cubic-bezier(.2,.7,.2,1);
 }
 
@@ -1338,14 +1338,14 @@
   width: 120px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .line11 {
   width: 120px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .text7 {
@@ -1551,7 +1551,7 @@
   .image-frame {
     width: min(100%, 420px);
     flex-basis: 420px;
-    aspect-ratio: 1670 / 942;
+    aspect-ratio: 1447 / 1087;
   }
 
   .cake-image { inset: 0; width: 100%; height: 100%; }
@@ -1740,7 +1740,7 @@
   .image-frame {
     width: min(100%, 480px);
     flex-basis: 480px;
-    aspect-ratio: 1670 / 942;
+    aspect-ratio: 1447 / 1087;
   }
 
   .cake-image { inset: 0; width: 100%; height: 100%; }
@@ -1971,7 +1971,7 @@
     scroll-padding-inline: 10px;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
-    scrollbar-color: var(--brand-gold-muted) transparent;
+    scrollbar-color: var(--brand-accent-muted) transparent;
   }
   .instagram-stories, .instagram-stories2, .instagram-stories3 {
     flex: 0 0 clamp(196px, 56vw, 250px);
@@ -1991,11 +1991,8 @@
 .package-card-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .package-card-heading h3 { margin: 0; color: var(--brand-plum); font: 500 clamp(20px, 2.2vw, 27px)/1.18 Fraunces, Georgia, serif; text-wrap: balance; }
 .package-card-heading span { display: inline-block; margin-top: 7px; color: var(--brand-muted); font-size: 14px; }
-.package-card-heading strong { flex: 0 0 auto; color: var(--brand-gold-ink); font: 600 clamp(20px, 2.2vw, 27px)/1.2 Fraunces, Georgia, serif; }
+.package-card-heading strong { flex: 0 0 auto; color: var(--brand-accent-ink); font: 600 clamp(20px, 2.2vw, 27px)/1.2 Fraunces, Georgia, serif; }
 .package-card ul { display: grid; flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; margin: 20px 0; padding-left: 18px; color: var(--brand-muted); font-size: 14px; line-height: 1.45; }
-.package-card button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--brand-plum); border-radius: 999px; color: var(--brand-plum); background: transparent; font: inherit; font-weight: 700; text-align: center; cursor: pointer; transition: color .18s ease, background-color .18s ease; }
-.package-card button:hover { color: var(--brand-cream-light); background: var(--brand-plum); }
-.package-card button:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 3px; }
 .order-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
 .order-facts > div { display: flex; min-width: 0; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--brand-plum-muted); border-radius: 16px; background: var(--brand-cream); }
 .order-facts span { color: var(--brand-muted); font-size: 13px; }
@@ -2011,10 +2008,6 @@
 @media (max-width: 420px) {
   .package-card-heading { flex-direction: column; gap: 10px; }
   .order-facts { grid-template-columns: minmax(0, 1fr); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .package-card button { transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -102,7 +102,7 @@
   width: 100%;
   min-width: 0;
   min-height: 48px;
-  border: 1px solid var(--brand-gold-muted);
+  border: 1px solid var(--brand-accent-muted);
   border-radius: 999px;
   color: var(--brand-ink);
   background-color: var(--brand-surface);
@@ -114,8 +114,8 @@
 
 .search-field input:focus-visible,
 .dropdown select:focus-visible {
-  border-color: var(--brand-gold);
-  box-shadow: 0 0 0 3px var(--brand-gold-glow);
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px var(--brand-accent-glow);
 }
 
 .dropdown select {

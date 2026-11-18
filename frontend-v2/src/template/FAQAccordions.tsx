@@ -19,7 +19,7 @@ export default function FAQAccordions({
   const variant = expanded ? "Open" : "Close"
 
   return (
-    <div className={styles["open"]} data-variant={variant}>
+    <div className={styles["open"]} data-reveal data-variant={variant}>
       <div className={styles["question-answer"]}>
         <h3 className={styles["question"]}>
           <button

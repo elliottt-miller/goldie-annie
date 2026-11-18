@@ -20,7 +20,7 @@ export default function TreatCards({
   buttonText = "Shop cake pops",
 }: Props) {
   return (
-    <div className={styles["desktop-1"]}>
+    <div className={styles["desktop-1"]} data-reveal>
       <div className={styles["product-image"]}>
         {productImage1 && <ResponsiveProductImage className={styles["featured-product"]} src={productImage1} sizes="(max-width: 809px) 88vw, (max-width: 1199px) 42vw, 520px" alt={`${title} featured treat`} loading="lazy" decoding="async" />}
       </div>

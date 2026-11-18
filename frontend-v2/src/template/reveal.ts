@@ -20,8 +20,8 @@ export function initReveal(): () => void {
     targets.delete(element);
   };
 
-  // Geometry checks cover restored scroll positions and deep links without a
-  // timer that continues running after all sections have been revealed.
+  // Check the initial viewport and newly mounted route content once. The
+  // IntersectionObserver handles ongoing scroll entry without layout reads.
   const revealVisibleTargets = () => {
     const revealBoundary = window.innerHeight * 0.92;
     for (const target of targets) {
@@ -46,8 +46,6 @@ export function initReveal(): () => void {
   };
 
   document.querySelectorAll("[data-reveal]").forEach(observeTarget);
-  window.addEventListener("scroll", revealVisibleTargets, { passive: true });
-  window.addEventListener("resize", revealVisibleTargets, { passive: true });
   window.addEventListener("pageshow", revealVisibleTargets);
   revealVisibleTargets();
 
@@ -60,8 +58,6 @@ export function initReveal(): () => void {
   return () => {
     mutations.disconnect();
     observer.disconnect();
-    window.removeEventListener("scroll", revealVisibleTargets);
-    window.removeEventListener("resize", revealVisibleTargets);
     window.removeEventListener("pageshow", revealVisibleTargets);
     targets.forEach((element) => element.removeAttribute("data-reveal-pending"));
     targets.clear();

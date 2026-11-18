@@ -17,7 +17,7 @@ export default function HomeWhy() {
             </div>
           </div>
           <div className={styles["wrapper"]}>
-            <div className={styles["point-1"]}>
+            <div className={styles["point-1"]} data-reveal>
               <div className={styles["frame-icon"]}>
                 <Heart className="decorative-icon decorative-icon--small" aria-hidden="true" />
               </div>
@@ -31,7 +31,7 @@ export default function HomeWhy() {
                 <p className={cx(tokens["text-n-18-r"], styles["text3"])}>{"Each treat is decorated by hand for a personal finish."}</p>
               </div>
             </div>
-            <div className={styles["point-2"]}>
+            <div className={styles["point-2"]} data-reveal>
               <div className={styles["frame-icon2"]}>
                 <ChefHat className="decorative-icon" aria-hidden="true" />
               </div>
@@ -45,7 +45,7 @@ export default function HomeWhy() {
                 <p className={cx(tokens["text-n-18-r"], styles["text4"])}>{"Choose a sweet detail for gifting, gatherings or celebrations."}</p>
               </div>
             </div>
-            <div className={styles["point-3"]}>
+            <div className={styles["point-3"]} data-reveal>
               <div className={styles["frame-icon3"]}>
                 <CookingPot className="decorative-icon" aria-hidden="true" />
               </div>
@@ -59,7 +59,7 @@ export default function HomeWhy() {
                 <p className={cx(tokens["text-n-18-r"], styles["text5"])}>{"Packaging and customizations are available upon request."}</p>
               </div>
             </div>
-            <div className={styles["point-4"]}>
+            <div className={styles["point-4"]} data-reveal>
               <div className={styles["frame-icon4"]}>
                 <Smile className="decorative-icon" aria-hidden="true" />
               </div>

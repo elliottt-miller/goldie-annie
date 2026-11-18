@@ -19,11 +19,11 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .desktop:hover { transform: translateY(-5px); border-color: var(--brand-gold-muted); box-shadow: 0 18px 36px var(--brand-plum-muted); }
+  .desktop:hover { transform: translateY(-5px); border-color: var(--brand-accent-muted); box-shadow: 0 18px 36px var(--brand-plum-muted); }
   .desktop:hover .main-product-image { transform: scale(1.04); }
 }
 
-.desktop:focus-within { border-color: var(--brand-gold); box-shadow: 0 0 0 3px var(--brand-gold-pale); }
+.desktop:focus-within { border-color: var(--brand-accent); box-shadow: 0 0 0 3px var(--brand-accent-pale); }
 
 .main-image {
   position: relative;
@@ -34,7 +34,7 @@
   aspect-ratio: 1.354;
   border-radius: 20px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 58%, var(--brand-gold-pale), transparent 68%), var(--brand-cream-light);
+  background: radial-gradient(ellipse at 50% 58%, var(--brand-accent-pale), transparent 68%), var(--brand-cream-light);
 }
 
 .main-product-image {
@@ -103,14 +103,14 @@
   width: 64px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .line2 {
   width: 64px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-gold) 100%);
+  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
 }
 
 .price {
@@ -133,13 +133,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--brand-gold-ink);
+  color: var(--brand-accent-ink);
   font: 700 14px/1.4 "DM Sans", sans-serif;
-  text-decoration-color: var(--brand-gold-muted);
+  text-decoration-color: var(--brand-accent-muted);
   text-underline-offset: 4px;
 }
 .price-link:hover { color: var(--brand-plum); }
-.price-link:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 3px; border-radius: 2px; }
+.price-link:focus-visible { outline: 2px solid var(--brand-accent-ink); outline-offset: 3px; border-radius: 2px; }
 
 .pricesuffix {
   text-align: center;
@@ -203,7 +203,7 @@
 /* variant: Desktop Gold */
 
 .desktop[data-variant="Desktop Gold"] .divider {
-  background-color: var(--brand-gold);
+  background-color: var(--brand-accent);
 }
 
 .desktop[data-variant="Desktop Gold"] .image {

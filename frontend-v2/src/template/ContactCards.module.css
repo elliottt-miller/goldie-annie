@@ -29,7 +29,7 @@
   aspect-ratio: 1;
   border-radius: 24px;
   overflow: hidden;
-  background-color: var(--brand-gold-pale);
+  background-color: var(--brand-accent-pale);
   background-repeat: no-repeat;
   background-size: 68%;
   background-position: center;
@@ -70,14 +70,14 @@
 }
 
 .desktop-with-short-text[data-interactive="true"]:focus-visible {
-  outline: 2px solid var(--brand-gold-ink);
+  outline: 2px solid var(--brand-accent-ink);
   outline-offset: 4px;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .desktop-with-short-text[data-interactive="true"]:hover {
     transform: translateY(-3px);
-    border-color: var(--brand-gold);
+    border-color: var(--brand-accent);
     box-shadow: 0 12px 24px var(--brand-plum-muted);
   }
 }

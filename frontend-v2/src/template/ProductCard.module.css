@@ -18,7 +18,7 @@
   .desktop-open:hover,
   .desktop-open:focus-within {
     transform: translateY(-4px);
-    border-color: var(--brand-gold-muted);
+    border-color: var(--brand-accent-muted);
     box-shadow: 0 16px 34px rgb(65 20 18 / 12%);
   }
 }
@@ -35,7 +35,7 @@
 }
 
 .card-link:focus-visible {
-  outline: 2px solid var(--brand-gold-ink);
+  outline: 2px solid var(--brand-accent-ink);
   outline-offset: -2px;
   border-radius: 22px;
 }
@@ -49,7 +49,7 @@
   overflow: hidden;
   border-radius: 22px;
   background:
-    radial-gradient(ellipse at 50% 58%, var(--brand-gold-pale), transparent 70%),
+    radial-gradient(ellipse at 50% 58%, var(--brand-accent-pale), transparent 70%),
     linear-gradient(145deg, var(--brand-cream-light), var(--brand-cream-deep));
 }
 
@@ -81,7 +81,7 @@
   z-index: 1;
   max-width: calc(100% - 24px);
   padding: 6px 12px;
-  border: 1px solid var(--brand-gold);
+  border: 1px solid var(--brand-accent);
   border-radius: 999px;
   background: var(--brand-cream);
   color: var(--brand-plum);
@@ -118,7 +118,7 @@
 }
 
 .price {
-  color: var(--brand-gold-ink);
+  color: var(--brand-accent-ink);
   font-size: 15px;
   font-weight: 700;
   line-height: 1.4;
@@ -140,10 +140,3 @@
   .desktop-open, .product-photo { transition: none; }
   .desktop-open:hover, .desktop-open:focus-within { transform: none; }
 }
-.addButton {
-  display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px;
-  border: 1px solid var(--brand-gold); border-radius: 999px; background: var(--brand-gold);
-  color: var(--brand-plum); font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
-}
-.addButton:hover { filter: brightness(.96); }
-.addButton:focus-visible { outline: 2px solid var(--brand-plum); outline-offset: 3px; }

@@ -4,7 +4,7 @@
 }
 
 .showcase:focus-visible .card {
-  outline: 2px solid var(--brand-gold-ink);
+  outline: 2px solid var(--brand-accent-ink);
   outline-offset: 6px;
 }
 
@@ -28,7 +28,7 @@
   border: 1px solid var(--brand-plum-muted);
   border-radius: 32px;
   background:
-    radial-gradient(ellipse at 50% 18%, var(--brand-gold-glow), transparent 43%),
+    radial-gradient(ellipse at 50% 18%, var(--brand-accent-glow), transparent 43%),
     var(--brand-cream-light);
   box-shadow: 0 16px 40px rgb(65 20 18 / 8%);
   text-align: center;
@@ -55,7 +55,7 @@
 .card::after {
   position: absolute;
   z-index: 0;
-  color: color-mix(in srgb, var(--brand-gold) 52%, transparent);
+  color: color-mix(in srgb, var(--brand-accent) 52%, transparent);
   font: 400 26px/1 Fraunces, Georgia, serif;
   pointer-events: none;
 }
@@ -123,13 +123,13 @@
   align-items: center;
   gap: 6px;
   margin: 20px 0 4px;
-  color: var(--brand-gold);
+  color: var(--brand-accent);
 }
 
 .divider span {
   height: 1px;
   flex: 1;
-  background: linear-gradient(90deg, transparent, var(--brand-gold));
+  background: linear-gradient(90deg, transparent, var(--brand-accent));
 }
 
 .divider span:last-child { transform: rotate(180deg); }
@@ -142,7 +142,7 @@
 
 .category {
   margin-top: 2px;
-  color: var(--brand-gold-ink);
+  color: var(--brand-accent-ink);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .08em;
@@ -160,7 +160,7 @@
   padding: 0;
   place-items: center;
   transform: translateY(-50%);
-  border: 1px solid var(--brand-gold);
+  border: 1px solid var(--brand-accent);
   border-radius: 50%;
   color: var(--brand-cream-light);
   background: var(--brand-plum);
@@ -172,11 +172,11 @@
 .arrow:hover {
   transform: translateY(-50%) scale(1.06);
   color: var(--brand-plum);
-  background: var(--brand-gold-pale);
+  background: var(--brand-accent-pale);
   box-shadow: 0 9px 22px var(--brand-plum-muted);
 }
 
-.arrow:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 4px; }
+.arrow:focus-visible { outline: 2px solid var(--brand-accent-ink); outline-offset: 4px; }
 .previous { left: -24px; }
 .next { right: -24px; }
 

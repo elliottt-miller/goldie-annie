@@ -1,9 +1,10 @@
 import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { products, sweetPackages, orderDepositPercent, orderLeadTimeDays, orderMinimumCents, regularDippingColors } from '../content/products';
 import { useCart } from '../commerce/useCart';
 import styles from './CheckoutPage.module.css';
+import Button from '../template/Button';
 
 const currency = (cents: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 const todayString = () => {
@@ -19,8 +20,8 @@ export function CheckoutPage() {
   const [colorError, setColorError] = useState('');
   const [minimumDate] = useState(() => todayString());
 
-  if (items.length === 0) return <div className={styles.page}><div className={styles.empty}><h1>Your bag is empty</h1><Link to="/treats">Browse the shop</Link></div></div>;
-  if (subtotalCents < orderMinimumCents) return <div className={styles.page}><div className={styles.empty}><h1>Order minimum</h1><p>Please add at least {currency(orderMinimumCents)} to your bag before preparing an order request.</p><Link to="/cart">Review your bag</Link></div></div>;
+  if (items.length === 0) return <div className={styles.page}><div className={styles.empty} data-reveal><h1>Your bag is empty</h1><Link to="/treats">Browse the shop</Link></div></div>;
+  if (subtotalCents < orderMinimumCents) return <div className={styles.page}><div className={styles.empty} data-reveal><h1>Order minimum</h1><p>Please add at least {currency(orderMinimumCents)} to your bag before preparing an order request.</p><Link to="/cart">Review your bag</Link></div></div>;
 
   const updateColor = (color: string) => {
     setColorError('');
@@ -60,9 +61,9 @@ export function CheckoutPage() {
   };
 
   return <div className={styles.page}>
-    <header className={styles.heading}><p>Your details</p><h1>Plan your order</h1><span>Request details for your celebration</span></header>
+    <header className={styles.heading} data-reveal><p>Your details</p><h1>Plan your order</h1><span>Request details for your celebration</span></header>
     <div className={styles.layout}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} data-reveal onSubmit={handleSubmit}>
         <fieldset>
           <legend>How can Goldie Ann reach you?</legend>
           <label>Your name<input name="name" autoComplete="name" required maxLength={100} /></label>
@@ -87,10 +88,10 @@ export function CheckoutPage() {
           <label>Custom details or questions<textarea name="notes" rows={4} maxLength={1200} placeholder="Share decoration requests, packaging notes or anything else Goldie Ann should know." /></label>
         </fieldset>
         <label className={styles.consent}><input type="checkbox" name="policy" required /><span>I understand a 50% non-refundable deposit is due within 24 hours after an order is accepted. This request does not confirm availability or collect a payment.</span></label>
-        <button className={styles.submit} type="submit">Review order request <ArrowRight size={17} aria-hidden="true" /></button>
+        <Button className={styles.submit} buttonText="Review order request" type="submit" fullWidth />
         <Link className={styles.back} to="/cart"><ArrowLeft size={15} aria-hidden="true" /> Back to your bag</Link>
       </form>
-      <aside className={styles.summary}>
+      <aside className={styles.summary} data-reveal>
         <h2>Request summary</h2>
         {items.map((item) => {
           const product = item.type === 'product' ? products.find((entry) => entry.id === item.id) : undefined;
