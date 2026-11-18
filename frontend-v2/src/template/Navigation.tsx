@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Heart, Menu, ShoppingBag, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../commerce/CartContext';
+import { useCart } from '../commerce/useCart';
 import styles from "./Navigation.module.css"
 import Links from "./Links"
 

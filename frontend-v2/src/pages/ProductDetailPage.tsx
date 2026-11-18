@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowUpRight, Heart } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { getProduct, products, productCollections, type ProductId } from "../content/products";
-import { useCart } from "../commerce/CartContext";
+import { useCart } from "../commerce/useCart";
 import styles from "./ProductDetailPage.module.css";
 import { NotFoundPage } from "./NotFoundPage";
 import ResponsiveProductImage from "../template/ResponsiveProductImage";

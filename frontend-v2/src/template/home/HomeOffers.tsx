@@ -1,7 +1,7 @@
 import styles from "../Page.module.css";
 import SectionTags from "../SectionTags";
 import { orderDepositPercent, orderLeadTimeDays, orderMinimumCents, sweetPackages, typicalPreparationDays } from "../../content/products";
-import { useCart } from "../../commerce/CartContext";
+import { useCart } from "../../commerce/useCart";
 
 const formatPrice = (cents: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 

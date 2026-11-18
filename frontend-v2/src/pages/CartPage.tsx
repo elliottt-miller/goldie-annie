@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Minus, Plus, Trash2 } from 'lucide-react';
 import { products, sweetPackages, orderDepositPercent, orderMinimumCents } from '../content/products';
-import { useCart } from '../commerce/CartContext';
+import { useCart } from '../commerce/useCart';
 import styles from './CartPage.module.css';
 
 const currency = (cents: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);

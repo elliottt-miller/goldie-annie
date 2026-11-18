@@ -3,7 +3,7 @@ import cx from "./cx"
 import tokens from "./tokens.module.css"
 import styles from "./ProductCard.module.css"
 import ResponsiveProductImage from "./ResponsiveProductImage"
-import { useCart } from "../commerce/CartContext"
+import { useCart } from "../commerce/useCart"
 import { useState } from "react"
 import type { ProductId } from "../content/products"
 

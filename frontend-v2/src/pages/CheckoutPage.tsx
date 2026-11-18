@@ -1,8 +1,8 @@
-import { useMemo, useState, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { products, sweetPackages, orderDepositPercent, orderLeadTimeDays, orderMinimumCents, regularDippingColors } from '../content/products';
-import { useCart } from '../commerce/CartContext';
+import { useCart } from '../commerce/useCart';
 import styles from './CheckoutPage.module.css';
 
 const currency = (cents: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
@@ -17,7 +17,7 @@ export function CheckoutPage() {
   const { items, subtotalCents } = useCart();
   const [colors, setColors] = useState<string[]>([]);
   const [colorError, setColorError] = useState('');
-  const minimumDate = useMemo(todayString, []);
+  const [minimumDate] = useState(() => todayString());
 
   if (items.length === 0) return <div className={styles.page}><div className={styles.empty}><h1>Your bag is empty</h1><Link to="/treats">Browse the shop</Link></div></div>;
   if (subtotalCents < orderMinimumCents) return <div className={styles.page}><div className={styles.empty}><h1>Order minimum</h1><p>Please add at least {currency(orderMinimumCents)} to your bag before preparing an order request.</p><Link to="/cart">Review your bag</Link></div></div>;
