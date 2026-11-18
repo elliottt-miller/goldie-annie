@@ -9,8 +9,8 @@ const heroTreats = [
   { image: "funfetti-pops-transparent.webp", alt: "Colorful hand-decorated funfetti cake pops" },
   { image: "lemon-blueberry-pops-transparent.webp", alt: "Lemon blueberry cake pop" },
   { image: "apple-pie-on-a-stick-transparent.webp", alt: "Apple pie cake pop with cinnamon coating" },
-  { image: "espresso-caramel-pops-transparent.webp", alt: "Espresso caramel cake pop with caramel drizzle" },
   { image: "butterfinger-bliss-transparent.webp", alt: "Chocolate Butterfinger cake pop" },
+  { image: "espresso-caramel-pops-transparent.webp", alt: "Espresso caramel cake pop with caramel drizzle" },
 ]
 
 export default function HomeHero() {
