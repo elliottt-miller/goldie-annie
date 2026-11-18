@@ -21,6 +21,23 @@ export function ProductDetailPage() {
     : products.filter((item) => item.id !== product.id && item.kind.split(" · ")[0] === product.kind.split(" · ")[0]).slice(0, 3);
   const [category, packSize] = product.kind.split(" · ");
   const productTag = "tag" in product ? product.tag : undefined;
+  const packSizeLabel = packSize === '1 dozen' ? 'One dozen' : packSize;
+  const priceLabel = product.priceCents != null
+    ? new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.priceCents / 100)
+    : 'Ask about current pricing';
+  const orderDetails: Array<[string, string]> = [
+    ['Treat', category],
+    ['Quantity', packSizeLabel ?? 'Ask about box size'],
+    ['Decorating', 'Up to two colors, with drizzle and sprinkles'],
+    ['Order notice', 'Please place orders at least 7 days ahead'],
+    ['Deposit', '50% non-refundable deposit due within 24 hours of your order'],
+  ];
+  if (product.id === 'chocolate-dipped-pretzel-rods') {
+    orderDetails.push(['Optional add-ons', 'Homemade caramel +$6 per dozen; pecans +$6 per dozen']);
+  } else if (product.id === 'homemade-caramel-pretzel-rods') {
+    orderDetails.push(['Optional add-on', 'Pecans +$6 per dozen']);
+  }
+  if (productTag) orderDetails.push(['Collection', productTag]);
 
   return <div className={styles.page}>
     <section className={styles.detail} data-reveal aria-labelledby="product-title">
@@ -32,31 +49,30 @@ export function ProductDetailPage() {
         </nav>
         <div className={styles.product}>
           <div className={styles.visual}>
-            <span className={styles.category}>{category}</span>
-            {productTag && <span className={styles.seasonal}>{productTag}</span>}
             <ResponsiveProductImage src={`${import.meta.env.BASE_URL}products/${product.image}`} sizes="(max-width: 809px) 88vw, (max-width: 1199px) 45vw, 560px" alt={product.name} width={720} height={720} fetchPriority="high" decoding="async" />
             <span className={styles["visual-caption"]}>Hand-decorated by Goldie Ann</span>
           </div>
           <div className={styles.copy}>
-            <span className={styles.eyebrow}><Heart size={14} aria-hidden="true" /> A little something special</span>
+            <span className={styles.eyebrow}><Heart size={14} aria-hidden="true" /> Hand-decorated for your occasion</span>
             <h1 id="product-title">{product.name}</h1>
             <div className={styles.divider} aria-hidden="true"><span /><Heart size={15} /><span /></div>
             <p className={styles.description}>{product.description}</p>
-            <div className={styles.details}>
-              <h2>At a glance</h2>
-              <div><span>Category</span><strong>{category}</strong></div>
-              {packSize && <div><span>Pack size</span><strong>{packSize}</strong></div>}
-              <div><span>Price</span><strong>{product.priceCents ? `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.priceCents / 100)} per dozen` : 'Ask about current pricing'}</strong></div>
-              {product.id === 'chocolate-dipped-pretzel-rods' && <div><span>Options</span><strong>Homemade caramel +$6 per dozen; pecans +$6 per dozen</strong></div>}
-              {product.id === 'homemade-caramel-pretzel-rods' && <div><span>Options</span><strong>Pecans +$6 per dozen</strong></div>}
-              {productTag && <div><span>Collection</span><strong>{productTag}</strong></div>}
-              <div><span>Made for</span><strong>Celebrations, gifting &amp; sharing</strong></div>
-              <div><span>Custom details</span><strong>Ask about packaging and customizations</strong></div>
+            <div className={styles.purchasePrice} aria-label={product.priceCents != null ? `${priceLabel}${packSize ? ` per ${packSize.replace(/^1 /, '')}` : ''}` : priceLabel}>
+              <strong>{priceLabel}</strong>
+              {product.priceCents != null && packSize && <span>per {packSize.replace(/^1 /, '')}</span>}
             </div>
+            <section className={styles.details} aria-labelledby="order-details-heading">
+              <div className={styles.detailsHeading}><h2 id="order-details-heading">Order details</h2><p>What to know before you add a little sweetness.</p></div>
+              <dl className={styles.detailsGrid}>
+                {orderDetails.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+                <div><dt>Made for</dt><dd>Celebrations, thoughtful gifts and sharing</dd></div>
+                <div><dt>Custom touches</dt><dd>Ask about packaging or decoration requests</dd></div>
+              </dl>
+            </section>
             {product.priceCents != null
-              ? <button className={styles.order} type="button" onClick={() => { addProduct(product.id as ProductId); setAdded(true); }}>{added ? 'Added to your bag' : 'Add to bag'}</button>
+              ? <button className={styles.order} type="button" onClick={() => { addProduct(product.id as ProductId); setAdded(true); }}>{added ? 'Added to bag' : `Add ${packSizeLabel?.toLowerCase() ?? 'item'} to bag`}</button>
               : <Link className={styles.order} to={`/contact?product=${encodeURIComponent(product.id)}`}>Ask about availability</Link>}
-            <p className={styles.orderNote}>Orders need at least one week’s notice. Availability is confirmed after you submit an order request.</p>
+            <p className={styles.orderNote}>Adding to your bag does not reserve a date. Goldie Ann confirms availability before accepting an order. A 50% non-refundable deposit is due within 24 hours of order placement.</p>
             <Link className={styles.back} to="/treats"><ArrowLeft size={15} aria-hidden="true" /> Back to all treats</Link>
           </div>
         </div>

@@ -4,7 +4,6 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { products } from './content/products';
 import Navigation from './template/Navigation';
-import CTAContainer from './template/CTAContainer';
 import Footer from './template/Footer';
 import styles from './App.module.css';
 import { initReveal } from './template/reveal';
@@ -160,7 +159,6 @@ export default function App() {
           </Routes>
         </Suspense>
       </main>
-      <CTAContainer />
       <Footer />
     </RouteErrorBoundary>
   </CartProvider></BrowserRouter>;

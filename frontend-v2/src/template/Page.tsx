@@ -3,6 +3,7 @@ import HomeAbout from "./home/HomeAbout"
 import HomeTreats from "./home/HomeTreats"
 import HomeOffers from "./home/HomeOffers"
 import HomeFAQ from "./home/HomeFAQ"
+import CTAContainer from "./CTAContainer"
 import styles from "./Page.module.css"
 
 export default function Page() {
@@ -13,6 +14,7 @@ export default function Page() {
       <HomeTreats />
       <HomeOffers />
       <HomeFAQ />
+      <CTAContainer />
     </div>
   )
 }

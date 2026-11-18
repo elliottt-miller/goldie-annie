@@ -1,28 +1,22 @@
 .desktop {
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: clamp(56px, 7vw, 80px) clamp(20px, 4vw, 40px);
   width: 100%;
+  padding: clamp(52px, 7vw, 96px) clamp(20px, 4vw, 56px);
   overflow: hidden;
-  background: var(--brand-cream);
+  background: linear-gradient(115deg, var(--brand-cream-light), var(--brand-cream) 62%, var(--brand-cream-deep));
 }
 
 .content {
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(0, .92fr) minmax(250px, 1.1fr) minmax(0, .88fr);
+  grid-template-columns: minmax(240px, .92fr) minmax(400px, 1.6fr) minmax(240px, .9fr);
   align-items: center;
-  gap: clamp(12px, 2vw, 28px);
-  padding: 24px;
-  width: min(100%, 1200px);
-  min-height: 390px;
-  overflow: hidden;
-  border: 1px solid var(--brand-gold-muted);
-  border-radius: 32px;
-  background: color-mix(in srgb, var(--brand-cream-light) 86%, transparent);
-  box-shadow: 0 18px 42px color-mix(in srgb, var(--brand-plum) 9%, transparent);
+  gap: clamp(12px, 2vw, 34px);
+  width: min(100%, 1480px);
+  min-height: clamp(340px, 31vw, 440px);
 }
 
 .titleButton,
@@ -30,162 +24,75 @@
   position: relative;
   z-index: 2;
   display: flex;
+  min-width: 0;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
 }
 
-.titleButton { padding-inline: 8px; }
+.titleButton { align-items: flex-start; gap: 14px; padding-left: clamp(0px, 1.2vw, 18px); }
+.brandName { margin: 0; color: var(--brand-plum); font: 600 clamp(15px, 1.35vw, 19px)/1.2 "DM Sans", Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.brandName span { display: block; margin-top: 4px; color: var(--brand-gold-ink); font-size: .68em; letter-spacing: .2em; }
+.title { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; width: 100%; }
+.heading { margin: 0; color: var(--brand-plum); font: 500 clamp(38px, 4vw, 62px)/1.03 Fraunces, Georgia, serif; letter-spacing: -.035em; text-wrap: balance; }
+.accentHeading { display: block; color: var(--brand-gold-ink); font: italic 500 clamp(38px, 4.1vw, 64px)/1.02 "Dancing Script", cursive; text-wrap: balance; }
+.pattern { display: flex; width: min(100%, 210px); align-items: center; gap: 7px; color: var(--brand-gold); }
+.pattern span { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--brand-gold)); }
+.pattern span:last-child { transform: rotate(180deg); }
+.pattern svg { width: 15px; height: 15px; stroke-width: 1.6; }
 
-.pattern,
-.pattern2 {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  overflow: hidden;
-  color: var(--brand-gold);
-}
+.mainImage { position: relative; z-index: 1; display: grid; width: 100%; min-width: 0; place-items: center; }
+.mainImage img { display: block; width: 100%; height: auto; max-height: 400px; object-fit: contain; filter: drop-shadow(0 18px 20px var(--brand-treat-shadow)); animation: assortment-arrive .8s both cubic-bezier(.22, 1, .36, 1); }
 
-.pattern span,
-.pattern2 span {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--brand-gold));
-}
+.subtitleCta { align-items: flex-start; gap: 26px; padding-right: clamp(0px, 1.4vw, 24px); }
+.subtitleCta > p { max-width: 320px; margin: 0; padding-left: 17px; border-left: 2px solid var(--brand-gold); color: var(--brand-plum-muted); font: italic 500 clamp(18px, 1.65vw, 25px)/1.45 Fraunces, Georgia, serif; text-wrap: pretty; }
+.shopLink { display: inline-flex; min-height: 58px; align-items: center; justify-content: center; gap: 14px; padding: 0 25px; border: 1px solid var(--brand-gold); border-radius: 999px; color: var(--brand-cream-light); background: var(--brand-plum); box-shadow: 0 8px 18px color-mix(in srgb, var(--brand-plum) 22%, transparent); font: 700 15px/1.2 "DM Sans", Arial, sans-serif; text-decoration: none; transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.shopLink span { color: var(--brand-gold); font-size: 14px; }
+.shopLink:hover { transform: translateY(-2px); background: var(--brand-gold-ink); box-shadow: 0 12px 24px color-mix(in srgb, var(--brand-plum) 26%, transparent); }
+.shopLink:focus-visible { outline: 2px solid var(--brand-plum); outline-offset: 4px; }
 
-.pattern span { width: 40px; }
-.pattern2 span { width: 80px; }
-.pattern span:last-child,
-.pattern2 span:last-child { transform: rotate(180deg); }
-.pattern svg,
-.pattern2 svg { width: 13px; height: 13px; stroke-width: 1.6; }
+.bg { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
+.bg::before { position: absolute; top: -85px; right: -70px; width: 300px; height: 220px; border-bottom-left-radius: 100%; background: var(--brand-plum); content: ""; opacity: .96; }
+.bg::after { position: absolute; right: -35px; top: -38px; width: 350px; height: 220px; border-bottom-left-radius: 100%; border-bottom: 2px solid var(--brand-gold); content: ""; transform: rotate(-2deg); }
+.content::before { position: absolute; z-index: -1; bottom: -120px; left: -80px; width: 340px; height: 205px; border-top-right-radius: 100%; background: var(--brand-plum); content: ""; opacity: .97; }
+.content::after { position: absolute; z-index: -1; bottom: -68px; left: -40px; width: 390px; height: 205px; border-top: 2px solid var(--brand-gold); border-top-right-radius: 100%; content: ""; }
 
-.title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-}
+@keyframes assortment-arrive { from { opacity: .5; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-.heading {
-  width: 100%;
-  color: var(--brand-plum);
-  text-align: left;
-  text-wrap: balance;
-}
-
-.accentHeading {
-  display: block;
-  width: 100%;
-  color: var(--brand-gold-ink);
-  font-family: "Dancing Script", cursive;
-  font-size: clamp(36px, 3.4vw, 50px);
-  font-style: italic;
-  line-height: 1.05;
-  text-align: left;
-  text-wrap: balance;
-}
-
-.mainImage {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  min-width: 0;
-  height: clamp(250px, 29vw, 344px);
-  aspect-ratio: .977;
-  place-items: center;
-}
-
-.mainImage img {
-  display: block;
-  width: min(100%, 344px);
-  height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 15px 18px var(--brand-treat-shadow));
-  animation: assortment-arrive .8s both cubic-bezier(.22, 1, .36, 1), assortment-float 8s ease-in-out .8s infinite;
-}
-
-.subtitleCta { gap: 24px; }
-
-.subtitleCta > p {
-  width: 100%;
-  max-width: 260px;
-  color: var(--brand-muted);
-  font-size: clamp(15px, 1.2vw, 18px);
-  line-height: 1.55;
-  text-align: center;
-}
-
-.bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 45% 80%, var(--brand-gold-glow), transparent 45%),
-    linear-gradient(135deg, var(--brand-cream-light), var(--brand-cream) 65%, var(--brand-cream-deep));
-}
-
-.bg::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: url("../assets/template-media/images/8clBzvsgKGhk9hkNJ9d87MggXU.avif") center / cover no-repeat;
-  filter: sepia(.58) saturate(.72);
-  opacity: .22;
-}
-
-@keyframes assortment-arrive {
-  from { opacity: 0; transform: translateY(12px) scale(.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes assortment-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -5px; }
-}
-
-@media (max-width: 1000px) {
-  .content {
-    grid-template-columns: minmax(0, 1fr) minmax(240px, .9fr);
-    gap: 8px 20px;
-    min-height: 350px;
-  }
-  .titleButton { gap: 8px; }
-  .mainImage { grid-column: 2; grid-row: 1 / span 2; height: clamp(230px, 31vw, 300px); }
-  .subtitleCta { grid-column: 1; padding-inline: 12px; }
+@media (max-width: 1080px) {
+  .content { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: 10px 24px; }
+  .titleButton { grid-column: 1; grid-row: 1; }
+  .mainImage { grid-column: 2; grid-row: 1 / span 2; }
+  .subtitleCta { grid-column: 1; grid-row: 2; gap: 16px; }
+  .mainImage img { max-height: 330px; }
 }
 
 @media (max-width: 809px) {
-  .desktop { padding: 60px 20px; }
-  .content {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
-    padding: 24px 16px;
-    min-height: 0;
-  }
-  .titleButton { padding: 0; }
+  .desktop { padding: 58px 20px 64px; }
+  .content { grid-template-columns: minmax(0, 1fr); gap: 18px; min-height: 0; text-align: center; }
+  .titleButton { grid-column: 1; grid-row: 1; align-items: center; padding: 0; }
+  .brandName { font-size: 14px; }
   .title { align-items: center; text-align: center; }
-  .heading,
-  .accentHeading { text-align: center; }
-  .pattern { display: none; }
-  .pattern2 span { width: 64px; }
-  .mainImage { grid-column: auto; grid-row: auto; width: min(100%, 320px); height: clamp(220px, 75vw, 300px); margin-inline: auto; }
-  .subtitleCta { grid-column: auto; padding: 0; }
+  .heading { font-size: clamp(38px, 9vw, 54px); }
+  .accentHeading { font-size: clamp(40px, 10vw, 58px); }
+  .pattern { width: min(80%, 180px); }
+  .mainImage { grid-column: 1; grid-row: 2; width: min(100%, 600px); margin-inline: auto; }
+  .mainImage img { width: 100%; max-height: none; }
+  .subtitleCta { grid-column: 1; grid-row: 3; align-items: center; gap: 18px; padding: 0; }
+  .subtitleCta > p { max-width: 36ch; padding: 0; border: 0; font-size: 18px; text-align: center; }
+  .shopLink { min-height: 54px; }
+  .bg::before { top: -120px; right: -100px; width: 220px; height: 180px; }
+  .bg::after { right: -65px; top: -74px; width: 260px; height: 180px; }
+  .content::before { bottom: -150px; left: -115px; width: 240px; height: 170px; }
+  .content::after { bottom: -103px; left: -75px; width: 285px; height: 170px; }
 }
 
-@media (max-width: 480px) {
-  .desktop { padding: 48px 16px; }
-  .content { gap: 20px; border-radius: 26px; }
-  .heading { font-size: 32px; }
-  .accentHeading { font-size: clamp(38px, 11vw, 46px); }
-  .mainImage { height: clamp(200px, 65vw, 260px); }
+@media (max-width: 420px) {
+  .desktop { padding: 48px 16px 56px; }
+  .content { gap: 14px; }
+  .brandName { font-size: 12px; }
+  .heading { font-size: 36px; }
+  .accentHeading { font-size: 39px; }
+  .shopLink { width: 100%; max-width: 320px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .mainImage img { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { .mainImage img, .shopLink { animation: none; transition: none; } }
