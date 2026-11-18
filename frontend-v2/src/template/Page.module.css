@@ -232,7 +232,7 @@
   width: min(100%, 1200px);
   margin-inline: auto;
   height: fit-content;
-  max-width: 1200px;
+  max-width: 900px;
 }
 
 .n-1 {
