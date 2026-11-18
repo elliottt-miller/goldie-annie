@@ -270,7 +270,7 @@
   display: initial;
 }
 
-.image { filter: hue-rotate(31deg) saturate(.8); }
+.image { filter: sepia(.42) saturate(.82); }
 
 @media (prefers-reduced-motion: reduce) {
   .desktop, .main-product-image { transition: none; }

@@ -1,6 +1,7 @@
 const productCatalog = [
   { id: 'funfetti-cake-pops', name: 'Funfetti Cake Pops', kind: 'Cake pops · 1 dozen', image: 'funfetti-pops-transparent.webp', description: 'Colorful cake pops decorated with sprinkles for parties, gifting and little celebrations.' },
   { id: 'apple-pie-on-a-stick', name: 'Apple Pie on a Stick', kind: 'Cake pops · 1 dozen', image: 'apple-pie-on-a-stick-transparent.webp', description: 'A warmly spiced, hand-decorated cake pop inspired by classic apple pie.' },
+  { id: 'butterfinger-bliss', name: 'Butterfinger Bliss', kind: 'Cake pops · 1 dozen', image: 'butterfinger-bliss-transparent.webp', description: 'A chocolate cake pop finished with a crisp Butterfinger coating and chocolate drizzle.' },
   { id: 'lemon-blueberry', name: 'Lemon Blueberry', kind: 'Cake pops · 1 dozen', image: 'lemon-blueberry-pops-transparent.webp', description: 'Bright lemon cake with blueberry, dipped and decorated by hand.' },
   { id: 'cakesicles', name: 'Cakesicles', kind: 'Cakesicles', image: 'cakesicles.webp', description: 'Hand-decorated cakesicles dipped in chocolate and finished with a delicate drizzle.' },
   { id: 'mean-ones-sweet-box', name: 'The Mean Ones Sweet Box', kind: 'Holiday confection box', image: 'mean-ones-sweet-box-transparent.webp', description: 'A festive assortment of cake pops, dipped Oreos and decorated pretzels.', tag: 'Seasonal' },
@@ -20,7 +21,7 @@ export interface ProductCollection {
   id: string;
   title: string;
   description: string;
-  productIds: readonly [ProductId, ProductId, ProductId];
+  productIds: readonly [ProductId, ...ProductId[]];
 }
 
 export const productCollections: readonly ProductCollection[] = [
@@ -28,7 +29,7 @@ export const productCollections: readonly ProductCollection[] = [
     id: 'cake-pops',
     title: 'Cake pops',
     description: 'Colorful, hand-decorated cake pops made for gifting, parties and life’s little celebrations.',
-    productIds: ['funfetti-cake-pops', 'lemon-blueberry', 'apple-pie-on-a-stick'],
+    productIds: ['funfetti-cake-pops', 'lemon-blueberry', 'apple-pie-on-a-stick', 'butterfinger-bliss'],
   },
   {
     id: 'dipped-treats',

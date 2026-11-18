@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Heart } from "lucide-react";
 import { products } from "../content/products";
 import styles from "./ProductShowcase.module.css";
+import ResponsiveProductImage from "./ResponsiveProductImage";
+import { responsiveProductSrcSet } from "./productImage";
 
 export default function ProductShowcase() {
   const [active, setActive] = useState(0);
@@ -30,7 +32,10 @@ export default function ProductShowcase() {
     const nextProduct = products[(active + 1) % products.length];
     const image = new Image();
     image.decoding = "async";
-    image.src = `${import.meta.env.BASE_URL}products/${nextProduct.image}`;
+    const source = `${import.meta.env.BASE_URL}products/${nextProduct.image}`;
+    image.sizes = "(max-width: 809px) 72vw, 420px";
+    image.srcset = responsiveProductSrcSet(source) ?? "";
+    image.src = source;
   }, [active, inView, pageVisible]);
 
   useEffect(() => {
@@ -88,7 +93,7 @@ export default function ProductShowcase() {
           onPointerCancel={() => { touchOrigin.current = null; }}
         >
           <div className={styles.portrait}>
-            <img src={`${import.meta.env.BASE_URL}products/${product.image}`} alt={product.name} decoding="async" />
+            <ResponsiveProductImage src={`${import.meta.env.BASE_URL}products/${product.image}`} sizes="(max-width: 809px) 72vw, 420px" alt={product.name} decoding="async" />
           </div>
           <div className={styles.content}>
             <h3 className={styles.name}>{product.name}</h3>

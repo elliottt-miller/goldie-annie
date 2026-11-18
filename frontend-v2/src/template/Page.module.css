@@ -201,6 +201,7 @@
   align-items: center;
   gap: 10px;
   padding: 80px 40px 80px 40px;
+  scroll-margin-top: 112px;
   align-self: stretch;
   height: fit-content;
   overflow: hidden;
@@ -213,7 +214,9 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 1200px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 1200px;
   z-index: 2;
@@ -225,9 +228,11 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 1200px);
+  margin-inline: auto;
   height: fit-content;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 .n-1 {
@@ -300,27 +305,37 @@
 }
 
 .image-frame {
-  width: 438px;
-  height: 511px;
-  aspect-ratio: 0.856;
   position: relative;
-  background-image: url("../assets/template-media/images/3IjmIO2A4e3bhMHyaAwjL2v8.avif");
+  flex: 0 1 438px;
+  width: min(100%, 438px);
+  aspect-ratio: 438 / 511;
+  overflow: hidden;
+  background-color: var(--brand-cream-deep);
   background-size: cover;
   background-position: center;
 }
 
+.image-frame::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: url("../assets/template-media/images/3IjmIO2A4e3bhMHyaAwjL2v8.avif") center / cover no-repeat;
+  filter: sepia(.52) saturate(.82);
+}
+
 .cake-image {
   position: absolute;
-  top: 37px;
-  right: 56px;
-  bottom: 44px;
-  left: 56px;
-  border-radius: 999px 999px 16px 16px;
-  overflow: hidden;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  z-index: 1;
+  top: 7.24%;
+  right: 12.79%;
+  bottom: 8.61%;
+  left: 12.79%;
+  width: 74.42%;
+  height: 84.15%;
+  max-width: 100%;
   object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 12px 14px rgb(65 20 18 / 12%));
 }
 
 .metrics {
@@ -396,6 +411,7 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
 .baby-flowers-illustration2 {
@@ -414,7 +430,9 @@
   justify-content: center;
   align-items: center;
   gap: 48px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 1200px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 1200px;
   z-index: 2;
@@ -458,7 +476,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: clamp(40px, 5vw, 72px);
+  gap: 200px;
   align-self: stretch;
   height: fit-content;
 }
@@ -481,7 +499,9 @@
   justify-content: center;
   align-items: center;
   gap: 48px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 1200px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 1200px;
   z-index: 2;
@@ -856,6 +876,7 @@
   background-image: url("../assets/template-media/images/8clBzvsgKGhk9hkNJ9d87MggXU.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.58) saturate(.72);
 }
 
 .top-gradient {
@@ -902,6 +923,7 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
 .baby-flower-illustration2 {
@@ -920,7 +942,9 @@
   justify-content: center;
   align-items: center;
   gap: 48px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 1200px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 1200px;
   z-index: 2;
@@ -986,7 +1010,9 @@
   justify-content: center;
   align-items: center;
   gap: 120px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 900px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 900px;
   z-index: 2;
@@ -1084,7 +1110,9 @@
   justify-content: center;
   align-items: center;
   gap: 48px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 1200px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 1200px;
   z-index: 2;
@@ -1239,6 +1267,7 @@
   height: fit-content;
   max-width: 400px;
   position: relative;
+  isolation: isolate;
   border-radius: 32px;
   background-color: var(--brand-cream);
   border-style: solid;
@@ -1247,6 +1276,8 @@
 }
 
 .logo-title-subtitle {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1317,6 +1348,8 @@
 }
 
 .cta-insta-handle {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1353,7 +1386,7 @@
   top: -153px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: -1;
+  z-index: 0;
   object-fit: contain;
 }
 
@@ -1400,6 +1433,7 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
 .faq-container {
@@ -1423,7 +1457,9 @@
   justify-content: center;
   align-items: center;
   gap: 48px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 1200px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 1200px;
   position: relative;
@@ -1493,6 +1529,7 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
 .baby-flowers-illustration5 {
@@ -1503,25 +1540,29 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
 /* breakpoint: Tablet */
 
 @media (max-width: 1199px) {
   .n-2 {
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .image-frame {
-    width: 353px;
-    height: 412px;
+    width: min(100%, 353px);
+    flex-basis: 353px;
+    aspect-ratio: 353 / 412;
   }
 
   .cake-image {
-    top: 31px;
-    right: 46px;
-    bottom: 36px;
-    left: 46px;
+    top: 7.52%;
+    right: 13.03%;
+    bottom: 8.74%;
+    left: 13.03%;
+    width: 73.94%;
+    height: 83.74%;
   }
 
   .metrics {
@@ -1606,9 +1647,40 @@
   }
 
   .faq-featured-treat-art {
-    width: 316px;
-    height: 233px;
-    right: -150px;
+    width: min(30vw, 260px);
+    height: auto;
+    right: clamp(12px, calc((100% - 700px) / 2), 64px);
+    bottom: -72px;
+  }
+}
+
+/* Keep the hero product cutouts legible at tablet widths instead of
+   compressing five items into narrow columns. */
+@media (max-width: 1039px) and (min-width: 810px) {
+  .hero-image {
+    width: min(100%, 920px);
+    height: clamp(300px, 38svh, 400px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-inline: clamp(20px, 5vw, 56px);
+    gap: clamp(8px, 2vw, 20px);
+  }
+
+  .hero-image img:nth-child(2),
+  .hero-image img:nth-child(5) { display: none; }
+
+  .hero-image img:nth-child(1) { --hero-scale: 1.12; }
+  .hero-image img:nth-child(3) { --hero-scale: 1.28; }
+  .hero-image img:nth-child(4) { --hero-scale: 1.16; }
+
+  /* The social CTA stacks below the story rail here, so keep its treat
+     artwork close to the card instead of floating above unrelated content. */
+  .social-featured-treat-art {
+    width: clamp(108px, 14vw, 144px);
+    height: auto;
+    top: -28px;
+    right: 12px;
+    left: auto;
+    transform: none;
   }
 }
 
@@ -1679,15 +1751,17 @@
 
   .image-frame {
     width: min(100%, 350px);
-    height: auto;
+    flex-basis: 350px;
     aspect-ratio: 0.856;
   }
 
   .cake-image {
-    top: 30px;
-    right: 44px;
-    bottom: 35px;
-    left: 44px;
+    top: 7.33%;
+    right: 12.57%;
+    bottom: 8.56%;
+    left: 12.57%;
+    width: 74.86%;
+    height: 84.11%;
   }
 
   .metrics {
@@ -1953,13 +2027,11 @@
 }
 
 /* Keep the export's watercolor and floral accents in Goldie Ann's warm palette. */
-.bg, .bg2,
+.bg, .bg2 { filter: sepia(.58) saturate(.72); }
 .baby-flowers-illustration, .baby-flowers-illustration2,
 .baby-flower-illustration, .baby-flower-illustration2,
 .baby-flowers-illustration3, .baby-flowers-illustration4,
-.baby-flowers-illustration5 {
-  filter: hue-rotate(31deg) saturate(.8);
-}
+.baby-flowers-illustration5 { filter: sepia(.62) saturate(.78); }
 
 /* Float decorative export artwork over the content instead of letting it create blank rows. */
 .treats-container,
@@ -2022,8 +2094,11 @@
 
 .why-us-container .why-featured-treat-art {
   position: absolute;
-  right: max(16px, calc((100% - 1200px) / 2));
+  right: clamp(16px, calc((100% - 1200px) / 2), 360px);
   bottom: 12px;
+  width: clamp(88px, 10vw, 134px);
+  height: auto;
+  aspect-ratio: 134 / 182;
   pointer-events: none;
 }
 
@@ -2060,13 +2135,23 @@
 
 .reels-story-cta .social-assortment-art {
   position: absolute;
-  right: -64px;
-  bottom: -84px;
-  width: clamp(180px, 24vw, 314px);
+  right: clamp(0px, 2vw, 24px);
+  bottom: -24px;
+  width: clamp(160px, 20vw, 260px);
   height: auto;
-  aspect-ratio: 314 / 213;
-  opacity: .45;
+  z-index: 0;
+  opacity: .2;
   pointer-events: none;
+  object-fit: contain;
+}
+
+@media (max-width: 1039px) and (min-width: 810px) {
+  .reels-story-cta .social-assortment-art {
+    right: 0;
+    bottom: 0;
+    width: clamp(150px, 24vw, 230px);
+    opacity: .12;
+  }
 }
 
 .faq-container .baby-flowers-illustration4 {
@@ -2093,7 +2178,12 @@
     opacity: .24;
   }
 
-  .why-us-container .why-featured-treat-art { right: -18px; bottom: 8px; }
+  .why-us-container .why-featured-treat-art {
+    right: clamp(12px, 4vw, 28px);
+    bottom: 4px;
+    width: clamp(72px, 20vw, 96px);
+  }
+  .faq-featured-treat-art { width: min(58vw, 220px); height: auto; }
   .socials-container .baby-flowers-illustration3 { display: none; }
   .reels-story-cta .social-assortment-art { display: none; }
   .featured-stage { width: 100%; padding: 24px 16px; }

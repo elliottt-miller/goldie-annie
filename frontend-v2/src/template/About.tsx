@@ -6,6 +6,7 @@ import SectionTags from "./SectionTags"
 import FeaturedTreatCard from "./FeaturedTreatCard"
 import { Eye, Heart, Target } from "lucide-react"
 import { getProduct } from "../content/products"
+import ResponsiveProductImage from "./ResponsiveProductImage"
 
 const featuredProducts = [
   getProduct("apple-pie-on-a-stick"),
@@ -19,7 +20,7 @@ export default function Page() {
     <div className={styles["desktop"]}>
       <PageHeader title={"About us"} subtitle={"A little story behind Goldie Ann’s hand-decorated sweets."} />
       <section className={styles["story-container"]} data-reveal="" aria-label="Goldie Ann’s story">
-        <img className={styles["bg"]} src={productImage("homepage-scroll-assortment")} alt="" aria-hidden="true" loading="lazy" decoding="async" width={1400} height={900} />
+        <ResponsiveProductImage className={styles["bg"]} src={productImage("homepage-scroll-assortment")} sizes="(max-width: 809px) 100vw, 1200px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={1400} height={900} />
         <div className={styles["content"]}>
           <div className={styles["tag-information"]}>
             <SectionTags variant="Mid" tag={"Our story"} />
@@ -43,8 +44,8 @@ export default function Page() {
             </div>
           </div>
           <div className={styles["wrapper"]}>
-            <img className={styles["cake-image"]} src={productImage("apple-pie-on-a-stick-transparent")} alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
-            <img className={styles["cake-image2"]} src={productImage("lemon-blueberry-pops-transparent")} alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
+            <ResponsiveProductImage className={styles["cake-image"]} src={productImage("apple-pie-on-a-stick-transparent")} sizes="(max-width: 809px) 40vw, 240px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
+            <ResponsiveProductImage className={styles["cake-image2"]} src={productImage("lemon-blueberry-pops-transparent")} sizes="(max-width: 809px) 40vw, 240px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
             <div className={styles["mission-card"]}>
               <h4 className={cx(tokens["text-n-32-r"], styles["our-mission"])}>{"The treats"}</h4>
               <div className={styles["pattern"]}>
@@ -83,7 +84,7 @@ export default function Page() {
           </div>
           <div className={styles["wrapper2"]}>
             <div className={styles["process-card"]}>
-              <img className={styles["image"]} src={productImage("apple-pie-on-a-stick-transparent")} alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
+              <ResponsiveProductImage className={styles["image"]} src={productImage("apple-pie-on-a-stick-transparent")} sizes="(max-width: 809px) 38vw, 240px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
               <div className={styles["inner-content"]}>
                 <div className={styles["number-title"]}>
                   <h3 className={cx(tokens["text-n-48-r"], styles["n-01"])}>{"01"}</h3>
@@ -110,10 +111,10 @@ export default function Page() {
                 </div>
                 <p className={cx(tokens["text-n-18-r"], styles["text5"])}>{"Packaging and customizations are available upon request."}</p>
               </div>
-              <img className={styles["image2"]} src={productImage("homemade-caramel-pretzel-rods-transparent")} alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
+              <ResponsiveProductImage className={styles["image2"]} src={productImage("homemade-caramel-pretzel-rods-transparent")} sizes="(max-width: 809px) 35vw, 240px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
             </div>
             <div className={styles["process-card3"]}>
-              <img className={styles["image3"]} src={productImage("dipped-oreos-transparent")} alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
+              <ResponsiveProductImage className={styles["image3"]} src={productImage("dipped-oreos-transparent")} sizes="(max-width: 809px) 35vw, 240px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
               <div className={styles["inner-content3"]}>
                 <div className={styles["number-title3"]}>
                   <h3 className={cx(tokens["text-n-48-r"], styles["n-03"])}>{"03"}</h3>
@@ -140,7 +141,7 @@ export default function Page() {
                 </div>
                 <p className={cx(tokens["text-n-18-r"], styles["text7"])}>{"Choose something special for a celebration, a gift or just because."}</p>
               </div>
-              <img className={styles["image4"]} src={productImage("rice-krispy-treats-transparent")} alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
+              <ResponsiveProductImage className={styles["image4"]} src={productImage("rice-krispy-treats-transparent")} sizes="(max-width: 809px) 35vw, 240px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
             </div>
           </div>
         </div>

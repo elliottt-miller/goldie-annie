@@ -3,6 +3,7 @@ import tokens from "../tokens.module.css"
 import styles from "../Page.module.css"
 import SectionTags from "../SectionTags"
 import { ChefHat, CookingPot, Heart, Smile } from "lucide-react"
+import ResponsiveProductImage from "../ResponsiveProductImage"
 
 export default function HomeWhy() {
   return (
@@ -77,7 +78,7 @@ export default function HomeWhy() {
         <div className={styles["bg"]} />
         <div className={styles["top-gradient"]} />
         <div className={styles["bottom-gradient2"]} />
-        <img className={styles["why-featured-treat-art"]} src={`${import.meta.env.BASE_URL}products/apple-pie-on-a-stick-transparent.webp`} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <ResponsiveProductImage className={styles["why-featured-treat-art"]} src={`${import.meta.env.BASE_URL}products/apple-pie-on-a-stick-transparent.webp`} sizes="(max-width: 809px) 34vw, 260px" alt="" aria-hidden="true" loading="lazy" decoding="async" />
     </section>
   )
 }

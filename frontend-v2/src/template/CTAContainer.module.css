@@ -129,7 +129,7 @@
   border-radius: 32px;
   pointer-events: none;
   background: url("../assets/template-media/images/1r7WbH98gHJxxlvDba1i6FkCs0.png") center / cover no-repeat;
-  filter: hue-rotate(31deg) saturate(.8);
+  filter: sepia(.58) saturate(.72);
   opacity: .9;
 }
 
@@ -163,7 +163,7 @@
   inset: 0;
   content: "";
   background: url("../assets/template-media/images/8clBzvsgKGhk9hkNJ9d87MggXU.avif") center / cover no-repeat;
-  filter: hue-rotate(31deg) saturate(.75);
+  filter: sepia(.58) saturate(.72);
   opacity: .22;
 }
 

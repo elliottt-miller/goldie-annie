@@ -2,6 +2,7 @@ import cx from "./cx"
 import tokens from "./tokens.module.css"
 import styles from "./PageHeader.module.css"
 import { Heart } from "lucide-react"
+import ResponsiveProductImage from "./ResponsiveProductImage"
 
 interface Props {
   title?: string
@@ -24,9 +25,10 @@ export default function PageHeader({
           </div>
           <p className={cx(tokens["text-n-18-r"], styles["subtitle"])}>{subtitle}</p>
         </div>
-        <img
+        <ResponsiveProductImage
           className={styles["page-artwork"]}
           src={`${import.meta.env.BASE_URL}products/homepage-assortment.webp`}
+          sizes="(max-width: 809px) 90vw, (max-width: 1199px) 75vw, 920px"
           alt=""
           aria-hidden="true"
           loading="eager"

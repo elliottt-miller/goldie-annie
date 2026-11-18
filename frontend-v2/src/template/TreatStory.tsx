@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } fr
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import styles from "./TreatStory.module.css";
 import { shopUrl } from "../content/brand";
+import ResponsiveProductImage from "./ResponsiveProductImage";
+import { responsiveProductSrcSet } from "./productImage";
 
 const storyDuration = 5000;
 
@@ -62,7 +64,10 @@ export default function TreatStory({ className, title, slides }: Props) {
     const next = slides[(active + 1) % slides.length];
     const image = new Image();
     image.decoding = "async";
-    image.src = `${import.meta.env.BASE_URL}products/${next.image}`;
+    const source = `${import.meta.env.BASE_URL}products/${next.image}`;
+    image.sizes = "(max-width: 809px) 45vw, 240px";
+    image.srcset = responsiveProductSrcSet(source) ?? "";
+    image.src = source;
   }, [active, inView, pageVisible, slides]);
 
   useEffect(() => {
@@ -145,7 +150,7 @@ export default function TreatStory({ className, title, slides }: Props) {
       }}
       style={progressStyle}
     >
-      <img key={active} className={styles.image} src={`${import.meta.env.BASE_URL}products/${slide.image}`} alt={slide.alt} loading="lazy" decoding="async" />
+      <ResponsiveProductImage key={active} className={styles.image} src={`${import.meta.env.BASE_URL}products/${slide.image}`} sizes="(max-width: 809px) 45vw, 240px" alt={slide.alt} loading="lazy" decoding="async" />
       <div className={styles.scrim} aria-hidden="true" />
       <div className={styles.progress} role="group" aria-label={`Story ${active + 1} of ${slides.length}`}>
         {slides.map((item, index) => (

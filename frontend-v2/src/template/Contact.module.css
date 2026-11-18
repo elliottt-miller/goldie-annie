@@ -155,6 +155,7 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
 .bg {
@@ -164,6 +165,7 @@
   background-image: url("../assets/template-media/images/8clBzvsgKGhk9hkNJ9d87MggXU.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.58) saturate(.72);
 }
 
 .top-gradient {
@@ -268,11 +270,11 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
-.bg, .baby-flowers-illustration, .baby-flowers-illstration {
-  filter: hue-rotate(31deg) saturate(.8);
-}
+.bg { filter: sepia(.58) saturate(.72); }
+.baby-flowers-illustration, .baby-flowers-illstration { filter: sepia(.62) saturate(.78); }
 
 /* Artwork is decorative and should sit behind content without changing section flow. */
 .order-container,

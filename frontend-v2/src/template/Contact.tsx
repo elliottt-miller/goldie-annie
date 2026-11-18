@@ -5,6 +5,7 @@ import ContactCards from "./ContactCards";
 import PageHeader from "./PageHeader";
 import SectionTags from "./SectionTags";
 import { shopUrl } from "../content/brand";
+import ResponsiveProductImage from "./ResponsiveProductImage";
 
 export default function Page() {
   return (
@@ -22,7 +23,7 @@ export default function Page() {
           </div>
           <div className={styles.image}>
             <div className={styles["polaroid-image-frame"]}>
-              <img className={styles["main-bakery-image"]} src={`${import.meta.env.BASE_URL}products/homepage-scroll-assortment.webp`} alt="Goldie Ann hand-decorated treats" loading="lazy" decoding="async" width={1280} height={1280} />
+              <ResponsiveProductImage className={styles["main-bakery-image"]} src={`${import.meta.env.BASE_URL}products/homepage-scroll-assortment.webp`} sizes="(max-width: 809px) 78vw, 440px" alt="Goldie Ann hand-decorated treats" loading="lazy" decoding="async" width={1280} height={1280} />
               <h3 className={cx(tokens["text-n-20-r"], styles.h5)}>Hand-decorated for your sweetest moments</h3>
               <img className={styles["wax-seal"]} src={`${import.meta.env.BASE_URL}logo-badge.svg`} alt="Goldie Ann Sweets & More" />
             </div>

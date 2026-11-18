@@ -3,6 +3,7 @@ import tokens from "../tokens.module.css"
 import styles from "../Page.module.css"
 import Button from "../Button"
 import { Heart } from "lucide-react"
+import ResponsiveProductImage from "../ResponsiveProductImage"
 
 const heroTreats = [
   { image: "apple-pie-on-a-stick-transparent.webp", alt: "Apple pie cake pop with cinnamon coating" },
@@ -16,9 +17,10 @@ export default function HomeHero() {
   return (
     <section className={styles["hero-container"]} data-reveal="" aria-labelledby="home-hero-heading">
         <div className={styles["hero-image"]} aria-hidden="true">
-          {heroTreats.map((treat, index) => <img
+          {heroTreats.map((treat, index) => <ResponsiveProductImage
             key={treat.image}
             src={`${import.meta.env.BASE_URL}products/${treat.image}`}
+            sizes="(max-width: 1039px) 30vw, 20vw"
             alt=""
             fetchPriority={index < 2 ? "high" : undefined}
             decoding="async"

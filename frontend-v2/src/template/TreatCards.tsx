@@ -5,6 +5,7 @@ import styles from "./TreatCards.module.css"
 import Button from "./Button"
 import { Heart, ShoppingBasket } from "lucide-react"
 import { shopUrl } from "../content/brand"
+import ResponsiveProductImage from "./ResponsiveProductImage"
 
 interface Props {
   productImage1?: string
@@ -37,7 +38,7 @@ export default function TreatCards({
   return (
     <div className={styles["desktop-1"]}>
       <div className={styles["product-image"]}>
-        {selectedImage && <img key={selectedImage.src} className={styles["featured-product"]} src={selectedImage.src} alt={`${title}: ${selectedImage.label}`} loading="lazy" decoding="async" />}
+        {selectedImage && <ResponsiveProductImage key={selectedImage.src} className={styles["featured-product"]} src={selectedImage.src} sizes="(max-width: 809px) 88vw, (max-width: 1199px) 42vw, 520px" alt={`${title}: ${selectedImage.label}`} loading="lazy" decoding="async" />}
         <div className={styles["product-label"]}>
           <ShoppingBasket className="decorative-icon" aria-hidden="true" />
           <p className={cx(tokens["text-n-16-r"], styles["title"])}>{title}</p>
@@ -54,18 +55,17 @@ export default function TreatCards({
             </div>
             <p className={cx(tokens["text-n-18-r"], styles["buttontext"])}>Browse the collection and current menu.</p>
           </div>
-          <div className={styles["productimage1"]} style={productImage1 ? { backgroundImage: `url(${productImage1})`, backgroundSize: "contain", backgroundPosition: "center" } : undefined} />
+          {productImage1 && <ResponsiveProductImage className={styles["productimage1"]} src={productImage1} sizes="80px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={160} height={160} />}
         </div>
         <div className={styles["others"]}>
           {images.map((image, index) => <button
             key={image.src}
             type="button"
             className={styles["product-thumb"]}
-            style={{ backgroundImage: `url(${image.src})` }}
             aria-label={`Show ${image.label}`}
             aria-pressed={selectedIndex === index}
             onClick={() => setSelectedIndex(index)}
-          />)}
+          ><ResponsiveProductImage src={image.src} sizes="(max-width: 809px) 18vw, 96px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={160} height={160} /></button>)}
         </div>
         <Button variant="Primary Desktop" buttonText={buttonText} link={link} />
       </div>

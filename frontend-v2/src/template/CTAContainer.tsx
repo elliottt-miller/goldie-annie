@@ -3,6 +3,7 @@ import cx from "./cx"
 import tokens from "./tokens.module.css"
 import styles from "./CTAContainer.module.css"
 import Button from "./Button"
+import ResponsiveProductImage from "./ResponsiveProductImage"
 
 export default function CTAContainer() {
   return (
@@ -28,8 +29,9 @@ export default function CTAContainer() {
         </div>
 
         <div className={styles.mainImage}>
-          <img
+          <ResponsiveProductImage
             src={`${import.meta.env.BASE_URL}products/homepage-scroll-assortment.webp`}
+            sizes="(max-width: 809px) 88vw, (max-width: 1199px) 70vw, 720px"
             alt=""
             aria-hidden="true"
             loading="lazy"

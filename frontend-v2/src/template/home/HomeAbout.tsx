@@ -4,6 +4,7 @@ import styles from "../Page.module.css"
 import Button from "../Button"
 import SectionTags from "../SectionTags"
 import AnimatedCounter from "../AnimatedCounter"
+import ResponsiveProductImage from "../ResponsiveProductImage"
 import { products, productCollections } from "../../content/products"
 
 const treatVarieties = new Set(products.map((product) => product.kind)).size
@@ -29,7 +30,7 @@ export default function HomeAbout() {
             </div>
             <div className={styles["n-2"]}>
               <div className={styles["image-frame"]}>
-                <img className={styles["cake-image"]} src={`${import.meta.env.BASE_URL}products/apple-pie-on-a-stick-transparent.webp`} alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
+                <ResponsiveProductImage className={styles["cake-image"]} src={`${import.meta.env.BASE_URL}products/apple-pie-on-a-stick-transparent.webp`} sizes="(max-width: 809px) 300px, 353px" alt="" aria-hidden="true" loading="lazy" decoding="async" width={480} height={480} />
               </div>
             </div>
           </div>

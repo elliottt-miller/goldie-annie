@@ -4,6 +4,8 @@ import styles from "./FeaturedTreatCard.module.css"
 import { ArrowUpRight, Heart } from "lucide-react"
 import { shopUrl } from "../content/brand"
 import type { Product } from "../content/products"
+import ResponsiveProductImage from "./ResponsiveProductImage"
+import { Link } from "react-router-dom"
 
 interface Props {
   product: Product
@@ -12,16 +14,17 @@ interface Props {
 export default function FeaturedTreatCard({ product }: Props) {
   return (
     <article className={styles.card}>
-      <a className={styles.imageLink} href={shopUrl} target="_blank" rel="noreferrer" aria-label={`See ${product.name} in the online shop`}>
-        <img
+      <Link className={styles.imageLink} to={`/treats/${encodeURIComponent(product.id)}`} aria-label={`View ${product.name}`}>
+        <ResponsiveProductImage
           className={styles.image}
           src={`${import.meta.env.BASE_URL}products/${product.image}`}
+          sizes="(max-width: 809px) 86vw, (max-width: 1199px) 42vw, 340px"
           alt=""
           loading="lazy"
           decoding="async"
         />
         <span className={styles.imageLabel}>{product.kind.split(" · ")[0]}</span>
-      </a>
+      </Link>
       <div className={styles.content}>
         <p className={cx(tokens["text-n-16-r"], styles.category)}>{product.kind}</p>
         <h3 className={cx(tokens["text-n-32-r"], styles.name)}>{product.name}</h3>

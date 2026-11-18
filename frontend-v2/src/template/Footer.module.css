@@ -304,17 +304,6 @@
     linear-gradient(180deg, var(--brand-cream-light), var(--brand-cream) 72%, var(--brand-cream-deep));
 }
 
-.bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: url("../assets/template-media/images/8clBzvsgKGhk9hkNJ9d87MggXU.avif") center / cover no-repeat;
-  filter: hue-rotate(31deg) saturate(.8);
-  opacity: .2;
-  pointer-events: none;
-}
-
 .top-gradient {
   position: absolute;
   right: 0;
@@ -337,8 +326,8 @@
   }
 
   .logo {
-    width: 360px;
-    height: 249px;
+    width: min(360px, 70vw);
+    height: auto;
     max-width: 100%;
   }
 

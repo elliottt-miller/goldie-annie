@@ -6,6 +6,7 @@ import SectionTags from "../SectionTags"
 import TreatStory from "../TreatStory"
 import { Heart } from "lucide-react"
 import { shopUrl } from "../../content/brand"
+import ResponsiveProductImage from "../ResponsiveProductImage"
 
 const treatStories = [
   {
@@ -15,6 +16,7 @@ const treatStories = [
       { image: "funfetti-pops-transparent.webp", title: "Colorful funfetti", alt: "Hand-decorated funfetti cake pops" },
       { image: "lemon-blueberry-pops-transparent.webp", title: "Lemon blueberry", alt: "Lemon blueberry cake pop with blueberries" },
       { image: "apple-pie-on-a-stick-transparent.webp", title: "Apple pie on a stick", alt: "Apple pie cake pop on a stick" },
+      { image: "butterfinger-bliss-transparent.webp", title: "Butterfinger Bliss", alt: "Chocolate Butterfinger cake pop" },
     ],
   },
   {
@@ -71,9 +73,9 @@ export default function HomeSocial() {
                   <p className={cx(tokens["text-n-18-r"], styles["brand-name"])}>{"Goldie Ann’s Sweets & More"}</p>
                 </div>
               </div>
-              <img className={styles["social-featured-treat-art"]} src={`${import.meta.env.BASE_URL}products/funfetti-pops-transparent.webp`} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+              <ResponsiveProductImage className={styles["social-featured-treat-art"]} src={`${import.meta.env.BASE_URL}products/funfetti-pops-transparent.webp`} sizes="147px" alt="" aria-hidden="true" loading="lazy" decoding="async" />
             </div>
-            <img className={styles["social-assortment-art"]} src={`${import.meta.env.BASE_URL}products/homepage-assortment.webp`} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+            <ResponsiveProductImage className={styles["social-assortment-art"]} src={`${import.meta.env.BASE_URL}products/homepage-assortment.webp`} sizes="(max-width: 1039px) 24vw, 20vw" alt="" aria-hidden="true" loading="lazy" decoding="async" />
           </div>
         </div>
         <div className={styles["bg2"]} />

@@ -4,6 +4,7 @@ import styles from "./PricingCard.module.css"
 import Button from "./Button"
 import { CheckCircle2, ExternalLink, Heart } from "lucide-react"
 import { shopUrl } from "../content/brand"
+import ResponsiveProductImage from "./ResponsiveProductImage"
 
 interface Props {
   variant?: "Desktop" | "Desktop Gold" | "Tablet/Mobile" | "Tablet/Mobile Gold" | "Custom Variant" | "Tablet/Mobile Custom variant"
@@ -33,7 +34,7 @@ export default function PricingCard({
   return (
     <div className={styles["desktop"]} data-variant={variant}>
       <div className={styles["main-image"]}>
-        {image && <img className={styles["main-product-image"]} src={image} alt={title} loading="lazy" decoding="async" />}
+        {image && <ResponsiveProductImage className={styles["main-product-image"]} src={image} sizes="(max-width: 357px) 100vw, 357px" alt={title} loading="lazy" decoding="async" />}
       </div>
       <div className={styles["content"]}>
         <div className={styles["inner-content"]}>

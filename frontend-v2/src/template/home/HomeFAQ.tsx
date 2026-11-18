@@ -3,6 +3,7 @@ import tokens from "../tokens.module.css"
 import styles from "../Page.module.css"
 import FAQAccordions from "../FAQAccordions"
 import SectionTags from "../SectionTags"
+import ResponsiveProductImage from "../ResponsiveProductImage"
 
 export default function HomeFAQ() {
   return (
@@ -22,7 +23,7 @@ export default function HomeFAQ() {
             <FAQAccordions variant="Close" question={"How do I place an order?"} answer={"Select Shop Goldie Ann to open the ordering page and review available treats."} />
             <FAQAccordions variant="Close" question={"Can I order for a celebration or gift?"} answer={"The treats are made for gifting and celebrations. Ask about packaging and customizations when placing your order."} />
           </div>
-          <img className={styles["faq-featured-treat-art"]} src={`${import.meta.env.BASE_URL}products/mean-ones-sweet-box-transparent.webp`} alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          <ResponsiveProductImage className={styles["faq-featured-treat-art"]} src={`${import.meta.env.BASE_URL}products/mean-ones-sweet-box-transparent.webp`} sizes="(max-width: 809px) 58vw, 260px" alt="" aria-hidden="true" loading="lazy" decoding="async" />
         </div>
         <div className={styles["baby-flowers-illustration4"]} />
         <div className={styles["baby-flowers-illustration5"]} />

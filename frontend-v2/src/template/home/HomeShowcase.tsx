@@ -3,6 +3,7 @@ import tokens from "../tokens.module.css"
 import styles from "../Page.module.css"
 import ProductShowcase from "../ProductShowcase"
 import SectionTags from "../SectionTags"
+import ResponsiveProductImage from "../ResponsiveProductImage"
 
 export default function HomeShowcase() {
   return (
@@ -18,8 +19,8 @@ export default function HomeShowcase() {
           <div className={styles["featured-stage"]}>
             <ProductShowcase />
             <div className={styles["dessert-decorations"]} aria-hidden="true">
-              <img className={styles["showcase-accent-treat-primary"]} src={`${import.meta.env.BASE_URL}products/lemon-blueberry-pops-transparent.webp`} alt="" loading="lazy" decoding="async" />
-              <img className={styles["showcase-accent-treat-secondary"]} src={`${import.meta.env.BASE_URL}products/rice-krispy-treats-transparent.webp`} alt="" loading="lazy" decoding="async" />
+              <ResponsiveProductImage className={styles["showcase-accent-treat-primary"]} src={`${import.meta.env.BASE_URL}products/lemon-blueberry-pops-transparent.webp`} sizes="213px" alt="" loading="lazy" decoding="async" />
+              <ResponsiveProductImage className={styles["showcase-accent-treat-secondary"]} src={`${import.meta.env.BASE_URL}products/rice-krispy-treats-transparent.webp`} sizes="277px" alt="" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

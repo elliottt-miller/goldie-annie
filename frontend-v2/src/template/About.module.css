@@ -102,6 +102,7 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
 .bg2 {
@@ -111,6 +112,7 @@
   background-image: url("../assets/template-media/images/8clBzvsgKGhk9hkNJ9d87MggXU.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.58) saturate(.72);
 }
 
 .top-gradient2 {
@@ -791,11 +793,11 @@
   background-image: url("../assets/template-media/images/iP08jJqEc9fD2a6RdsNAHtSr2c.avif");
   background-size: cover;
   background-position: center;
+  filter: sepia(.62) saturate(.78);
 }
 
-.bg2, .baby-flowers-illustration, .baby-flowers-illustration2 {
-  filter: hue-rotate(31deg) saturate(.8);
-}
+.bg2 { filter: sepia(.58) saturate(.72); }
+.baby-flowers-illustration, .baby-flowers-illustration2 { filter: sepia(.62) saturate(.78); }
 
 /* Keep the exported artwork layered over sections instead of adding blank flex rows. */
 .story-container,

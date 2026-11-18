@@ -4,6 +4,7 @@ import styles from "./Footer.module.css"
 import HoverLink from "./HoverLink"
 import { Heart } from "lucide-react"
 import { shopUrl } from "../content/brand"
+import ResponsiveProductImage from "./ResponsiveProductImage"
 
 export default function Footer() {
   return (
@@ -60,9 +61,9 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles["footer-cake-pops"]} aria-hidden="true">
-        <img src={`${import.meta.env.BASE_URL}products/funfetti-pops-transparent.webp`} alt="" width="640" height="640" loading="lazy" decoding="async" />
-        <img src={`${import.meta.env.BASE_URL}products/lemon-blueberry-pops-transparent.webp`} alt="" width="640" height="640" loading="lazy" decoding="async" />
-        <img src={`${import.meta.env.BASE_URL}products/apple-pie-on-a-stick-transparent.webp`} alt="" width="640" height="640" loading="lazy" decoding="async" />
+        <ResponsiveProductImage src={`${import.meta.env.BASE_URL}products/funfetti-pops-transparent.webp`} sizes="(max-width: 809px) 18vw, 170px" alt="" width="640" height="640" loading="lazy" decoding="async" />
+        <ResponsiveProductImage src={`${import.meta.env.BASE_URL}products/lemon-blueberry-pops-transparent.webp`} sizes="(max-width: 809px) 18vw, 170px" alt="" width="640" height="640" loading="lazy" decoding="async" />
+        <ResponsiveProductImage src={`${import.meta.env.BASE_URL}products/apple-pie-on-a-stick-transparent.webp`} sizes="(max-width: 809px) 18vw, 170px" alt="" width="640" height="640" loading="lazy" decoding="async" />
       </div>
       <div className={styles["bg"]} />
       <div className={styles["top-gradient"]} />
