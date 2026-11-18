@@ -134,6 +134,14 @@ function ScrollToLocation() {
   return null;
 }
 
+function RouteTransition({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+
+  return <div className={styles.routeTransition} key={pathname} data-route-transition>
+    {children}
+  </div>;
+}
+
 export default function App() {
   const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
   useLayoutEffect(() => initReveal(), []);
@@ -145,19 +153,21 @@ export default function App() {
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="site-navigation"><Navigation /></header>
       <main id="main" tabIndex={-1}>
-        <Suspense fallback={<PageLoading />}>
-          <Routes>
-            <Route index element={<HomePage />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="treats" element={<TreatsPage />} />
-            <Route path="treats/:productId" element={<ProductDetailPage />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="cart" element={<CartPage />} />
-            <Route path="checkout" element={<CheckoutPage />} />
-            <Route path="order-request" element={<OrderRequestPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
+        <RouteTransition>
+          <Suspense fallback={<PageLoading />}>
+            <Routes>
+              <Route index element={<HomePage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="treats" element={<TreatsPage />} />
+              <Route path="treats/:productId" element={<ProductDetailPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="checkout" element={<CheckoutPage />} />
+              <Route path="order-request" element={<OrderRequestPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </RouteTransition>
       </main>
       <Footer />
     </RouteErrorBoundary>

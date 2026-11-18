@@ -11,7 +11,7 @@ export function initReveal(): () => void {
     for (const entry of entries) {
       if (entry.isIntersecting) reveal(entry.target);
     }
-  }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+  }, { threshold: 0, rootMargin: "0px 0px 10% 0px" });
 
   const reveal = (element: Element) => {
     element.setAttribute("data-revealed", "");

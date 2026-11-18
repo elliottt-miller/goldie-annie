@@ -1,13 +1,16 @@
-/* Source-faithful CakeLab section reveal: opacity plus a gentle 28px rise. */
+/* A slower, restrained reveal keeps the CakeLab fade-and-rise character. */
 .has-scroll-reveal [data-reveal] {
   opacity: 1;
   transform: none;
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+  backface-visibility: hidden;
 }
 
 .has-scroll-reveal [data-reveal][data-reveal-pending] {
-  opacity: 0;
-  transform: translateY(28px);
+  opacity: 0.01;
+  transform: translate3d(0, 18px, 0);
   will-change: opacity, transform;
 }
 
