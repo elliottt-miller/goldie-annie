@@ -3,7 +3,7 @@ const productCatalog = [
   { id: 'apple-pie-on-a-stick', name: 'Apple Pie on a Stick', kind: 'Cake pops · 1 dozen', image: 'apple-pie-on-a-stick-transparent.webp', description: 'A warmly spiced, hand-decorated cake pop inspired by classic apple pie.' },
   { id: 'butterfinger-bliss', name: 'Butterfinger Bliss', kind: 'Cake pops · 1 dozen', image: 'butterfinger-bliss-transparent.webp', description: 'A chocolate cake pop finished with a crisp Butterfinger coating and chocolate drizzle.' },
   { id: 'lemon-blueberry', name: 'Lemon Blueberry', kind: 'Cake pops · 1 dozen', image: 'lemon-blueberry-pops-transparent.webp', description: 'Bright lemon cake with blueberry, dipped and decorated by hand.' },
-  { id: 'cakesicles', name: 'Cakesicles', kind: 'Cakesicles', image: 'cakesicles.webp', description: 'Hand-decorated cakesicles dipped in chocolate and finished with a delicate drizzle.' },
+  { id: 'cakesicles', name: 'Cakesicles', kind: 'Cakesicles', image: 'cakesicles-transparent.webp', description: 'Hand-decorated cakesicles dipped in chocolate and finished with a delicate drizzle.' },
   { id: 'mean-ones-sweet-box', name: 'The Mean Ones Sweet Box', kind: 'Holiday confection box', image: 'mean-ones-sweet-box-transparent.webp', description: 'A festive assortment of cake pops, dipped Oreos and decorated pretzels.', tag: 'Seasonal' },
   { id: 'blue-christmas-confection-box', name: 'Blue Christmas Confection Box', kind: 'Holiday confection box', image: 'blue-christmas-confection-box-transparent.webp', description: 'A holiday assortment of cake pops, dipped Oreos and decorated pretzels.', tag: 'Seasonal' },
   { id: 'rice-krispy-treats', name: 'Rice Krispy Treats', kind: 'Hand-decorated treats', image: 'rice-krispy-treats-transparent.webp', description: 'Crispy treats dipped, drizzled and finished with sprinkles.' },
@@ -35,7 +35,7 @@ export const productCollections: readonly ProductCollection[] = [
     id: 'dipped-treats',
     title: 'Dipped treats',
     description: 'Chocolate-dipped Oreos, cakesicles and pretzels, finished with a little extra sweetness.',
-    productIds: ['chocolate-dipped-oreos', 'chocolate-dipped-pretzel-rods', 'homemade-caramel-pretzel-rods'],
+    productIds: ['chocolate-dipped-oreos', 'chocolate-dipped-pretzel-rods', 'cakesicles'],
   },
   {
     id: 'sweet-boxes',

@@ -25,7 +25,7 @@ const treatStories = [
     slides: [
       { image: "dipped-oreos-transparent.webp", title: "Chocolate dipped Oreos", alt: "Chocolate-dipped Oreo cookies" },
       { image: "chocolate-dipped-pretzel-rods-transparent.webp", title: "Chocolate pretzel rods", alt: "Chocolate-dipped pretzel rods" },
-      { image: "cakesicles.webp", title: "Cakesicles", alt: "Chocolate-dipped cakesicles with drizzle" },
+      { image: "cakesicles-transparent.webp", title: "Cakesicles", alt: "Chocolate-dipped cakesicles with gold details" },
     ],
   },
   {
