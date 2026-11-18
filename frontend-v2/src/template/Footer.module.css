@@ -266,31 +266,6 @@
   color: var(--brand-plum, #111);
 }
 
-.footer-cake-pops {
-  position: absolute;
-  top: 0;
-  right: max(28px, calc((100% - 1200px) / 2 + 18px));
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: clamp(0px, .4vw, 8px);
-  width: clamp(170px, 20vw, 270px);
-  height: 118px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.footer-cake-pops img {
-  width: 33.333%;
-  height: 112px;
-  object-fit: contain;
-  object-position: center top;
-  filter: drop-shadow(0 5px 7px rgb(71 23 18 / 14%));
-}
-
-.footer-cake-pops img:nth-child(2) { transform: translateY(9px) rotate(5deg); }
-.footer-cake-pops img:nth-child(3) { transform: rotate(-5deg); }
-
 .bg {
   position: absolute;
   inset: 0;
@@ -343,8 +318,6 @@
     gap: 16px;
   }
 
-  .footer-cake-pops { right: 20px; width: 210px; height: 90px; }
-  .footer-cake-pops img { height: 88px; }
 }
 
 /* responsive: Phone */
@@ -358,8 +331,7 @@
   /* The sticky header already carries the badge on phones. Keep the footer
      focused on its links and copy, without another oversized logo or product
      cutouts colliding with the footer content. */
-  .logo,
-  .footer-cake-pops {
+  .logo {
     display: none;
   }
 

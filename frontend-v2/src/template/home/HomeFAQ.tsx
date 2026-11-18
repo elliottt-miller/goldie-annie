@@ -3,7 +3,6 @@ import tokens from "../tokens.module.css"
 import styles from "../Page.module.css"
 import FAQAccordions from "../FAQAccordions"
 import SectionTags from "../SectionTags"
-import ResponsiveProductImage from "../ResponsiveProductImage"
 
 export default function HomeFAQ() {
   return (
@@ -17,13 +16,10 @@ export default function HomeFAQ() {
             </div>
           </div>
           <div className={styles["faq-accordion-wrappers"]}>
-            <FAQAccordions variant="Close" question={"What treats can I order?"} answer={"Goldie Ann offers decorated cake pops, cakesicles, dipped Oreos, pretzel rods and Rice Krispy treats. Visit the shop to see current offerings."} />
-            <FAQAccordions variant="Close" question={"Can I request customizations?"} answer={"Yes. Packaging and customizations are available upon request. Use the shop link to ask about your order."} />
-            <FAQAccordions variant="Close" question={"Where can I see current products and pricing?"} answer={"Visit Goldie Ann’s online shop for current product listings and pricing."} />
-            <FAQAccordions variant="Close" question={"How do I place an order?"} answer={"Select Shop Goldie Ann to open the ordering page and review available treats."} />
-            <FAQAccordions variant="Close" question={"Can I order for a celebration or gift?"} answer={"The treats are made for gifting and celebrations. Ask about packaging and customizations when placing your order."} />
+            <FAQAccordions variant="Close" question={"How far in advance should I order?"} answer={"Please place orders at least one week in advance. Typical preparation time is three days."} />
+            <FAQAccordions variant="Close" question={"Can I customize colors and decorations?"} answer={"Choose up to two colors for dipped selections, with drizzle and sprinkles. Special requests can be accommodated unless otherwise noted."} />
+            <FAQAccordions variant="Close" question={"What is needed to place an order?"} answer={"The order minimum is $20. A non-refundable 50% deposit is due within 24 hours. Visit the online shop to browse the menu and secure your date."} />
           </div>
-          <ResponsiveProductImage className={styles["faq-featured-treat-art"]} src={`${import.meta.env.BASE_URL}products/mean-ones-sweet-box-transparent.webp`} sizes="(max-width: 809px) 58vw, 260px" alt="" aria-hidden="true" loading="lazy" decoding="async" />
         </div>
         <div className={styles["baby-flowers-illustration4"]} />
         <div className={styles["baby-flowers-illustration5"]} />

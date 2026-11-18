@@ -1,13 +1,16 @@
 import { ArrowLeft, ArrowUpRight, Heart } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
-import { getProduct, products, productCollections } from "../content/products";
-import { shopUrl } from "../content/brand";
+import { useState } from "react";
+import { getProduct, products, productCollections, type ProductId } from "../content/products";
+import { useCart } from "../commerce/CartContext";
 import styles from "./ProductDetailPage.module.css";
 import { NotFoundPage } from "./NotFoundPage";
 import ResponsiveProductImage from "../template/ResponsiveProductImage";
 
 export function ProductDetailPage() {
   const { productId } = useParams();
+  const { addProduct } = useCart();
+  const [added, setAdded] = useState(false);
   const product = products.find((item) => item.id === productId);
 
   if (!product) return <NotFoundPage />;
@@ -43,14 +46,17 @@ export function ProductDetailPage() {
               <h2>At a glance</h2>
               <div><span>Category</span><strong>{category}</strong></div>
               {packSize && <div><span>Pack size</span><strong>{packSize}</strong></div>}
+              <div><span>Price</span><strong>{product.priceCents ? `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.priceCents / 100)} per dozen` : 'Ask about current pricing'}</strong></div>
+              {product.id === 'chocolate-dipped-pretzel-rods' && <div><span>Options</span><strong>Homemade caramel +$6 per dozen; pecans +$6 per dozen</strong></div>}
+              {product.id === 'homemade-caramel-pretzel-rods' && <div><span>Options</span><strong>Pecans +$6 per dozen</strong></div>}
               {productTag && <div><span>Collection</span><strong>{productTag}</strong></div>}
               <div><span>Made for</span><strong>Celebrations, gifting &amp; sharing</strong></div>
               <div><span>Custom details</span><strong>Ask about packaging and customizations</strong></div>
             </div>
-            <a className={styles.order} href={shopUrl} target="_blank" rel="noreferrer">
-              <span>Order online</span><ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-            <p className={styles.orderNote}>Current availability and ordering details are listed in our online shop.</p>
+            {product.priceCents != null
+              ? <button className={styles.order} type="button" onClick={() => { addProduct(product.id as ProductId); setAdded(true); }}>{added ? 'Added to your bag' : 'Add to bag'}</button>
+              : <Link className={styles.order} to={`/contact?product=${encodeURIComponent(product.id)}`}>Ask about availability</Link>}
+            <p className={styles.orderNote}>Orders need at least one week’s notice. Availability is confirmed after you submit an order request.</p>
             <Link className={styles.back} to="/treats"><ArrowLeft size={15} aria-hidden="true" /> Back to all treats</Link>
           </div>
         </div>

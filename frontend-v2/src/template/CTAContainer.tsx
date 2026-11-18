@@ -41,8 +41,6 @@ export default function CTAContainer() {
           />
         </div>
 
-        <div className={styles.cloth} aria-hidden="true" />
-        <div className={styles.cloth2} aria-hidden="true" />
         <div className={styles.bg} aria-hidden="true" />
 
         <div className={styles.subtitleCta}>

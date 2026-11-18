@@ -4,21 +4,21 @@ import styles from "./Contact.module.css";
 import ContactCards from "./ContactCards";
 import PageHeader from "./PageHeader";
 import SectionTags from "./SectionTags";
-import { shopUrl } from "../content/brand";
 import ResponsiveProductImage from "./ResponsiveProductImage";
+import { Link } from "react-router-dom";
 
 export default function Page() {
   return (
     <div className={styles.desktop}>
-      <PageHeader title="Order with Goldie Ann" subtitle="Explore the current treats and ask about custom details through the online shop." />
+      <PageHeader title="Contact Goldie Ann" subtitle="Explore the menu, plan a celebration, or ask about custom details for your order." />
       <section className={styles["order-container"]} aria-label="Order Goldie Ann treats">
         <div className={styles.content} data-reveal>
           <div className={styles.shopPanel}>
             <div className={styles.shopPanelContent}>
               <SectionTags variant="Left" tag="Shop Goldie Ann" />
               <h2 className={cx(tokens["text-n-36-r"], styles["first-name2"])}>Find your next sweet treat</h2>
-              <p className={cx(tokens["text-n-18-r"], styles["shop-copy"])}>Browse current offerings, place an order, and ask about packaging or customizations through the Goldie Ann shop.</p>
-              <a className="template-shop-link" href={shopUrl} target="_blank" rel="noreferrer">Visit the online shop <span aria-hidden="true">↗</span></a>
+              <p className={cx(tokens["text-n-18-r"], styles["shop-copy"])}>Browse the full menu, add treats to your bag, and send an order request with your event details.</p>
+              <Link className="template-shop-link" to="/treats">Browse the shop <span aria-hidden="true">↗</span></Link>
             </div>
           </div>
           <div className={styles.image}>
@@ -45,7 +45,7 @@ export default function Page() {
           </div>
           <div className={styles["contact-cards-map"]}>
             <div className={styles["contact-cards-wrapper"]}>
-              <ContactCards variant="Desktop With Short text" symbol="cake" title="The current menu" note="Browse available treats and order details in the online shop." />
+              <ContactCards variant="Desktop With Short text" symbol="cake" title="The current menu" note="Browse all listed treats and add selections to your bag." />
               <ContactCards variant="Desktop With Short text" symbol="gift" title="Personal touches" note="Ask about packaging and customizations when placing an order." />
               <ContactCards variant="Desktop With Short text" symbol="shop" title="Sweet occasions" note="Find hand-decorated treats for celebrations, gifting and sharing." />
             </div>

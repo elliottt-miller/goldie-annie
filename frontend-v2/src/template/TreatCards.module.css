@@ -1,15 +1,14 @@
 .desktop-1 {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  padding: 8px;
-  width: min(100%, 1120px);
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 10px;
+  width: 100%;
   max-width: 100%;
   min-width: 0;
-  height: fit-content;
-  border-radius: 32px;
+  height: 100%;
+  border-radius: 28px;
   overflow: hidden;
   background-color: var(--brand-cream);
   border-style: solid;
@@ -26,11 +25,10 @@
 .desktop-1:focus-within { border-color: var(--brand-gold); box-shadow: 0 0 0 3px var(--brand-gold-pale); }
 
 .product-image {
-  align-self: stretch;
-  flex: 1 1 0;
-  width: 50%;
+  flex: none;
+  width: 100%;
   min-width: 0;
-  min-height: 420px;
+  height: clamp(220px, 23vw, 300px);
   position: relative;
   display: grid;
   place-items: center;
@@ -43,8 +41,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 420px;
-  padding: clamp(24px, 4vw, 64px);
+  min-height: 0;
+  padding: clamp(12px, 1.5vw, 20px);
   object-fit: contain;
   filter: drop-shadow(0 16px 18px var(--brand-treat-shadow));
   transition: transform .45s cubic-bezier(.2,.7,.2,1);
@@ -87,22 +85,22 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 48px;
-  padding: 48px 0px 48px 16px;
-  flex: 1 1 0;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 12px 12px;
+  flex: 1 1 auto;
   min-width: 0;
-  width: 50%;
+  width: 100%;
   height: fit-content;
   background-color: var(--brand-cream);
 }
 
 .wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: fit-content;
   overflow: hidden;
 }
@@ -111,17 +109,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   width: 100%;
   height: fit-content;
-  overflow: hidden;
+  overflow: visible;
+  text-align: center;
 }
 
 .subtext {
   width: 100%;
   height: fit-content;
   color: var(--brand-plum, #111);
+  font: 500 clamp(25px, 2.4vw, 32px)/1.15 Fraunces, Georgia, serif;
+  text-wrap: balance;
 }
 
 .pattern {
@@ -156,7 +157,7 @@
 }
 
 .productimage1 {
-  display: block;
+  display: none;
   gap: 10px;
   width: 80px;
   height: 52px;
@@ -168,12 +169,12 @@
 
 .others {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 16px;
   padding: 12px 12px 12px 12px;
-  width: 120px;
+  width: auto;
   z-index: 1;
 }
 
@@ -207,25 +208,18 @@
 
 @media (max-width: 1199px) {
   .desktop-1 { width: 100%; }
-  .desktop-1 .content { padding: 32px 0 32px 16px; }
-  .desktop-1 .wrapper { flex-direction: column; }
-  .desktop-1 .productimage1 { width: 64px; height: 80px; }
-  .desktop-1 .others { padding: 32px 12px; }
 }
 
 @media (max-width: 809px) {
-  .desktop-1 {
-    flex-direction: column;
-    width: min(100%, 560px);
-    gap: 0;
-  }
+  .desktop-1 { width: min(100%, 560px); height: auto; }
   .desktop-1 .product-image {
     flex: none;
     width: 100%;
-    min-height: clamp(220px, 58vw, 300px);
+    height: clamp(230px, 62vw, 310px);
+    min-height: 0;
     border-radius: 24px;
   }
-  .desktop-1 .featured-product { min-height: inherit; padding: clamp(20px, 6vw, 36px); }
+  .desktop-1 .featured-product { height: 100%; min-height: 0; padding: clamp(12px, 4vw, 24px); }
   .desktop-1 .content {
     flex: none;
     width: 100%;

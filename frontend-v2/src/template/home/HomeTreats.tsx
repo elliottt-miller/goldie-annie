@@ -21,13 +21,10 @@ export default function HomeTreats() {
           </div>
           <div className={styles["treat-cards-wrapper"]}>
             {productCollections.map((collection) => {
-              const [first, second, third] = collection.productIds.map(getProduct);
+              const [first] = collection.productIds.map(getProduct);
               return <TreatCards
                 key={collection.id}
                 productImage1={`${import.meta.env.BASE_URL}products/${first.image}`}
-                productImage2={`${import.meta.env.BASE_URL}products/${second.image}`}
-                productImage3={`${import.meta.env.BASE_URL}products/${third.image}`}
-                productLabels={[first.name, second.name, third.name]}
                 title={collection.title}
                 subtext={collection.description}
                 link={shopUrl}

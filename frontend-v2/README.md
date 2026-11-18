@@ -17,10 +17,10 @@ The static production output is written to `out/`. The build creates optimized W
 
 ## Source layout
 
-- `src/pages/` defines the Home, About, Treats, Contact and not-found routes.
+- `src/pages/` defines the Home, About, Shop, Contact, Bag, Order Details, Order Request Summary and not-found routes.
 - `src/template/` contains the adapted Cakelab components, page compositions and CSS modules.
 - `src/content/products.ts` is the Goldie Ann product catalogue used by the Treats page and interactive showcase.
 - `src/assets/template-media/` holds the local template imagery and fonts referenced by the adapted components.
 - `public/products/` holds the preserved Goldie Ann product PNGs; production delivery uses generated WebP files. `public/logo-badge.svg` is the sole served copy of the brand badge.
 
-Orders and current availability link to Goldie Ann's online shop. The source export does not provide a server-side contact form or order processing, so the Contact route directs customers to that shop.
+The first-party shop supports browsing, product details, a persistent bag, and preparation of an order request summary. The request is not transmitted or accepted by the site: this project has no configured order inbox/API or payment provider. Availability and the 50% deposit must be confirmed by Goldie Ann before an order is accepted; no payment is collected here.

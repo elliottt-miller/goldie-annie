@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { Heart, Menu, X } from 'lucide-react';
+import { Heart, Menu, ShoppingBag, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../commerce/CartContext';
 import styles from "./Navigation.module.css"
 import Links from "./Links"
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { itemCount } = useCart();
   const menuButton = useRef<HTMLButtonElement>(null);
   const navigationRoot = useRef<HTMLDivElement>(null);
 
@@ -53,6 +55,11 @@ export default function Navigation() {
             menuButton.current?.focus();
           }
         }}>
+          <Link className={styles.cartLink} to="/cart" aria-label={`Shopping bag, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}>
+            <ShoppingBag size={19} aria-hidden="true" />
+            <span>Bag</span>
+            {itemCount > 0 && <span className={styles.cartCount} aria-hidden="true">{itemCount}</span>}
+          </Link>
           <div id="goldie-primary-navigation-links" className={styles["link-groups"]}>
             <div className={styles["link-set-1"]}>
               <div className={styles["link-1"]}>
@@ -60,17 +67,18 @@ export default function Navigation() {
               </div>
               <span className={styles["nav-divider"]} aria-hidden="true"><i /><Heart /><i /></span>
               <div className={styles["link-2"]}>
-                <Links variant="Active" text={"About"} link={"/about"} hidePattern />
+                <Links variant="Active" text={"Shop"} link={"/treats"} hidePattern />
               </div>
               <span className={styles["nav-divider"]} aria-hidden="true"><i /><Heart /><i /></span>
             </div>
             <div className={styles["link-set-2"]}>
+              <span className={styles["nav-divider"]} aria-hidden="true"><i /><Heart /><i /></span>
               <div className={styles["link-3"]}>
-                <Links variant="Active" text={"Treats"} link={"/treats"} hidePattern />
+                <Links variant="Active" text={"Contact"} link={"/contact"} hidePattern />
               </div>
               <span className={styles["nav-divider"]} aria-hidden="true"><i /><Heart /><i /></span>
               <div className={styles["link-4"]}>
-                <Links variant="Active" text={"Contact"} link={"/contact"} hidePattern />
+                <Links variant="Active" text={"About"} link={"/about"} hidePattern />
               </div>
             </div>
           </div>

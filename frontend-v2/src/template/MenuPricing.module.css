@@ -1,0 +1,58 @@
+.section {
+  width: 100%;
+  padding: clamp(56px, 7vw, 88px) clamp(16px, 4vw, 40px);
+  border-top: 1px solid var(--brand-plum-muted);
+  background: var(--brand-cream-light);
+}
+
+.inner { width: min(100%, 1200px); margin-inline: auto; }
+.heading, .subheading { text-align: center; }
+.heading { margin: 0 auto 32px; }
+.eyebrow { margin: 0 0 8px; color: var(--brand-gold-ink); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.heading h2, .subheading h2 { margin: 0; color: var(--brand-plum); font: 500 clamp(30px, 4vw, 44px)/1.12 Fraunces, Georgia, serif; text-wrap: balance; }
+.heading > p:last-child { max-width: 58ch; margin: 12px auto 0; color: var(--brand-muted); line-height: 1.6; }
+
+.menuGrid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.menuItem { display: flex; min-width: 0; min-height: 142px; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 18px; border: 1px solid var(--brand-plum-muted); border-radius: 20px; background: var(--brand-cream); }
+.menuItem h3 { margin: 0; color: var(--brand-plum); font: 500 19px/1.2 Fraunces, Georgia, serif; text-wrap: balance; }
+.menuItem span { color: var(--brand-muted); font-size: 13px; }
+.menuItem strong { color: var(--brand-gold-ink); font-size: 18px; }
+.addOns { margin: 16px 0 0; color: var(--brand-muted); font-size: 14px; line-height: 1.5; text-align: center; }
+
+.packages { margin-top: clamp(48px, 6vw, 72px); }
+.subheading { margin-bottom: 24px; }
+.packageGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.package { min-width: 0; padding: clamp(18px, 2.4vw, 28px); border: 1px solid var(--brand-gold-muted); border-radius: 24px; background: var(--brand-cream); box-shadow: 0 10px 24px rgb(65 20 18 / 5%); }
+.packageHead { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.packageHead h3 { margin: 0; color: var(--brand-plum); font: 500 clamp(20px, 2vw, 26px)/1.18 Fraunces, Georgia, serif; text-wrap: balance; }
+.packageHead span { display: inline-block; margin-top: 6px; color: var(--brand-muted); font-size: 14px; }
+.packageHead strong { flex: 0 0 auto; color: var(--brand-gold-ink); font-size: clamp(18px, 2vw, 23px); }
+.package ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; margin: 20px 0 0; padding-left: 19px; color: var(--brand-muted); font-size: 14px; line-height: 1.45; }
+
+.detailsGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }
+.detailCard { min-width: 0; padding: clamp(20px, 3vw, 30px); border: 1px solid var(--brand-plum-muted); border-radius: 24px; background: color-mix(in srgb, var(--brand-cream) 82%, var(--brand-gold-pale)); }
+.detailCard h3 { margin: 0 0 12px; color: var(--brand-plum); font: 500 24px/1.2 Fraunces, Georgia, serif; }
+.detailCard p { margin: 0; color: var(--brand-muted); font-size: 14px; line-height: 1.6; }
+.colorList { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.colorList li { padding: 6px 11px; border: 1px solid var(--brand-gold-muted); border-radius: 999px; color: var(--brand-plum); background: var(--brand-cream); font-size: 13px; }
+.detailCard dl { display: grid; gap: 0; margin: 0; }
+.detailCard dl div { display: grid; grid-template-columns: minmax(108px, .6fr) minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--brand-plum-muted); font-size: 14px; line-height: 1.45; }
+.detailCard dl div:last-child { border-bottom: 0; }
+.detailCard dt { color: var(--brand-muted); }
+.detailCard dd { margin: 0; color: var(--brand-plum); font-weight: 600; }
+
+@media (max-width: 1039px) {
+  .menuGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 700px) {
+  .menuGrid, .packageGrid, .detailsGrid { grid-template-columns: minmax(0, 1fr); }
+  .menuItem { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+  .menuItem h3 { grid-column: 1 / -1; }
+  .package ul { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 380px) {
+  .packageHead { flex-direction: column; gap: 10px; }
+  .detailCard dl div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}

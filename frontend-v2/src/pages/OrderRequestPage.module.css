@@ -1,0 +1,26 @@
+.page { display: grid; min-height: 58vh; place-items: center; width: 100%; padding: clamp(140px, 16vw, 180px) 20px 80px; color: var(--brand-plum); background: var(--brand-cream); }
+.card, .empty { display: grid; gap: 18px; width: min(100%, 760px); padding: clamp(24px, 5vw, 48px); border: 1px solid var(--brand-plum-muted); border-radius: 30px; background: var(--brand-cream-light); box-shadow: 0 18px 45px color-mix(in srgb, var(--brand-plum) 7%, transparent); }
+.eyebrow { margin: 0; color: var(--brand-gold-ink); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.card h1, .empty h1 { margin: 0; font: 500 clamp(34px, 5vw, 54px)/1.1 Fraunces, Georgia, serif; text-wrap: balance; }
+.notice { margin: 0; padding: 15px 17px; border: 1px solid var(--brand-gold-muted); border-radius: 16px; color: var(--brand-plum); background: var(--brand-gold-pale); font-size: 14px; line-height: 1.55; }
+.customer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.customer div { display: grid; gap: 4px; min-width: 0; padding: 14px; border: 1px solid var(--brand-plum-muted); border-radius: 14px; }
+.customer span { color: var(--brand-muted); font-size: 12px; }
+.customer strong { overflow-wrap: anywhere; font-size: 14px; }
+.itemList { display: grid; gap: 11px; padding-top: 14px; border-top: 1px solid var(--brand-plum-muted); }
+.itemList h2 { margin: 0 0 3px; font: 500 23px/1.2 Fraunces, Georgia, serif; }
+.item { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; }
+.item strong { white-space: nowrap; }
+.note { margin: 0; color: var(--brand-muted); font-size: 14px; line-height: 1.55; overflow-wrap: anywhere; }
+.note strong { color: var(--brand-plum); }
+.total { display: flex; justify-content: space-between; gap: 14px; padding-top: 13px; border-top: 1px solid var(--brand-plum-muted); font-size: 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.actions button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; padding: 11px 17px; border: 1px solid var(--brand-plum); border-radius: 999px; color: var(--brand-cream-light); background: var(--brand-plum); font: 600 14px/1.2 "DM Sans", Arial, sans-serif; cursor: pointer; }
+.actions button + button { color: var(--brand-plum); background: transparent; }
+.deliveryNote { margin: 0; color: var(--brand-muted); font-size: 12px; line-height: 1.5; }
+.back { display: inline-flex; width: fit-content; align-items: center; gap: 8px; color: var(--brand-plum); font-size: 14px; }
+.empty { justify-items: center; text-align: center; }
+.empty > p { margin: 0; color: var(--brand-muted); line-height: 1.55; }
+.empty > a { color: var(--brand-plum); }
+.actions button:focus-visible, .back:focus-visible, .empty a:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 3px; }
+@media (max-width: 540px) { .page { padding: 128px 16px 56px; } .card, .empty { padding: 24px 18px; border-radius: 24px; } .customer { grid-template-columns: minmax(0, 1fr); } .actions { display: grid; } }

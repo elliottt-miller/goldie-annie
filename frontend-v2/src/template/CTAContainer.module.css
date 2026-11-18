@@ -119,34 +119,6 @@
   text-align: center;
 }
 
-.cloth,
-.cloth2 {
-  position: absolute;
-  z-index: 3;
-  width: clamp(125px, 17vw, 220px);
-  height: clamp(56px, 8vw, 104px);
-  overflow: hidden;
-  border-radius: 32px;
-  pointer-events: none;
-  background: url("../assets/template-media/images/1r7WbH98gHJxxlvDba1i6FkCs0.png") center / cover no-repeat;
-  filter: sepia(.58) saturate(.72);
-  opacity: .9;
-}
-
-.cloth {
-  right: 29%;
-  bottom: 2%;
-  border-radius: 68% 28% 52% 20% / 58% 26% 58% 32%;
-  transform: rotate(8deg);
-}
-
-.cloth2 {
-  right: 22%;
-  bottom: -1%;
-  border-radius: 44% 66% 22% 58% / 38% 64% 28% 58%;
-  transform: rotate(-9deg);
-}
-
 .bg {
   position: absolute;
   inset: 0;
@@ -186,8 +158,6 @@
   .titleButton { gap: 8px; }
   .mainImage { grid-column: 2; grid-row: 1 / span 2; height: clamp(230px, 31vw, 300px); }
   .subtitleCta { grid-column: 1; padding-inline: 12px; }
-  .cloth { right: 24%; }
-  .cloth2 { right: 18%; }
 }
 
 @media (max-width: 809px) {
@@ -206,10 +176,6 @@
   .pattern2 span { width: 64px; }
   .mainImage { grid-column: auto; grid-row: auto; width: min(100%, 320px); height: clamp(220px, 75vw, 300px); margin-inline: auto; }
   .subtitleCta { grid-column: auto; padding: 0; }
-  /* The fabric is positioned against the full desktop card and can drift
-     over the product and CTA as mobile content height changes. */
-  .cloth,
-  .cloth2 { display: none; }
 }
 
 @media (max-width: 480px) {

@@ -8,6 +8,10 @@ import CTAContainer from './template/CTAContainer';
 import Footer from './template/Footer';
 import styles from './App.module.css';
 import { initReveal } from './template/reveal';
+import { CartProvider } from './commerce/CartContext';
+import { CartPage } from './pages/CartPage';
+import { CheckoutPage } from './pages/CheckoutPage';
+import { OrderRequestPage } from './pages/OrderRequestPage';
 import './template/reveal.css';
 
 const HomePage = lazy(() => import('./pages/HomePage').then((page) => ({ default: page.HomePage })));
@@ -29,9 +33,12 @@ const routeMetadata: Record<string, { title: string; description: string }> = {
     description: 'Explore Goldie Ann cake pops, cakesicles, dipped Oreos, pretzel rods, Rice Krispy treats, and sweet boxes.',
   },
   '/contact': {
-    title: 'Order Online | Goldie Ann’s Sweets & More',
-    description: 'Visit Goldie Ann’s online shop for current treats, ordering details, and customization requests.',
+    title: 'Contact Goldie Ann | Goldie Ann’s Sweets & More',
+    description: 'Ask Goldie Ann about custom treats, celebration packages, and order details in Minneapolis and surrounding areas.',
   },
+  '/cart': { title: 'Your Sweet Bag | Goldie Ann’s Sweets & More', description: 'Review your selected treats and celebration packages.' },
+  '/checkout': { title: 'Plan Your Order | Goldie Ann’s Sweets & More', description: 'Share your occasion details and preferences for an order request.' },
+  '/order-request': { title: 'Order Request Summary | Goldie Ann’s Sweets & More', description: 'Review and save your order request details.' },
 };
 
 function RouteMetadata() {
@@ -132,7 +139,7 @@ export default function App() {
   const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
   useLayoutEffect(() => initReveal(), []);
 
-  return <BrowserRouter basename={basename}>
+  return <BrowserRouter basename={basename}><CartProvider>
     <RouteMetadata />
     <ScrollToLocation />
     <RouteErrorBoundary>
@@ -146,6 +153,9 @@ export default function App() {
             <Route path="treats" element={<TreatsPage />} />
             <Route path="treats/:productId" element={<ProductDetailPage />} />
             <Route path="contact" element={<ContactPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="checkout" element={<CheckoutPage />} />
+            <Route path="order-request" element={<OrderRequestPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
@@ -153,5 +163,5 @@ export default function App() {
       <CTAContainer />
       <Footer />
     </RouteErrorBoundary>
-  </BrowserRouter>;
+  </CartProvider></BrowserRouter>;
 }

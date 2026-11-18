@@ -2,9 +2,10 @@ import { Link } from "react-router-dom"
 import cx from "./cx"
 import tokens from "./tokens.module.css"
 import styles from "./ProductCard.module.css"
-import Button from "./Button"
-import { shopUrl } from "../content/brand"
 import ResponsiveProductImage from "./ResponsiveProductImage"
+import { useCart } from "../commerce/CartContext"
+import { useState } from "react"
+import type { ProductId } from "../content/products"
 
 interface Props {
   id: string
@@ -12,6 +13,7 @@ interface Props {
   category?: string
   description?: string
   image?: string
+  priceCents?: number | null
 }
 
 export default function ProductCard({
@@ -20,7 +22,10 @@ export default function ProductCard({
   category = "Hand-decorated treat",
   description = "Made by Goldie Ann for your sweetest moments.",
   image,
+  priceCents,
 }: Props) {
+  const { addProduct } = useCart();
+  const [added, setAdded] = useState(false);
   return (
     <article className={styles["desktop-open"]}>
       <Link className={styles["card-link"]} to={`/treats/${encodeURIComponent(id)}`} aria-label={`View ${text} details`}>
@@ -30,10 +35,13 @@ export default function ProductCard({
         </div>
         <div className={styles["information"]}>
           <h3 className={cx(tokens["text-n-24-r"], styles["text"])}>{text}</h3>
+          <p className={styles.price}>{priceCents ? `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(priceCents / 100)} per dozen` : 'Ask about current pricing'}</p>
           <p className={cx(tokens["text-n-18-r"], styles["text2"])}>{description}</p>
         </div>
       </Link>
-      <Button variant="Desktop Full Width" buttonText={"Order online"} link={shopUrl} />
+      {priceCents != null
+        ? <button className={styles.addButton} type="button" onClick={() => { addProduct(id as ProductId); setAdded(true); window.setTimeout(() => setAdded(false), 1800); }}>{added ? 'Added to your bag' : 'Add to bag'}</button>
+        : <Link className={styles.addButton} to={`/contact?product=${encodeURIComponent(id)}`}>Ask about this treat</Link>}
     </article>
   )
 }

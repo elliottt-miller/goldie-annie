@@ -13,7 +13,7 @@
 .content {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(220px, 26vw, 340px);
+  grid-template-columns: minmax(0, 1fr) clamp(280px, 34vw, 440px);
   justify-content: space-between;
   align-items: center;
   gap: clamp(16px, 3vw, 48px);
@@ -95,7 +95,7 @@
   display: block;
   justify-self: end;
   width: 100%;
-  max-width: 340px;
+  max-width: 440px;
   height: auto;
   aspect-ratio: 1.617;
   z-index: 1;
@@ -103,6 +103,28 @@
   object-position: center bottom;
   pointer-events: none;
 }
+
+.action {
+  justify-self: start;
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 12px 22px;
+  border: 1px solid var(--brand-plum);
+  border-radius: 999px;
+  color: var(--brand-cream-light);
+  background: var(--brand-plum);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.action:hover { transform: translateY(-2px); background: var(--brand-gold-ink); }
+.action:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 4px; }
 
 .desktop[data-revealed] .page-artwork {
   animation: page-artwork-enter .8s .12s both cubic-bezier(.22, 1, .36, 1);
@@ -120,12 +142,12 @@
     width: 100%;
   }
 
-  .content { grid-template-columns: minmax(0, 1fr) clamp(200px, 30vw, 300px); }
-  .page-artwork { max-width: 300px; }
+  .content { grid-template-columns: minmax(0, 1fr) clamp(220px, 28vw, 320px); }
+  .page-artwork { max-width: 320px; }
 }
 
 @media (min-width: 810px) and (max-width: 950px) {
-  .content { grid-template-columns: minmax(0, 1fr) clamp(170px, 22vw, 210px); }
+  .content { grid-template-columns: minmax(0, 1fr) clamp(190px, 22vw, 230px); }
   .title { font-size: clamp(42px, 5.4vw, 52px); }
 }
 
@@ -145,6 +167,8 @@
     display: none;
   }
 
+  .action { justify-self: center; }
+
 }
 
 @media (max-width: 480px) {
@@ -155,5 +179,24 @@
 
 @media (prefers-reduced-motion: reduce) {
   .desktop[data-revealed] .page-artwork { animation: none; }
+  .action { transition: none; }
+  .action:hover { transform: none; }
+}
+
+/* About page hero: direct, legible introduction with a prominent ordering path. */
+.about .content { grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); }
+.about .title-description { align-items: flex-start; }
+.about .title,
+.about .subtitle { text-align: left; }
+.about .subtitle { max-width: 560px; line-height: 1.65; }
+.about .pattern { justify-content: flex-start; }
+.about .page-artwork { max-width: 520px; }
+
+@media (max-width: 809px) {
+  .about .content { grid-template-columns: minmax(0, 1fr); }
+  .about .title-description { align-items: center; }
+  .about .title,
+  .about .subtitle { text-align: center; }
+  .about .pattern { justify-content: center; }
 }
 

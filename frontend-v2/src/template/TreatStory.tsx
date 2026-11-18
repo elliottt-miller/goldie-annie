@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import styles from "./TreatStory.module.css";
-import { shopUrl } from "../content/brand";
 import ResponsiveProductImage from "./ResponsiveProductImage";
 import { responsiveProductSrcSet } from "./productImage";
 
@@ -169,7 +169,7 @@ export default function TreatStory({ className, title, slides }: Props) {
       </div>
       <div className={styles.caption} aria-live="off">
         <span>{slide.title}</span>
-        <a href={shopUrl} target="_blank" rel="noreferrer">Explore treats <ArrowRight size={15} aria-hidden="true" /></a>
+        <Link to="/treats">Explore treats <ArrowRight size={15} aria-hidden="true" /></Link>
       </div>
       <div className={styles.controls}>
         <button type="button" aria-label={`Previous ${title.toLowerCase()} story`} onClick={() => goTo(active - 1)}><ArrowLeft size={16} aria-hidden="true" /></button>

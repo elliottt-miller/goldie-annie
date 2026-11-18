@@ -19,6 +19,7 @@
   padding: 200px 40px 0;
   align-self: stretch;
   isolation: isolate;
+  overflow: hidden;
   background: radial-gradient(ellipse at 50% 86%, var(--brand-gold-glow), transparent 56%), linear-gradient(180deg, var(--brand-cream-light) 0%, var(--brand-cream) 72%, var(--brand-cream-deep) 100%);
 }
 
@@ -50,7 +51,7 @@
   z-index: 1;
   transform: translateX(-50%);
   gap: clamp(0px, 1.4vw, 20px);
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
 }
 
@@ -65,11 +66,17 @@
   animation: hero-treat-enter 1s cubic-bezier(.2, .8, .2, 1) both;
 }
 
-.hero-image img:nth-child(1) { --hero-scale: 1.04; animation-delay: .08s; }
-.hero-image img:nth-child(2) { --hero-scale: 1.32; animation-delay: .16s; }
-.hero-image img:nth-child(3) { --hero-scale: 1.04; animation-delay: .24s; }
-.hero-image img:nth-child(4) { --hero-scale: 1.12; animation-delay: .32s; }
-.hero-image img:nth-child(5) { --hero-scale: 1.16; animation-delay: .4s; }
+.hero-image img:nth-child(1) { --hero-scale: 1; animation-delay: .08s; }
+.hero-image img:nth-child(2) { --hero-scale: 1; animation-delay: .16s; }
+.hero-image img:nth-child(3) { --hero-scale: 1; animation-delay: .24s; }
+.hero-image img:nth-child(4) { --hero-scale: 1; animation-delay: .32s; }
+.hero-image img:nth-child(5) { --hero-scale: 1; animation-delay: .4s; }
+
+@media (min-width: 1040px) {
+  /* Lift the four shorter cake-pop cutouts so their tops sit closer to the
+     taller rightmost treat while the row keeps its common lower baseline. */
+  .hero-image img:nth-child(-n + 4) { margin-bottom: clamp(84px, 10svh, 108px); }
+}
 
 @keyframes hero-treat-enter {
   from { opacity: 0; transform: translateY(32px) scale(.94); }
@@ -178,9 +185,11 @@
 
 .text {
   text-align: center;
-  align-self: stretch;
+  align-self: center;
   height: fit-content;
-  max-width: 350px;
+  width: min(100%, 52ch);
+  max-width: 52ch;
+  text-wrap: balance;
 }
 
 .buttons {
@@ -269,20 +278,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   align-self: stretch;
   height: fit-content;
 }
 
 .h2 {
-  text-align: center;
+  text-align: left;
   align-self: stretch;
   height: fit-content;
   color: var(--brand-plum, #111);
 }
 
 .served-with-love {
-  text-align: center;
+  text-align: left;
   align-self: stretch;
   height: fit-content;
 }
@@ -291,6 +300,7 @@
   align-self: stretch;
   height: fit-content;
   max-width: 380px;
+  text-align: left;
 }
 
 .n-2 {
@@ -306,32 +316,23 @@
 
 .image-frame {
   position: relative;
-  flex: 0 1 438px;
-  width: min(100%, 438px);
-  aspect-ratio: 438 / 511;
-  overflow: hidden;
-  background-color: var(--brand-cream-deep);
-  background-size: cover;
-  background-position: center;
+  flex: 0 1 480px;
+  width: min(100%, 480px);
+  aspect-ratio: 1670 / 942;
+  overflow: visible;
+  background-color: transparent;
 }
 
 .image-frame::before {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: url("../assets/template-media/images/3IjmIO2A4e3bhMHyaAwjL2v8.avif") center / cover no-repeat;
-  filter: sepia(.52) saturate(.82);
+  display: none;
 }
 
 .cake-image {
   position: absolute;
   z-index: 1;
-  top: 7.24%;
-  right: 12.79%;
-  bottom: 8.61%;
-  left: 12.79%;
-  width: 74.42%;
-  height: 84.15%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   object-fit: contain;
   object-position: center;
@@ -472,11 +473,10 @@
 }
 
 .treat-cards-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(18px, 2.4vw, 32px);
   align-self: stretch;
   height: fit-content;
 }
@@ -1009,12 +1009,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 120px;
+  gap: clamp(48px, 7vw, 88px);
   align-self: center;
-  width: min(100%, 900px);
+  width: min(100%, 1120px);
   margin-inline: auto;
   height: fit-content;
-  max-width: 900px;
+  max-width: 1120px;
   z-index: 2;
 }
 
@@ -1081,16 +1081,24 @@
   z-index: 0;
 }
 
+/* Keep product photography inside the featured card so the carousel never
+   appears to scatter unrelated cutouts around its edges. */
+.dessert-decorations { display: none; }
+
 .featured-stage {
   position: relative;
   display: grid;
   width: min(calc(100vw - 80px), 1160px);
   margin-inline: auto;
   place-items: center;
-  padding: 28px clamp(24px, 11vw, 128px);
+  padding: 28px 0;
 }
 
-.featured-stage > section { position: relative; z-index: 1; }
+.featured-stage > section { position: relative; z-index: 1; width: min(100%, 900px); }
+
+@media (max-width: 1039px) {
+  .treat-cards-wrapper { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 .socials-container {
   display: flex;
@@ -1504,21 +1512,11 @@
   justify-content: center;
   align-items: center;
   gap: 24px;
-  align-self: stretch;
+  align-self: center;
+  width: min(100%, 820px);
+  margin-inline: auto;
   height: fit-content;
   max-width: 700px;
-}
-
-.faq-featured-treat-art {
-  width: 332px;
-  height: 245px;
-  aspect-ratio: 1.354;
-  position: absolute;
-  right: -10px;
-  bottom: -130px;
-  z-index: -1;
-  border-radius: 20px;
-  object-fit: contain;
 }
 
 .baby-flowers-illustration4 {
@@ -1551,19 +1549,12 @@
   }
 
   .image-frame {
-    width: min(100%, 353px);
-    flex-basis: 353px;
-    aspect-ratio: 353 / 412;
+    width: min(100%, 420px);
+    flex-basis: 420px;
+    aspect-ratio: 1670 / 942;
   }
 
-  .cake-image {
-    top: 7.52%;
-    right: 13.03%;
-    bottom: 8.74%;
-    left: 13.03%;
-    width: 73.94%;
-    height: 83.74%;
-  }
+  .cake-image { inset: 0; width: 100%; height: 100%; }
 
   .metrics {
     padding: 18px 16px 18px 16px;
@@ -1646,12 +1637,6 @@
     transform: initial;
   }
 
-  .faq-featured-treat-art {
-    width: min(30vw, 260px);
-    height: auto;
-    right: clamp(12px, calc((100% - 700px) / 2), 64px);
-    bottom: -72px;
-  }
 }
 
 /* Keep the hero product cutouts legible at tablet widths instead of
@@ -1667,10 +1652,11 @@
 
   .hero-image img:nth-child(2),
   .hero-image img:nth-child(5) { display: none; }
+  .hero-image img:nth-child(-n + 4) { margin-bottom: 0; }
 
-  .hero-image img:nth-child(1) { --hero-scale: 1.12; }
-  .hero-image img:nth-child(3) { --hero-scale: 1.28; }
-  .hero-image img:nth-child(4) { --hero-scale: 1.16; }
+  .hero-image img:nth-child(1),
+  .hero-image img:nth-child(3),
+  .hero-image img:nth-child(4) { --hero-scale: 1; }
 
   /* The social CTA stacks below the story rail here, so keep its treat
      artwork close to the card instead of floating above unrelated content. */
@@ -1752,19 +1738,12 @@
   }
 
   .image-frame {
-    width: min(100%, 350px);
-    flex-basis: 350px;
-    aspect-ratio: 0.856;
+    width: min(100%, 480px);
+    flex-basis: 480px;
+    aspect-ratio: 1670 / 942;
   }
 
-  .cake-image {
-    top: 7.33%;
-    right: 12.57%;
-    bottom: 8.56%;
-    left: 12.57%;
-    width: 74.86%;
-    height: 84.11%;
-  }
+  .cake-image { inset: 0; width: 100%; height: 100%; }
 
   .metrics {
     flex-direction: column;
@@ -1789,7 +1768,8 @@
   }
 
   .treat-cards-wrapper {
-    gap: 32px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
 
   .why-us-container {
@@ -1940,16 +1920,6 @@
     padding: 60px 20px 160px 20px;
   }
 
-  .faq-featured-treat-art {
-    width: 220px;
-    height: 162px;
-    left: 50%;
-    top: 112%;
-    transform: translateX(-50%) translateY(-50%);
-    aspect-ratio: initial;
-    right: initial;
-    bottom: initial;
-  }
 
   .baby-flowers-illustration4 {
     width: 211px;
@@ -2012,6 +1982,39 @@
     scroll-snap-stop: always;
   }
   .instagram-stories img, .instagram-stories2 img, .instagram-stories3 img { border-radius:16px; }
+}
+
+.package-intro { max-width: 54ch; margin: 12px auto 0; color: var(--brand-muted); font: 400 16px/1.55 "DM Sans", sans-serif; text-align: center; }
+.shop-heading-primary { margin: 0; color: var(--brand-plum); font: 500 clamp(30px, 4vw, 44px)/1.12 Fraunces, Georgia, serif; text-align: center; text-wrap: balance; }
+.package-grid-home { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.package-card { display: flex; min-width: 0; flex-direction: column; padding: clamp(20px, 3vw, 30px); border: 1px solid var(--brand-plum-muted); border-radius: 24px; background: var(--brand-cream-light); box-shadow: 0 10px 28px rgb(65 20 18 / 5%); }
+.package-card-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.package-card-heading h3 { margin: 0; color: var(--brand-plum); font: 500 clamp(20px, 2.2vw, 27px)/1.18 Fraunces, Georgia, serif; text-wrap: balance; }
+.package-card-heading span { display: inline-block; margin-top: 7px; color: var(--brand-muted); font-size: 14px; }
+.package-card-heading strong { flex: 0 0 auto; color: var(--brand-gold-ink); font: 600 clamp(20px, 2.2vw, 27px)/1.2 Fraunces, Georgia, serif; }
+.package-card ul { display: grid; flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; margin: 20px 0; padding-left: 18px; color: var(--brand-muted); font-size: 14px; line-height: 1.45; }
+.package-card button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--brand-plum); border-radius: 999px; color: var(--brand-plum); background: transparent; font: inherit; font-weight: 700; text-align: center; cursor: pointer; transition: color .18s ease, background-color .18s ease; }
+.package-card button:hover { color: var(--brand-cream-light); background: var(--brand-plum); }
+.package-card button:focus-visible { outline: 2px solid var(--brand-gold-ink); outline-offset: 3px; }
+.order-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+.order-facts > div { display: flex; min-width: 0; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--brand-plum-muted); border-radius: 16px; background: var(--brand-cream); }
+.order-facts span { color: var(--brand-muted); font-size: 13px; }
+.order-facts strong { color: var(--brand-plum); font-size: 14px; line-height: 1.35; }
+.package-note { margin: 14px 0 0; color: var(--brand-muted); font-size: 13px; line-height: 1.5; text-align: center; }
+
+@media (max-width: 809px) {
+  .package-grid-home { grid-template-columns: minmax(0, 1fr); }
+  .package-card ul { grid-template-columns: minmax(0, 1fr); }
+  .order-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 420px) {
+  .package-card-heading { flex-direction: column; gap: 10px; }
+  .order-facts { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .package-card button { transition: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2202,10 +2205,9 @@
     bottom: 4px;
     width: clamp(72px, 20vw, 96px);
   }
-  .faq-featured-treat-art { width: min(58vw, 220px); height: auto; }
   .socials-container .baby-flowers-illustration3 { display: none; }
   .reels-story-cta .social-assortment-art { display: none; }
-  .featured-stage { width: 100%; padding: 24px 16px; }
+  .featured-stage { width: 100%; padding: 64px 0 24px; }
   .dessert-decorations { display: none; }
 }
 

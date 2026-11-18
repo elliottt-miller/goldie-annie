@@ -2,7 +2,7 @@ import cx from "./cx"
 import tokens from "./tokens.module.css"
 import styles from "./PricingCard.module.css"
 import Button from "./Button"
-import { CheckCircle2, ExternalLink, Heart } from "lucide-react"
+import { CheckCircle2, Heart } from "lucide-react"
 import { shopUrl } from "../content/brand"
 import ResponsiveProductImage from "./ResponsiveProductImage"
 
@@ -49,7 +49,7 @@ export default function PricingCard({
               {pricing ? <>
                 <h4 className={cx(tokens["text-n-32-r"], styles["pricing"])}>{pricing}</h4>
                 {priceSuffix && <p className={cx(tokens["text-n-18-r"], styles["pricesuffix"])}>{priceSuffix}</p>}
-              </> : <a className={styles["price-link"]} href={shopUrl} target="_blank" rel="noreferrer">Current pricing <ExternalLink size={14} aria-hidden="true" /></a>}
+              </> : <a className={styles["price-link"]} href={shopUrl}>Current pricing</a>}
             </div>
           </div>
           <div className={styles["divider"]} />

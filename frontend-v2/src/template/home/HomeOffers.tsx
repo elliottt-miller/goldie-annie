@@ -1,34 +1,38 @@
-import cx from "../cx"
-import tokens from "../tokens.module.css"
-import styles from "../Page.module.css"
-import PricingCard from "../PricingCard"
-import SectionTags from "../SectionTags"
-import { getProduct } from "../../content/products"
+import styles from "../Page.module.css";
+import SectionTags from "../SectionTags";
+import { orderDepositPercent, orderLeadTimeDays, orderMinimumCents, sweetPackages, typicalPreparationDays } from "../../content/products";
+import { useCart } from "../../commerce/CartContext";
 
-const featuredCakePop = getProduct("apple-pie-on-a-stick")
-const featuredLemonCakePop = getProduct("lemon-blueberry")
-const featuredDippedTreat = getProduct("chocolate-dipped-oreos")
-const featuredRiceKrispy = getProduct("rice-krispy-treats")
+const formatPrice = (cents: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 
 export default function HomeOffers() {
-  return (
-    <section className={styles["shop-container"]} data-reveal="" aria-labelledby="shop-heading">
-        <div className={styles["baby-flower-illustration"]} />
-        <div className={styles["baby-flower-illustration2"]} />
-        <div className={styles["content5"]}>
-          <div className={styles["tag-title-description4"]}>
-            <SectionTags variant="Mid" tag={"Shop Goldie Ann"} />
-            <div className={styles["title5"]}>
-              <h2 id="shop-heading" className={cx(tokens["text-n-36-r"], styles["shop-heading-primary"])}>{"Find something"}</h2>
-              <h2 className={cx(tokens["text-n-44-r"], styles["shop-heading-accent"])}>{"sweet to share"}</h2>
-            </div>
-          </div>
-          <div className={styles["pricing-cards-wrapper"]}>
-            <PricingCard variant="Desktop" image={`${import.meta.env.BASE_URL}products/${featuredCakePop.image}`} title={"Cake pops"} point1={featuredCakePop.name} point2={featuredLemonCakePop.name} point3={"Hand-decorated"} point4={"Made for celebrations"} buttonText={"Shop cake pops"} />
-            <PricingCard variant="Desktop Gold" image={`${import.meta.env.BASE_URL}products/${featuredDippedTreat.image}`} title={featuredDippedTreat.name} point1={"Dipped in chocolate"} point2={"Decorated for your occasion"} point3={"A sweet gift or party treat"} point4={"Shop Goldie Ann online"} buttonText={"Shop dipped treats"} />
-            <PricingCard variant="Custom Variant" image={`${import.meta.env.BASE_URL}products/${featuredRiceKrispy.image}`} title={featuredRiceKrispy.name} point1={"Dipped and drizzled"} point2={"Finished with sprinkles"} point3={"A colorful sweet treat"} point4={"Made for sharing"} buttonText={"Shop sweet treats"} />
-          </div>
+  const { addPackage } = useCart();
+  return <section className={styles["shop-container"]} data-reveal="" aria-labelledby="shop-heading">
+    <div className={styles["content5"]}>
+      <div className={styles["tag-title-description4"]}>
+        <SectionTags variant="Mid" tag="For sharing" />
+        <div className={styles["title5"]}>
+          <h2 id="shop-heading" className={styles["shop-heading-primary"]}>Celebration packages</h2>
+          <p className={styles["package-intro"]}>Choose a ready-to-share assortment, then visit the shop to plan your order.</p>
         </div>
-    </section>
-  )
+      </div>
+      <div className={styles["package-grid-home"]}>
+        {sweetPackages.map((offer) => <article className={styles["package-card"]} key={offer.name}>
+          <div className={styles["package-card-heading"]}>
+            <div><h3>{offer.name}</h3><span>{offer.pieces} pieces</span></div>
+            <strong>{formatPrice(offer.priceCents)}</strong>
+          </div>
+          <ul>{offer.items.map((item) => <li key={item}>{item}</li>)}</ul>
+          <button type="button" onClick={() => addPackage(offer.name)}>Add package to bag</button>
+        </article>)}
+      </div>
+      <div className={styles["order-facts"]}>
+        <div><span>Order minimum</span><strong>{formatPrice(orderMinimumCents)}</strong></div>
+        <div><span>Deposit</span><strong>{orderDepositPercent}% due within 24 hours; non-refundable</strong></div>
+        <div><span>Order notice</span><strong>At least {orderLeadTimeDays} days</strong></div>
+        <div><span>Typical preparation</span><strong>{typicalPreparationDays} days</strong></div>
+      </div>
+      <p className={styles["package-note"]}>All dipped sweets in a package are matching unless otherwise specified.</p>
+    </div>
+  </section>;
 }
