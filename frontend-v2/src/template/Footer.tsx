@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className={styles["desktop"]} data-reveal="">
       <div className={styles["content"]}>
         <div className={styles["logo-subtitle"]}>
-          <div className={styles["logo"]} role="img" aria-label="Goldie Ann’s Sweets & More" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}logo-badge.svg)` }} />
+          <img className={styles.logo} src={`${import.meta.env.BASE_URL}logo-badge.svg`} alt="Goldie Ann’s Sweets & More" width={448} height={279} loading="lazy" />
           <p className={cx(tokens["text-n-18-r"], styles["text"])}>{"Hand-decorated desserts for life’s sweetest moments."}</p>
         </div>
         <div className={styles["pattern"]}>
@@ -24,7 +24,7 @@ export default function Footer() {
             <div className={styles["links-wrapper"]}>
               <HoverLink variant="Desktop" label={"Home"} link={"/"} />
               <HoverLink variant="Desktop" label={"About"} link={"/about"} />
-              <HoverLink variant="Desktop" label={"Treats"} link={"/treats"} />
+              <HoverLink variant="Desktop" label={"Shop"} link={"/treats"} />
               <HoverLink variant="Desktop" label={"Contact"} link={"/contact"} />
             </div>
           </div>

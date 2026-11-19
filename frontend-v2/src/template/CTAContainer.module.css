@@ -34,13 +34,7 @@
 }
 
 .titleButton { align-items: flex-start; gap: clamp(18px, 2vw, 28px); padding-left: clamp(0px, 1.2vw, 24px); }
-.brandMark { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 12px; width: min(100%, 340px); color: var(--brand-accent-ink); }
-.brandMark svg { grid-column: 2; grid-row: 1; width: 42px; height: 42px; stroke-width: 1.5; }
-.brandRule { height: 1px; background: linear-gradient(90deg, transparent, var(--brand-accent)); }
-.brandRule:first-child { grid-column: 1; grid-row: 1; }
-.brandRule:nth-of-type(2) { grid-column: 3; grid-row: 1; transform: rotate(180deg); }
-.brandName { grid-column: 1 / -1; grid-row: 2; margin-top: 12px; color: var(--brand-plum); font: 500 clamp(30px, 2.6vw, 48px)/1.08 Fraunces, Georgia, serif; letter-spacing: -.035em; text-align: center; white-space: nowrap; }
-.brandSubline { grid-column: 1 / -1; grid-row: 3; margin-top: 3px; color: var(--brand-plum); font: 700 9px/1.2 "DM Sans", Arial, sans-serif; letter-spacing: .27em; text-align: center; text-transform: uppercase; }
+.brandLogo { display: block; width: min(100%, 350px); height: auto; object-fit: contain; }
 .title { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
 .heading { margin: 0; color: var(--brand-plum); font: 500 clamp(54px, 5.1vw, 98px)/.98 Fraunces, Georgia, serif; letter-spacing: -.045em; text-wrap: balance; }
 .accentHeading { margin: 1px 0 0 -6px; color: var(--brand-accent-ink); font: italic 500 clamp(46px, 4.6vw, 86px)/1.03 "Dancing Script", cursive; letter-spacing: -.035em; text-wrap: balance; }
@@ -82,8 +76,7 @@
   .mainImage img { width: 100%; }
   .subtitleCta { grid-column: 2; grid-row: 1; gap: 20px; padding-left: 18px; }
   .subtitleCta > p { max-width: 350px; font-size: clamp(22px, 3vw, 32px); }
-  .brandMark { width: min(100%, 280px); }
-  .brandName { font-size: 32px; }
+  .brandLogo { width: min(100%, 300px); }
   .heading { font-size: clamp(46px, 6vw, 66px); }
   .accentHeading { font-size: clamp(40px, 5.6vw, 60px); }
 }
@@ -92,15 +85,12 @@
   .desktop { min-height: 0; padding: 58px 20px 64px; }
   .content { grid-template-columns: minmax(0, 1fr); gap: 12px; text-align: center; }
   .titleButton { grid-column: 1; grid-row: 1; align-items: center; gap: 13px; padding: 0; }
-  .brandMark { width: min(100%, 250px); }
-  .brandMark svg { width: 34px; height: 34px; }
-  .brandName { margin-top: 8px; font-size: 28px; }
-  .brandSubline { font-size: 8px; }
+  .brandLogo { width: min(72vw, 260px); }
   .title { align-items: center; text-align: center; }
   .heading { font-size: clamp(43px, 10vw, 58px); }
   .accentHeading { margin-left: 0; font-size: clamp(40px, 9.4vw, 55px); }
   .goldSwoosh { width: min(82%, 310px); height: 16px; margin: 2px 0 0; border-top-width: 3px; }
-  .mainImage { grid-column: 1; grid-row: 2; width: 100%; aspect-ratio: 1.45; }
+  .mainImage { grid-column: 1; grid-row: 2; width: min(100%, 500px); aspect-ratio: 1.12; }
   .mainImage img { width: 112%; max-width: none; }
   .subtitleCta { grid-column: 1; grid-row: 3; align-items: center; gap: 20px; padding: 0; }
   .subtitleCta > p { max-width: 32ch; padding: 0; border: 0; font-size: 21px; text-align: center; }

@@ -41,14 +41,12 @@
 }
 
 .logo {
+  display: block;
   width: min(448px, 70vw);
   height: auto;
   aspect-ratio: 1.606;
+  object-fit: contain;
   z-index: 1;
-  overflow: hidden;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .text {
@@ -324,15 +322,13 @@
 
 @media (max-width: 809px) {
   .desktop {
-    padding: 48px 20px 60px 20px;
+    padding: 40px 16px 36px;
     width: 100%;
   }
 
-  /* The sticky header already carries the badge on phones. Keep the footer
-     focused on its links and copy, without another oversized logo or product
-     cutouts colliding with the footer content. */
   .logo {
-    display: none;
+    width: min(220px, 68vw);
+    margin-inline: auto;
   }
 
   .nav-links,
@@ -356,6 +352,16 @@
   .wrapper {
     align-items: center;
     text-align: center;
+    overflow: visible;
+  }
+
+  .all-links-wrapper a,
+  .all-links-wrapper a > div,
+  .all-links-wrapper a p {
+    min-width: 0;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    text-align: center;
   }
 
   .links-wrapper p,
@@ -376,11 +382,18 @@
   .all-links-wrapper {
     flex-direction: column;
     width: 100%;
+    max-width: 560px;
+    gap: 18px;
+    padding: 24px clamp(16px, 6vw, 32px);
+    border-radius: 26px;
+    overflow: visible;
   }
 
   .nav-links, .legal-links, .social-links, .contact-info {
     width: 100%;
     flex: initial;
+    min-width: 0;
+    overflow: visible;
   }
 
   .divider {

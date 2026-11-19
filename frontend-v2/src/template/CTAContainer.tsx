@@ -1,4 +1,3 @@
-import { ChefHat } from "lucide-react"
 import styles from "./CTAContainer.module.css"
 import ResponsiveProductImage from "./ResponsiveProductImage"
 import { Link } from "react-router-dom"
@@ -8,13 +7,7 @@ export default function CTAContainer() {
     <section className={styles.desktop} data-reveal aria-labelledby="site-cta-heading">
       <div className={styles.content}>
         <div className={styles.titleButton}>
-          <div className={styles.brandMark}>
-            <span className={styles.brandRule} aria-hidden="true" />
-            <ChefHat aria-hidden="true" />
-            <span className={styles.brandRule} aria-hidden="true" />
-            <span className={styles.brandName}>Goldie Ann’s</span>
-            <span className={styles.brandSubline}>Sweets &amp; More</span>
-          </div>
+          <img className={styles.brandLogo} src={`${import.meta.env.BASE_URL}logo-badge.svg`} alt="Goldie Ann’s Sweets & More" width={448} height={279} fetchPriority="high" />
           <div className={styles.title}>
             <h2 id="site-cta-heading" className={styles.heading}>Let’s create</h2>
             <p className={styles.accentHeading}>something sweet</p>
