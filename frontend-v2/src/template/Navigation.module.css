@@ -258,19 +258,21 @@
   .desktop { padding: 12px 16px 0; width: 100%; }
   .container { max-width: none; }
   .links-logo { display: flex; justify-content: space-between; gap: 0; padding: 8px 12px; min-height: 64px; }
-  .cartLink { left: 12px; right: auto; }
+  .cartLink { left: auto; right: 12px; }
   .cartLink svg { width: 19px; }
   .link-groups { display: none; }
   .link-set-1, .link-set-2 { display: none; }
-  .menu { display: flex; width: 44px; height: 44px; min-width: 44px; margin-left: auto; align-items: center; justify-content: center; z-index: 2; }
+  .menu { position: absolute; top: 50%; left: 12px; display: flex; width: 44px; height: 44px; min-width: 44px; margin: 0; align-items: center; justify-content: center; transform: translateY(-50%); z-index: 2; }
   .logo-s-frame { width: 108px; height: 64px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
   .desktop[data-open="true"] .container { border-radius: 28px; }
-  .desktop[data-open="true"] .links-logo { flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 12px 16px 20px; border-radius: 28px; }
-  .desktop[data-open="true"] .link-groups { display: flex; flex: initial; flex-direction: column; width: 100%; gap: 8px; animation: navigation-links-enter .3s both cubic-bezier(.22, 1, .36, 1); }
-  .desktop[data-open="true"] .link-set-1, .desktop[data-open="true"] .link-set-2 { display: flex; flex: initial; flex-direction: column; width: 100%; gap: 8px; padding: 0; }
-  .desktop[data-open="true"] .logo-s-frame { position: relative; left: auto; top: auto; transform: none; order: -1; flex: 0 0 64px; margin-bottom: 4px; }
-  .desktop[data-open="true"] .menu { position: absolute; top: 12px; right: 12px; width: auto; z-index: 2; }
+  .desktop[data-open="true"] .links-logo { position: relative; flex-direction: column; flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 18px 16px 24px; border-radius: 28px; }
+  .desktop[data-open="true"] .link-groups { display: flex; flex: initial; flex-direction: column; width: 100%; gap: 0; animation: navigation-links-enter .55s both cubic-bezier(.22, 1, .36, 1); }
+  .desktop[data-open="true"] .link-set-1, .desktop[data-open="true"] .link-set-2 { display: flex; flex: initial; flex-direction: column; width: 100%; gap: 0; padding: 0; }
+  .desktop[data-open="true"] .logo-s-frame { position: relative; left: auto; top: auto; transform: none; order: -1; flex: 0 0 64px; margin: 0 0 6px; }
+  .desktop[data-open="true"] .cartLink { top: 18px; right: 18px; left: auto; transform: none; }
+  .desktop[data-open="true"] .menu { top: 18px; right: auto; bottom: auto; left: 18px; transform: none; }
   .link-1, .link-2, .link-3, .link-4 { justify-content: center; }
+  .link-1 a, .link-2 a, .link-3 a, .link-4 a { min-height: 46px; padding: 9px 16px; font-size: 17px; transition: none; }
   .nav-divider {
     display: inline-flex;
     flex: 0 0 auto;
@@ -278,6 +280,9 @@
     height: 14px;
     align-self: center;
   }
+  .link-set-1 > .nav-divider:last-child,
+  .link-set-2 > .nav-divider:first-child { display: none; }
+  .link-1 a:hover, .link-2 a:hover, .link-3 a:hover, .link-4 a:hover { background: transparent; }
 }
 
 @keyframes navigation-links-enter {
