@@ -355,15 +355,6 @@
     overflow: visible;
   }
 
-  .all-links-wrapper a,
-  .all-links-wrapper a > div,
-  .all-links-wrapper a p {
-    min-width: 0;
-    overflow: visible;
-    overflow-wrap: anywhere;
-    text-align: center;
-  }
-
   .links-wrapper p,
   .links-wrapper2 p,
   .links-wrapper3 p,

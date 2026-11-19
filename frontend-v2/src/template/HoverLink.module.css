@@ -53,6 +53,15 @@
 .desktop:focus-visible .text-2 { transform: translateY(0); }
 .desktop:focus-visible { outline: 2px solid var(--brand-accent-ink); outline-offset: 4px; }
 
+@media (max-width: 809px) {
+  /* On touch layouts, show one steady label instead of the hover duplicate. */
+  .label,
+  .text-2 { transition: none; }
+  .text-2 { display: none; }
+  .desktop:hover .label,
+  .desktop:focus-visible .label { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .label, .text-2 { transition: none; }
   .text-2 { display: none; }
