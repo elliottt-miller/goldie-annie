@@ -1,207 +1,103 @@
+/* Shared Goldie Ann action button: a precise metallic trim around a calm,
+   maroon enamel face. Keep sizing fluid so long labels remain usable on phones. */
 .primary-desktop {
-  position: relative;
-  display: flex;
-  flex-direction: row;
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+  align-items: stretch;
   justify-content: center;
-  align-items: center;
-  padding: 1.5px;
-  width: fit-content;
-  height: fit-content;
+  padding: 2px;
+  border: 1px solid #a97725;
   border-radius: 999px;
-  background: linear-gradient(135deg, #d8b66f, #a97a2a 48%, #e8cf92);
-  box-shadow: 0 4px 10px var(--brand-plum-muted);
+  background: linear-gradient(125deg, #a66f1c 0%, #f4d895 18%, #c38b2e 43%, #f7e4b3 67%, #a56f1e 100%);
+  box-shadow: 0 4px 12px rgb(65 20 18 / 12%);
+  transition: box-shadow .24s ease, transform .24s cubic-bezier(.22, 1, .36, 1), filter .24s ease;
 }
 
 .button {
-  min-height: 48px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: inline-flex;
+  min-width: 0;
+  min-height: 50px;
   align-items: center;
-  gap: 8px;
-  padding: 12px 32px 12px 32px;
-  width: fit-content;
-  height: fit-content;
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid #c99b4d;
-  background: linear-gradient(135deg, var(--brand-accent), var(--brand-accent-ink));
+  justify-content: center;
+  gap: 9px;
+  padding: 12px clamp(18px, 3vw, 30px);
+  border: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgb(255 231 181 / 74%);
+  background: linear-gradient(112deg, #670c27 0%, #4f061b 100%);
   color: var(--brand-cream-light);
+  font: inherit;
   text-decoration: none;
+  text-align: center;
   cursor: pointer;
-  transition: transform .24s cubic-bezier(.22, 1, .36, 1), box-shadow .24s ease, filter .24s ease;
+  -webkit-tap-highlight-color: transparent;
 }
-.button:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 8px 20px var(--brand-plum-muted); }
-.button:active { transform: translateY(0) scale(.98); }
-.button:focus-visible { outline: 3px solid var(--brand-accent); outline-offset: 4px; }
-.button:disabled { opacity: .58; cursor: not-allowed; transform: none; filter: none; box-shadow: none; }
+
+.button:focus-visible {
+  outline: 3px solid #c18a2e;
+  outline-offset: 4px;
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: .58;
+  cursor: not-allowed;
+}
+
 .fullWidth { width: 100%; }
 .fullWidth .button { width: 100%; }
-.button-label { font-family: "DM Sans", sans-serif; font-size: 16px; line-height: 1.4; font-weight: 600; white-space: nowrap; }
 
-.sparkle-star {
-  width: 12px;
-  height: 12px;
-  aspect-ratio: 1;
-  z-index: 1;
-  overflow: hidden;
-  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
-  background: var(--brand-cream-light);
-  transition: transform .28s cubic-bezier(.2,.7,.2,1);
+.button-label {
+  min-width: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 650;
+  text-wrap: balance;
 }
 
+.sparkle-star,
 .sparkle-star2 {
-  width: 12px;
-  height: 12px;
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
   aspect-ratio: 1;
-  z-index: 1;
-  overflow: hidden;
   clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
-  background: var(--brand-cream-light);
-  transition: transform .28s cubic-bezier(.2,.7,.2,1);
+  background: #fff3d3;
 }
 
-.button:hover .sparkle-star, .button:focus-visible .sparkle-star { transform: rotate(28deg) scale(1.18); }
-.button:hover .sparkle-star2, .button:focus-visible .sparkle-star2 { transform: rotate(-28deg) scale(1.18); }
-
-/* variant: Secondary */
-
-.primary-desktop[data-variant="Secondary"] .button {
-  background: var(--brand-cream-light);
-  color: var(--brand-plum);
-  border: 1px solid #c99b4d;
-}
-
-/* variant: Desktop Full Width */
-
-.primary-desktop[data-variant="Desktop Full Width"] {
-  width: 100%;
-}
-
-.primary-desktop[data-variant="Desktop Full Width"] .button {
-  width: 100%;
-}
-
-.primary-desktop[data-variant="Desktop Full Width"] .sparkle-star {
-  width: 16px;
-}
-
-.primary-desktop[data-variant="Desktop Full Width"] .sparkle-star2 {
-  width: 16px;
-}
-
-/* variant: Secondary Full Width */
-
-.primary-desktop[data-variant="Secondary Full Width"] {
-  width: 100%;
-}
-
-.primary-desktop[data-variant="Secondary Full Width"] .button {
-  width: 100%;
-  background: var(--brand-cream-light);
-}
-
-.primary-desktop[data-variant="Secondary Full Width"] .sparkle-star {
-  width: 16px;
-  height: 16px;
-}
-
-.primary-desktop[data-variant="Secondary Full Width"] .sparkle-star2 {
-  width: 16px;
-  height: 16px;
-}
-
-/* variant: Tablet Secondary */
-
-.primary-desktop[data-variant="Tablet Secondary"] .button {
-  background: var(--brand-cream-light);
-}
-
-/* variant: Tablet Full Width */
-
-.primary-desktop[data-variant="Tablet Full Width"] {
-  width: 155px;
-}
-
-.primary-desktop[data-variant="Tablet Full Width"] .button {
-  width: 100%;
-}
-
-.primary-desktop[data-variant="Tablet Full Width"] .sparkle-star {
-  width: 16px;
-  height: 16px;
-}
-
-.primary-desktop[data-variant="Tablet Full Width"] .sparkle-star2 {
-  width: 16px;
-  height: 16px;
-}
-
-/* variant: Tablet Secondary Full Width */
-
-.primary-desktop[data-variant="Tablet Secondary Full Width"] {
-  width: 155px;
-}
-
-.primary-desktop[data-variant="Tablet Secondary Full Width"] .button {
-  width: 100%;
-  background: var(--brand-cream-light);
-}
-
-.primary-desktop[data-variant="Tablet Secondary Full Width"] .sparkle-star {
-  width: 16px;
-  height: 16px;
-}
-
-.primary-desktop[data-variant="Tablet Secondary Full Width"] .sparkle-star2 {
-  width: 16px;
-  height: 16px;
-}
-
-/* variant: Mobile Primary */
-
-.primary-desktop[data-variant="Mobile Primary"] {
-  width: 155px;
-}
-
-.primary-desktop[data-variant="Mobile Primary"] .button {
-  width: 100%;
-}
-
-.primary-desktop[data-variant="Mobile Primary"] .sparkle-star {
-  width: 14px;
-  height: 14px;
-}
-
-.primary-desktop[data-variant="Mobile Primary"] .sparkle-star2 {
-  width: 14px;
-  height: 14px;
-}
-
-/* variant: Mobile Secondary */
-
-.primary-desktop[data-variant="Mobile Secondary"] {
-  width: 155px;
-}
-
+/* Secondary actions use the same trim with a light face. */
+.primary-desktop[data-variant="Secondary"] .button,
+.primary-desktop[data-variant="Secondary Full Width"] .button,
+.primary-desktop[data-variant="Tablet Secondary"] .button,
+.primary-desktop[data-variant="Tablet Secondary Full Width"] .button,
 .primary-desktop[data-variant="Mobile Secondary"] .button {
-  width: 100%;
-  background: var(--brand-cream-light);
+  box-shadow: inset 0 0 0 1px rgb(169 119 37 / 35%);
+  background: linear-gradient(145deg, #fffaf2 0%, #f9eddb 100%);
+  color: var(--brand-plum);
 }
 
-.primary-desktop[data-variant="Mobile Secondary"] .sparkle-star {
-  width: 14px;
-  height: 14px;
+.primary-desktop[data-variant="Desktop Full Width"],
+.primary-desktop[data-variant="Secondary Full Width"],
+.primary-desktop[data-variant="Tablet Secondary Full Width"] { width: 100%; }
+
+@media (hover: hover) and (pointer: fine) {
+  .primary-desktop:hover {
+    transform: translateY(-1px);
+    filter: saturate(1.05);
+    box-shadow: 0 7px 17px rgb(65 20 18 / 16%);
+  }
+  .button:active { transform: scale(.985); }
 }
 
-.primary-desktop[data-variant="Mobile Secondary"] .sparkle-star2 {
-  width: 14px;
-  height: 14px;
+@media (max-width: 480px) {
+  .button { min-height: 50px; gap: 7px; padding-inline: 14px; }
+  .button-label { font-size: 14px; }
+  .sparkle-star, .sparkle-star2 { flex-basis: 8px; width: 8px; height: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .button, .sparkle-star, .sparkle-star2 { transition: none; }
-  .button:hover, .button:active { transform: none; }
-  .button:hover .sparkle-star, .button:hover .sparkle-star2,
-  .button:focus-visible .sparkle-star, .button:focus-visible .sparkle-star2 { transform: none; }
+  .primary-desktop, .button { transition: none; }
+  .primary-desktop:hover, .button:active { transform: none; }
 }

@@ -15,12 +15,12 @@
 .note strong { color: var(--brand-plum); }
 .total { display: flex; justify-content: space-between; gap: 14px; padding-top: 13px; border-top: 1px solid var(--brand-plum-muted); font-size: 14px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
-.actions button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; padding: 11px 17px; border: 1px solid var(--brand-plum); border-radius: 999px; color: var(--brand-cream-light); background: var(--brand-plum); font: 600 14px/1.2 "DM Sans", Arial, sans-serif; cursor: pointer; }
-.actions button + button { color: var(--brand-plum); background: transparent; }
+.actions button { display: inline-flex; min-width: 0; min-height: 50px; align-items: center; justify-content: center; gap: 9px; padding: 11px 17px; border: 2px solid transparent; border-radius: 999px; color: var(--brand-cream-light); background: linear-gradient(112deg, #670c27, #4f061b) padding-box, linear-gradient(125deg, #a66f1c, #f4d895 24%, #c38b2e 56%, #f7e4b3 78%, #a56f1e) border-box; box-shadow: 0 4px 12px rgb(65 20 18 / 12%), inset 0 0 0 1px rgb(255 231 181 / 74%); font: 600 14px/1.25 "DM Sans", Arial, sans-serif; text-align: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.actions button + button { color: var(--brand-plum); background: linear-gradient(145deg, #fffaf2, #f9eddb) padding-box, linear-gradient(125deg, #a66f1c, #f4d895 24%, #c38b2e 56%, #f7e4b3 78%, #a56f1e) border-box; }
 .deliveryNote { margin: 0; color: var(--brand-muted); font-size: 12px; line-height: 1.5; }
 .back { display: inline-flex; width: fit-content; align-items: center; gap: 8px; color: var(--brand-plum); font-size: 14px; }
 .empty { justify-items: center; text-align: center; }
 .empty > p { margin: 0; color: var(--brand-muted); line-height: 1.55; }
 .empty > a { color: var(--brand-plum); }
 .actions button:focus-visible, .back:focus-visible, .empty a:focus-visible { outline: 2px solid var(--brand-accent-ink); outline-offset: 3px; }
-@media (max-width: 540px) { .page { padding: 128px 16px 56px; } .card, .empty { padding: 24px 18px; border-radius: 24px; } .customer { grid-template-columns: minmax(0, 1fr); } .actions { display: grid; } }
+@media (max-width: 540px) { .page { padding: 128px 16px calc(56px + env(safe-area-inset-bottom)); } .card, .empty { padding: 24px 18px; border-radius: 24px; } .customer { grid-template-columns: minmax(0, 1fr); } .actions { display: grid; grid-template-columns: minmax(0, 1fr); } .actions button { width: 100%; } }
