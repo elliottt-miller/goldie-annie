@@ -304,7 +304,7 @@
     pointer-events: auto;
     transition: clip-path .9s cubic-bezier(.77, 0, .175, 1), opacity .28s ease, visibility 0s;
   }
-  .desktop[data-open="true"] .menu { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 22px); right: 20px; left: auto; color: var(--brand-cream-light); background: rgb(255 250 242 / 10%); }
+  .desktop[data-open="true"] .menu { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 22px); right: 20px; left: auto; color: var(--brand-cream-light); background: transparent; box-shadow: none; }
   .desktop[data-open="true"] .menuIcon i:first-child { top: 7px; transform: rotate(45deg); }
   .desktop[data-open="true"] .menuIcon i:nth-child(2) { opacity: 0; }
   .desktop[data-open="true"] .menuIcon i:last-child { bottom: 7px; transform: rotate(-45deg); }
@@ -315,11 +315,8 @@
   .mobileLogo { display: grid; justify-self: center; width: 116px; height: 73px; place-items: center; }
   .mobileLogo img { display: block; width: 100%; height: 100%; object-fit: contain; }
   .mobileTopSpacer { width: 44px; height: 44px; }
-  .mobileMenuHeading { display: grid; gap: 9px; margin: clamp(26px, 7vh, 60px) 0 clamp(20px, 5vh, 38px); }
-  .mobileMenuEyebrow { color: var(--brand-gold-highlight); font-size: 11px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
-  .mobileMenuHeading p { max-width: 12ch; color: var(--brand-cream-light); font: 500 clamp(27px, 7vw, 40px)/1.1 Fraunces, Georgia, serif; text-wrap: balance; }
-  .mobileMenuNav { width: 100%; }
-  .mobileMenuList { display: grid; margin: 0; padding: 0; list-style: none; }
+  .mobileMenuNav { display: flex; flex: 1 0 auto; align-items: center; width: 100%; }
+  .mobileMenuList { display: grid; width: 100%; margin: 0; padding: 0; list-style: none; }
   .mobileMenuItem { overflow: hidden; border-top: 1px solid rgb(244 216 149 / 25%); }
   .mobileMenuItem:last-child { border-bottom: 1px solid rgb(244 216 149 / 25%); }
   .mobileMenuLink { display: grid; grid-template-columns: 34px minmax(0, 1fr) 28px; align-items: center; gap: 12px; min-height: clamp(70px, 12vh, 100px); color: var(--brand-cream-light); text-decoration: none; transform: translateY(110%); opacity: 0; transition: transform .58s cubic-bezier(.4, 0, .2, 1), opacity .48s ease, color .2s ease; }

@@ -1,6 +1,6 @@
 import styles from "../Page.module.css";
 import SectionTags from "../SectionTags";
-import { orderDepositPercent, orderLeadTimeDays, orderMinimumCents, sweetPackages, typicalPreparationDays } from "../../content/products";
+import { sweetPackages } from "../../content/products";
 import { useCart } from "../../commerce/useCart";
 import Button from "../Button";
 
@@ -27,13 +27,6 @@ export default function HomeOffers() {
           <Button buttonText="Add package to bag" onClick={() => addPackage(offer.name)} fullWidth />
         </article>)}
       </div>
-      <div className={styles["order-facts"]}>
-        <div><span>Order minimum</span><strong>{formatPrice(orderMinimumCents)}</strong></div>
-        <div><span>Deposit</span><strong>{orderDepositPercent}% due within 24 hours; non-refundable</strong></div>
-        <div><span>Order notice</span><strong>At least {orderLeadTimeDays} days</strong></div>
-        <div><span>Typical preparation</span><strong>{typicalPreparationDays} days</strong></div>
-      </div>
-      <p className={styles["package-note"]}>All dipped sweets in a package are matching unless otherwise specified.</p>
     </div>
   </section>;
 }

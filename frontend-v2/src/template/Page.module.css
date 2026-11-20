@@ -1993,21 +1993,13 @@
 .package-card-heading span { display: inline-block; margin-top: 7px; color: var(--brand-muted); font-size: 14px; }
 .package-card-heading strong { flex: 0 0 auto; color: var(--brand-accent-ink); font: 600 clamp(20px, 2.2vw, 27px)/1.2 Fraunces, Georgia, serif; }
 .package-card ul { display: grid; flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; margin: 20px 0; padding-left: 18px; color: var(--brand-muted); font-size: 14px; line-height: 1.45; }
-.order-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
-.order-facts > div { display: flex; min-width: 0; flex-direction: column; gap: 6px; padding: 16px; border: 1px solid var(--brand-plum-muted); border-radius: 16px; background: var(--brand-cream); }
-.order-facts span { color: var(--brand-muted); font-size: 13px; }
-.order-facts strong { color: var(--brand-plum); font-size: 14px; line-height: 1.35; }
-.package-note { margin: 14px 0 0; color: var(--brand-muted); font-size: 13px; line-height: 1.5; text-align: center; }
-
 @media (max-width: 809px) {
   .package-grid-home { grid-template-columns: minmax(0, 1fr); }
   .package-card ul { grid-template-columns: minmax(0, 1fr); }
-  .order-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 420px) {
   .package-card-heading { flex-direction: column; gap: 10px; }
-  .order-facts { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (prefers-reduced-motion: reduce) {

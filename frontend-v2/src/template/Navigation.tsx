@@ -135,10 +135,6 @@ export default function Navigation() {
             </Link>
             <span className={styles.mobileTopSpacer} aria-hidden="true" />
           </div>
-          <div className={styles.mobileMenuHeading}>
-            <span className={styles.mobileMenuEyebrow}>A little sweetness awaits</span>
-            <p>Where would you like to go?</p>
-          </div>
           <nav className={styles.mobileMenuNav} aria-label="Mobile navigation">
             <ul className={styles.mobileMenuList}>
               {mobileNavItems.map((item, index) => <li className={styles.mobileMenuItem} key={item.path}>
