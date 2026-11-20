@@ -5,7 +5,6 @@ import styles from './Treats.module.css';
 import PageHeader from './PageHeader';
 import ProductCard from './ProductCard';
 import { products } from '../content/products';
-import MenuPricing from './MenuPricing';
 
 const productKinds = ['All treats', ...new Set(products.map((product) => product.kind.split(' · ')[0]))];
 
@@ -70,6 +69,5 @@ export default function Page() {
         </div>
       </div>
     </section>}
-    <MenuPricing />
   </div>;
 }
