@@ -2025,6 +2025,30 @@
   .point-3:hover .decorative-icon, .point-4:hover .decorative-icon { transform:none; filter:none; }
 }
 
+/* Final phone-scale overrides for the centered, editorial homepage layout. */
+@media (max-width: 809px) {
+  .n-1 { align-items: center; gap: 30px; text-align: center; }
+  .tag-title-description,
+  .tag-title,
+  .title2 { align-items: center; text-align: center; }
+  .tag-title-description { width: 100%; }
+  .h2,
+  .served-with-love { align-self: center; color: var(--brand-plum); text-align: center; text-wrap: balance; }
+  .h2 { font-size: clamp(34px, 8.8vw, 46px); line-height: 1.08; }
+  .served-with-love { font-size: clamp(39px, 10vw, 52px); line-height: 1.08; }
+  .text2 { width: min(100%, 40ch); max-width: none; margin-inline: auto; text-align: center; }
+  .n-1 > :global([class*="primary-desktop"]) { align-self: center; }
+
+  .elegant-treats,
+  .shop-heading-primary,
+  .faq-heading-primary { color: var(--brand-plum); font-size: clamp(36px, 9.2vw, 48px); line-height: 1.08; text-wrap: balance; }
+  .for-everyone,
+  .faq-heading-accent { color: var(--brand-plum); font-size: clamp(42px, 10.5vw, 54px); line-height: 1.08; text-wrap: balance; }
+  .content3,
+  .content5,
+  .content8 { gap: clamp(30px, 8vw, 40px); }
+}
+
 @media (max-width: 1039px) and (min-width: 810px) {
   .reels-story-cta { flex-direction: column; align-items: stretch; }
   .ticker { flex: initial; justify-content: center; gap: clamp(12px, 2vw, 24px); }

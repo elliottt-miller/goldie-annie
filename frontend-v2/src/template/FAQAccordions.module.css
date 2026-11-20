@@ -17,10 +17,11 @@
   font: inherit;
   color: inherit;
   text-align: left;
-  transition: border-color .2s ease, background-color .2s ease, transform .2s ease;
+  transition: border-color .28s ease, background-color .28s ease, box-shadow .28s ease;
 }
-.open:hover { transform: translateY(-1px); border-color: var(--brand-accent); }
-.open:focus-within { border-color: var(--brand-accent); }
+@media (hover: hover) and (pointer: fine) { .open:hover { border-color: var(--brand-gold-mid); box-shadow: 0 10px 26px rgb(84 2 17 / 7%); } }
+.open:focus-within,
+.open[data-variant="Open"] { border-color: var(--brand-gold-mid); box-shadow: inset 0 0 0 1px rgb(247 228 179 / 60%); }
 
 .question-answer {
   display: flex;
@@ -100,9 +101,7 @@
   width: fit-content;
   height: fit-content;
   border-radius: 999px;
-  background-image: url("../assets/template-media/images/t55sh9v89gGsYwOTFmF23wHfIzY.avif");
-  background-size: cover;
-  background-position: center;
+  background: var(--brand-gold-trim);
 }
 
 .button2 {
@@ -128,8 +127,11 @@
 }
 
 .open[data-variant="Close"] .button2 {
-  background-color: var(--brand-accent);
+  background: linear-gradient(140deg, #6f102b, #540211);
 }
+
+.open[data-variant="Close"] .toggle-icon { color: var(--brand-cream-light); }
+.open[data-variant="Open"] .toggle-icon { color: var(--brand-plum); }
 
 .toggle-icon {
   display: block;
@@ -143,5 +145,5 @@
 @media(max-width: 809px) { .open { width:100%; gap:12px; } }
 @media(prefers-reduced-motion:reduce) {
   .open, .answer-panel, .answer-inner, .toggle-icon { transition:none; }
-  .open:hover { transform:none; }
+  .open:hover { box-shadow:none; }
 }

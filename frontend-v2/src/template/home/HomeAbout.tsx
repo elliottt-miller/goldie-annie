@@ -12,7 +12,7 @@ export default function HomeAbout() {
         <div className={styles["n-1"]}>
           <div className={styles["tag-title-description"]}>
             <div className={styles["tag-title"]}>
-              <SectionTags variant="Left" tag="About us" />
+              <SectionTags variant="Mid" tag="About us" />
               <div className={styles["title2"]}>
                 <h2 id="home-about-heading" className={cx(tokens["text-n-36-r"], styles["h2"])}>Hand-decorated treats,</h2>
                 <h2 className={cx(tokens["text-n-44-r"], styles["served-with-love"])}>made for your moments</h2>

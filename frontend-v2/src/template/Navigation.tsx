@@ -69,7 +69,7 @@ export default function Navigation() {
 
   const mobileNavItems = [
     { label: 'Home', path: '/' },
-    { label: 'Shop the treats', path: '/treats' },
+    { label: 'Shop', path: '/treats' },
     { label: 'Contact', path: '/contact' },
     { label: 'Our story', path: '/about' },
   ];

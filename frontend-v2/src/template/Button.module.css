@@ -7,9 +7,9 @@
   align-items: stretch;
   justify-content: center;
   padding: 2px;
-  border: 1px solid #a97725;
+  border: 1px solid var(--brand-gold-dark);
   border-radius: 999px;
-  background: linear-gradient(125deg, #a66f1c 0%, #f4d895 18%, #c38b2e 43%, #f7e4b3 67%, #a56f1e 100%);
+  background: var(--brand-gold-trim);
   box-shadow: 0 4px 12px rgb(65 20 18 / 12%);
   transition: box-shadow .24s ease, transform .24s cubic-bezier(.22, 1, .36, 1), filter .24s ease;
 }

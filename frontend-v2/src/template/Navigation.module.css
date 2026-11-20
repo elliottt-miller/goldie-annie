@@ -310,13 +310,13 @@
   .desktop[data-open="true"] .menuIcon i:last-child { bottom: 7px; transform: rotate(-45deg); }
   .mobileMenuInner { position: relative; display: flex; flex-direction: column; width: min(100%, 650px); min-height: 100%; margin: 0 auto; }
   .mobileMenuTop { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; min-height: 76px; }
-  .mobileBag { position: relative; display: inline-grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; color: #f4d895; text-decoration: none; }
-  .mobileBag .cartCount { position: absolute; top: 0; right: 0; min-width: 17px; height: 17px; border: 1px solid #4c0718; color: #4c0718; background: #f4d895; font-size: 10px; }
+  .mobileBag { position: relative; display: inline-grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; color: var(--brand-gold-highlight); text-decoration: none; }
+  .mobileBag .cartCount { position: absolute; top: 0; right: 0; min-width: 17px; height: 17px; border: 1px solid var(--brand-gold-dark); color: var(--brand-plum); background: var(--brand-gold-trim); font-size: 10px; }
   .mobileLogo { display: grid; justify-self: center; width: 116px; height: 73px; place-items: center; }
   .mobileLogo img { display: block; width: 100%; height: 100%; object-fit: contain; }
   .mobileTopSpacer { width: 44px; height: 44px; }
   .mobileMenuHeading { display: grid; gap: 9px; margin: clamp(26px, 7vh, 60px) 0 clamp(20px, 5vh, 38px); }
-  .mobileMenuEyebrow { color: #e6c477; font-size: 11px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+  .mobileMenuEyebrow { color: var(--brand-gold-highlight); font-size: 11px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
   .mobileMenuHeading p { max-width: 12ch; color: var(--brand-cream-light); font: 500 clamp(27px, 7vw, 40px)/1.1 Fraunces, Georgia, serif; text-wrap: balance; }
   .mobileMenuNav { width: 100%; }
   .mobileMenuList { display: grid; margin: 0; padding: 0; list-style: none; }
@@ -328,14 +328,14 @@
   .desktop[data-open="true"] .mobileMenuItem:nth-child(2) .mobileMenuLink { transition-delay: .21s; }
   .desktop[data-open="true"] .mobileMenuItem:nth-child(3) .mobileMenuLink { transition-delay: .28s; }
   .desktop[data-open="true"] .mobileMenuItem:nth-child(4) .mobileMenuLink { transition-delay: .35s; }
-  .mobileMenuNumber { align-self: center; color: #e6c477; font-size: 11px; font-weight: 600; letter-spacing: .1em; }
+  .mobileMenuNumber { align-self: center; color: var(--brand-gold-highlight); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
   .mobileMenuText { min-width: 0; font: 500 clamp(39px, 11vw, 68px)/1 Fraunces, Georgia, serif; letter-spacing: -.025em; text-wrap: balance; }
-  .mobileMenuArrow { justify-self: end; color: #e6c477; opacity: .62; }
-  .mobileMenuLink[aria-current="page"] .mobileMenuText { color: #f1d999; }
-  .mobileMenuLink:focus-visible, .mobileBag:focus-visible, .mobileLogo:focus-visible { outline: 2px solid #f4d895; outline-offset: 4px; border-radius: 6px; }
+  .mobileMenuArrow { justify-self: end; color: var(--brand-gold-mid); opacity: .78; }
+  .mobileMenuLink[aria-current="page"] .mobileMenuText { color: transparent; background: var(--brand-gold-trim); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 8px rgb(244 216 149 / 18%)); }
+  .mobileMenuLink:focus-visible, .mobileBag:focus-visible, .mobileLogo:focus-visible { outline: 2px solid var(--brand-gold-highlight); outline-offset: 4px; border-radius: 6px; }
   .mobileMenuFooter { display: grid; justify-items: center; gap: 8px; margin-top: auto; padding-top: clamp(32px, 7vh, 60px); text-align: center; }
-  .mobileMenuFooter > span { display: flex; width: min(100%, 132px); align-items: center; gap: 8px; color: #e6c477; }
-  .mobileMenuFooter > span i { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #e6c477); }
+  .mobileMenuFooter > span { display: flex; width: min(100%, 132px); align-items: center; gap: 8px; color: var(--brand-gold-highlight); }
+  .mobileMenuFooter > span i { flex: 1; height: 1px; background: var(--brand-gold-trim); }
   .mobileMenuFooter > span i:last-child { transform: rotate(180deg); }
   .mobileMenuFooter p { color: var(--brand-cream-light); font: italic 500 18px/1.3 Fraunces, Georgia, serif; }
   .mobileMenuFooter small { color: rgb(255 250 242 / 64%); font-size: 11px; letter-spacing: .06em; }

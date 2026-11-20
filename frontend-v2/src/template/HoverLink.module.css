@@ -62,6 +62,13 @@
   .desktop:focus-visible .label { transform: none; }
 }
 
+/* Footer links intentionally keep one label on every viewport. */
+.desktop[data-variant="Phone"] .text-2 { display: none; }
+.desktop[data-variant="Phone"]:hover,
+.desktop[data-variant="Phone"]:focus-visible { color: var(--link-colour, inherit); }
+.desktop[data-variant="Phone"]:hover .label,
+.desktop[data-variant="Phone"]:focus-visible .label { transform: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .label, .text-2 { transition: none; }
   .text-2 { display: none; }

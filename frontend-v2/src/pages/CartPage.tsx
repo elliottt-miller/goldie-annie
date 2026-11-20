@@ -31,17 +31,19 @@ export function CartPage() {
           return <article className={styles.line} data-reveal key={item.key}>
             {image ? <img src={`${import.meta.env.BASE_URL}products/${image}`} alt="" /> : <div className={styles.packageMark} aria-hidden="true">{offer?.pieces ?? ''}<span>pieces</span></div>}
             <div className={styles.lineContent}>
-              <h2>{name}</h2>
+              <div className={styles.lineHeading}>
+                <h2>{name}</h2>
+                <strong className={styles.lineTotal}>{currency(price * item.quantity)}</strong>
+              </div>
               <p>{product?.kind ?? `${offer?.pieces ?? ''} pieces · celebration package`}</p>
               <strong>{currency(price)}{product ? ' per dozen' : ' each'}</strong>
               <div className={styles.controls}>
                 <button type="button" aria-label={`Decrease ${name} quantity`} onClick={() => setQuantity(item.key, item.quantity - 1)}><Minus size={15} aria-hidden="true" /></button>
                 <span aria-label={`Quantity ${item.quantity}`}>{item.quantity}</span>
                 <button type="button" aria-label={`Increase ${name} quantity`} onClick={() => setQuantity(item.key, item.quantity + 1)} disabled={item.quantity >= 99}><Plus size={15} aria-hidden="true" /></button>
-                <button className={styles.remove} type="button" onClick={() => removeItem(item.key)}><Trash2 size={15} aria-hidden="true" /><span>Remove</span></button>
+                <button className={styles.remove} type="button" aria-label={`Remove ${name} from bag`} onClick={() => removeItem(item.key)}><Trash2 size={15} aria-hidden="true" /><span>Remove</span></button>
               </div>
             </div>
-            <strong className={styles.lineTotal}>{currency(price * item.quantity)}</strong>
           </article>;
         })}
         <Link className={styles.continue} to="/treats">Continue shopping</Link>

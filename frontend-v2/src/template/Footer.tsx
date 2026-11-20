@@ -3,7 +3,6 @@ import tokens from "./tokens.module.css"
 import styles from "./Footer.module.css"
 import HoverLink from "./HoverLink"
 import { Heart } from "lucide-react"
-import { shopUrl } from "../content/brand"
 
 export default function Footer() {
   return (
@@ -20,37 +19,20 @@ export default function Footer() {
         </div>
         <nav className={styles["all-links-wrapper"]} aria-label="Footer navigation">
           <div className={styles["nav-links"]}>
-            <p className={cx(tokens["text-n-16-r"], styles["quicks"])}>{"Explore"}</p>
+            <p className={cx(tokens["text-n-16-r"], styles["quicks"])}>Explore</p>
             <div className={styles["links-wrapper"]}>
-              <HoverLink variant="Desktop" label={"Home"} link={"/"} />
-              <HoverLink variant="Desktop" label={"About"} link={"/about"} />
-              <HoverLink variant="Desktop" label={"Shop"} link={"/treats"} />
-              <HoverLink variant="Desktop" label={"Contact"} link={"/contact"} />
+              <HoverLink variant="Phone" label="Home" link="/" />
+              <HoverLink variant="Phone" label="Shop" link="/treats" />
+              <HoverLink variant="Phone" label="About" link="/about" />
+              <HoverLink variant="Phone" label="Contact" link="/contact" />
             </div>
           </div>
           <div className={styles["divider"]} />
           <div className={styles["legal-links"]}>
-            <p className={cx(tokens["text-n-16-r"], styles["others"])}>{"Discover"}</p>
+            <p className={cx(tokens["text-n-16-r"], styles["others"])}>Plan an order</p>
             <div className={styles["links-wrapper2"]}>
-              <HoverLink variant="Desktop" label={"Our story"} link={"/about"} />
-              <HoverLink variant="Desktop" label={"Explore treats"} link={"/treats"} />
-              <HoverLink variant="Desktop" label={"Order questions"} link={"/#ordering-questions"} />
-            </div>
-          </div>
-          <div className={styles["divider2"]} />
-          <div className={styles["social-links"]}>
-            <p className={cx(tokens["text-n-16-r"], styles["socials"])}>{"Shop online"}</p>
-            <div className={styles["links-wrapper3"]}>
-              <HoverLink variant="Desktop" label={"Browse the current menu"} link={shopUrl} />
-              <HoverLink variant="Desktop" label={"Order questions"} link={"/#ordering-questions"} />
-            </div>
-          </div>
-          <div className={styles["divider3"]} />
-          <div className={styles["contact-info"]}>
-            <p className={cx(tokens["text-n-16-r"], styles["contact"])}>{"Custom orders"}</p>
-            <div className={styles["wrapper"]}>
-              <HoverLink variant="Desktop" label={"Plan a party"} link={"/contact"} />
-              <HoverLink variant="Desktop" label={"Ask about custom details"} link={"/contact"} />
+              <HoverLink variant="Phone" label="Order questions" link="/#ordering-questions" />
+              <HoverLink variant="Phone" label="Plan a party" link="/contact" />
             </div>
           </div>
         </nav>

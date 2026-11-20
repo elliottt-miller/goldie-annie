@@ -24,13 +24,19 @@
   width: 32px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(90deg, transparent 0%, var(--brand-accent) 100%);
+  background-image: var(--brand-gold-trim);
 }
 
 .tag {
   width: fit-content;
   height: fit-content;
   color: var(--brand-plum, #111);
+}
+
+.mid :global(.decorative-icon) {
+  color: var(--brand-gold-mid);
+  fill: color-mix(in srgb, var(--brand-gold-highlight) 24%, transparent);
+  filter: drop-shadow(0 1px 1px rgb(166 111 28 / 24%));
 }
 
 .pattern2 {
@@ -48,7 +54,7 @@
   width: 32px;
   height: 1px;
   overflow: hidden;
-  background-image: linear-gradient(270deg, transparent 0%, var(--brand-accent) 100%);
+  background-image: var(--brand-gold-trim);
 }
 
 /* variant: Left */
